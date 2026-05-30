@@ -917,23 +917,53 @@
   </div>
 
   <script>
-    // Faixas scroll-driven — movem proporcional ao scroll da página
+    // Faixas scroll-driven — movem proporcional ao scroll da página de forma infinita
     (function () {
       var bgContent = document.querySelector('.dv-bar-bg .dv-marquee-content');
       var fgContent = document.querySelector('.dv-bar-fg .dv-marquee-content');
+
+      if (!bgContent || !fgContent) return;
+
+      // Salva o HTML original (que representa uma cópia base das faixas)
+      var bgHTML = bgContent.innerHTML;
+      var fgHTML = fgContent.innerHTML;
+
+      // Garante que o conteúdo de cada faixa seja mais largo que a tela.
+      // Se a tela for maior que a largura do conteúdo, duplicamos o HTML original.
+      var screenWidth = window.innerWidth || document.documentElement.clientWidth;
+      while (bgContent.scrollWidth < screenWidth * 1.5) {
+        bgContent.innerHTML += bgHTML;
+        fgContent.innerHTML += fgHTML;
+      }
+
+      // L_bg e L_fg representam a largura de uma cópia inteira e segura das faixas
+      var L_bg = bgContent.scrollWidth;
+      var L_fg = fgContent.scrollWidth;
+
+      // Duplicamos o conteúdo inteiro mais uma vez no DOM para fazer o loop infinito perfeito
+      bgContent.innerHTML += bgContent.innerHTML;
+      fgContent.innerHTML += fgContent.innerHTML;
+
       var speed = 0.35;
 
       function update() {
         var scrollY = window.scrollY || window.pageYOffset;
-        var bgHalf = bgContent.scrollWidth / 2;
-        var fgHalf = fgContent.scrollWidth / 2;
-        var bgOffset = -((scrollY * speed) % bgHalf);
-        var fgOffset = (scrollY * speed) % fgHalf;
+
+        // Faixa de fundo (laranja) - move para a esquerda (negativo)
+        var bgOffset = -((scrollY * speed) % L_bg);
+
+        // Faixa da frente (clara) - move para a direita (positivo)
+        // Começa transladada por -L_fg para nunca revelar espaço em branco na esquerda
+        var fgOffset = -L_fg + ((scrollY * speed) % L_fg);
+
         bgContent.style.transform = 'translateX(' + bgOffset + 'px)';
         fgContent.style.transform = 'translateX(' + fgOffset + 'px)';
       }
 
       window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', function () {
+        update();
+      });
       update();
     })();
 
