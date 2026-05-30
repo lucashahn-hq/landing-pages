@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elegância Na Prática: Aula Gratuita ao Vivo</title>
+  <meta name="description"
+    content="Descubra como Mulheres Ocupadas estão ficando mais Elegantes, Magnéticas e Ricas mudando sua forma de vestir.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #faf5ef;
+    }
+
+    body {
+      font-family: 'Inter', 'Outfit', sans-serif;
+      color: #1a1a1a;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ───── Wrapper ───── */
+    .dv-wrap {
+      width: 100%;
+      min-height: 100vh;
+      background: #faf5ef;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ───── Barra topo laranja ───── */
+    .dv-topbar {
+      width: 100%;
+      background: #B8860B;
+      padding: 10px 16px;
+      text-align: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #fff;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ───── Seção Hero ───── */
+    .dv-hero {
+      padding: 28px 24px 0;
+      text-align: left;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dv-logo {
+      margin-bottom: 24px;
+    }
+
+    .dv-logo-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: #1a1a1a;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dv-logo-text .dv-logo-icon {
+      width: 32px;
+      height: 32px;
+      background: #B8860B;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dv-logo-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: #fff;
+    }
+
+    .dv-logo-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: #777;
+      letter-spacing: 0.02em;
+      margin-top: 2px;
+    }
+
+    .dv-hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .dv-hero h1 .dv-highlight {
+      color: #B8860B;
+      font-style: italic;
+    }
+
+    .dv-hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .dv-hero-sub2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    /* ───── Botão CTA principal ───── */
+    .dv-cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .dv-btn {
+      display: block;
+      width: 100%;
+      max-width: 360px;
+      padding: 16px 28px;
+      background: #B8860B;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      transition: all 0.25s cubic-bezier(.4, 0, .2, 1);
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(184, 134, 11, 0.3);
+      position: relative;
+      overflow: hidden;
+      animation: dv-pulse 2s cubic-bezier(0.66, 0, 0, 1) infinite;
+    }
+
+    .dv-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .dv-btn:hover {
+      background: #8B6508;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(184, 134, 11, 0.4);
+      animation-play-state: paused;
+    }
+
+    .dv-btn:active {
+      transform: scale(0.98);
+    }
+
+    .dv-btn-arrow {
+      font-size: 15px;
+      margin-left: 6px;
+    }
+
+    .dv-cta-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: #999;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .dv-social-proof {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .dv-avatars {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .dv-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-image: url('Post%20fixado%20Consultoria-2.png');
+      background-size: 300% auto;
+      border: 2.5px solid #fff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .dv-avatar:not(:first-child) {
+      margin-left: -13px;
+    }
+
+    .dv-social-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: #666;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .dv-social-stars {
+      color: #B8860B;
+      font-size: 11px;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 3px;
+      text-align: center;
+    }
+
+    /* ───── Transição / Marquee ───── */
+    .dv-transition {
+      margin-top: 48px;
+      margin-bottom: -45px;
+      width: 100%;
+      height: 90px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .dv-transition-bar {
+      position: absolute;
+      width: 110%;
+      left: -5%;
+      padding: 14px 0;
+      display: flex;
+      white-space: nowrap;
+    }
+
+    .dv-marquee-content {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      width: max-content;
+      will-change: transform;
+    }
+
+    .dv-transition-bar span {
+      font-family: 'Outfit', sans-serif;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .dv-transition-bar .dv-sep {
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .dv-bar-bg {
+      background: #B8860B;
+      transform: rotate(3deg);
+      z-index: 1;
+    }
+
+    .dv-bar-bg span {
+      color: #fff;
+    }
+
+    .dv-bar-bg .dv-sep {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .dv-bar-fg {
+      background: #f5e8b0;
+      border-top: 1px solid rgba(184, 134, 11, 0.25);
+      border-bottom: 1px solid rgba(184, 134, 11, 0.25);
+      transform: rotate(-2deg);
+      z-index: 2;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    .dv-bar-fg span {
+      color: #B8860B;
+    }
+
+    .dv-bar-fg .dv-sep {
+      color: #B8860B;
+    }
+
+    /* ───── Seção Próxima Terça ───── */
+    .dv-section-dark {
+      background: linear-gradient(180deg, #111111 0%, #1a1a1a 40%, #222222 100%);
+      padding: 80px 24px 40px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dv-section-dark::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60%;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(184, 134, 11, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .dv-section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-bottom: 36px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .dv-section-title .dv-title-orange {
+      color: #B8860B;
+    }
+
+    /* ───── Cards de conteúdo ───── */
+    .dv-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dv-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px 20px 32px;
+      text-align: center;
+      position: relative;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 220px;
+    }
+
+    .dv-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(255, 255, 255, 0.08);
+    }
+
+    .dv-card-icon {
+      width: 52px;
+      height: 52px;
+      background: #B8860B;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: -48px auto 16px;
+      box-shadow: 0 4px 20px rgba(184, 134, 11, 0.35);
+      position: relative;
+      z-index: 2;
+    }
+
+    .dv-card-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+    }
+
+    .dv-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #B8860B;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .dv-card-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: #c4b8aa;
+      line-height: 1.65;
+    }
+
+    .dv-card-text em {
+      color: #fff;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    /* ───── Linha conectora entre cards ───── */
+    .dv-card-connector {
+      width: 2px;
+      height: 24px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.04));
+      margin: 0 auto;
+      border-radius: 2px;
+    }
+
+    /* ───── CTA final ───── */
+    .dv-cta-bottom {
+      margin-top: 36px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dv-btn-final {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      background: #B8860B;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      transition: all 0.25s cubic-bezier(.4, 0, .2, 1);
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(184, 134, 11, 0.35);
+      position: relative;
+      overflow: hidden;
+      animation: dv-pulse 2s cubic-bezier(0.66, 0, 0, 1) infinite;
+    }
+
+    .dv-btn-final::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .dv-btn-final:hover {
+      background: #8B6508;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(184, 134, 11, 0.45);
+      animation-play-state: paused;
+    }
+
+    .dv-btn-final:active {
+      transform: scale(0.98);
+    }
+
+    /* ───── Fundo gradiente inferior ───── */
+    .dv-footer-gradient {
+      height: 80px;
+      background: linear-gradient(180deg, #222222 0%, #faf5ef 100%);
+    }
+
+    /* ───── Responsivo tablet ───── */
+    @media (min-width: 520px) {
+      .dv-hero h1 {
+        font-size: 32px;
+      }
+
+      .dv-section-title {
+        font-size: 30px;
+      }
+    }
+
+    /* ───── Responsivo desktop (768px) ───── */
+    @media (min-width: 768px) {
+      .dv-topbar {
+        font-size: 10px;
+        letter-spacing: 0.28em;
+      }
+
+      .dv-hero {
+        padding: 56px 10% 0;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .dv-hero h1 {
+        font-size: 42px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .dv-hero-sub,
+      .dv-hero-sub2 {
+        font-size: 16px;
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .dv-cta-wrap {
+        align-items: center;
+      }
+
+      .dv-btn {
+        max-width: 380px;
+        font-size: 12px;
+      }
+
+      .dv-section-dark {
+        padding: 100px 10% 64px;
+      }
+
+      .dv-section-title {
+        font-size: 34px;
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .dv-cards {
+        flex-direction: row;
+        align-items: stretch;
+        max-width: 1000px;
+        margin: 0 auto;
+        gap: 20px;
+      }
+
+      .dv-card {
+        flex: 1;
+        aspect-ratio: 1 / 1;
+      }
+
+      .dv-card-connector {
+        display: none;
+      }
+
+      .dv-cta-bottom {
+        margin-top: 52px;
+      }
+    }
+
+    /* ───── Responsivo desktop largo (1100px) ───── */
+    @media (min-width: 1100px) {
+      .dv-hero {
+        padding: 80px 80px 0;
+        max-width: 1280px;
+      }
+
+      .dv-hero h1 {
+        font-size: 52px;
+        line-height: 1.15;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .dv-hero-sub,
+      .dv-hero-sub2 {
+        font-size: 17px;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .dv-btn {
+        max-width: 420px;
+      }
+
+      .dv-section-dark {
+        padding: 120px 80px 80px;
+      }
+
+      .dv-section-title {
+        font-size: 40px;
+        max-width: 780px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .dv-cards {
+        max-width: 1280px;
+        gap: 28px;
+      }
+
+      .dv-card {
+        padding: 28px 24px 24px;
+      }
+
+      .dv-btn-final {
+        font-size: 14px;
+        padding: 18px 48px;
+      }
+    }
+
+    /* ───── Responsivo desktop extra-largo (1440px) ───── */
+    @media (min-width: 1440px) {
+      .dv-topbar {
+        font-size: 11px;
+        letter-spacing: 0.3em;
+        padding: 12px 16px;
+      }
+
+      .dv-hero {
+        padding: 100px 80px 0;
+        max-width: 1440px;
+      }
+
+      .dv-hero h1 {
+        font-size: 62px;
+        max-width: 900px;
+      }
+
+      .dv-hero-sub,
+      .dv-hero-sub2 {
+        font-size: 19px;
+        max-width: 680px;
+      }
+
+      .dv-btn {
+        max-width: 460px;
+        font-size: 13px;
+        padding: 18px 36px;
+      }
+
+      .dv-social-text {
+        font-size: 12px;
+        max-width: 180px;
+      }
+
+      .dv-section-dark {
+        padding: 140px 80px 110px;
+      }
+
+      .dv-section-title {
+        font-size: 46px;
+        max-width: 900px;
+      }
+
+      .dv-cards {
+        max-width: 1440px;
+        gap: 36px;
+      }
+
+      .dv-card {
+        padding: 32px 28px 36px;
+      }
+
+      .dv-card-title {
+        font-size: 20px;
+      }
+
+      .dv-card-text {
+        font-size: 16px;
+      }
+
+      .dv-btn-final {
+        font-size: 15px;
+        padding: 20px 56px;
+      }
+    }
+
+    /* ───── Animação suave de entrada ───── */
+    .dv-fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: dv-fadeUp 0.6s ease forwards;
+    }
+
+    .dv-fade-in:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .dv-fade-in:nth-child(2) {
+      animation-delay: 0.25s;
+    }
+
+    .dv-fade-in:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes dv-fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes dv-pulse {
+      0% {
+        box-shadow: 0 4px 16px rgba(184, 134, 11, 0.3), 0 0 0 0 rgba(184, 134, 11, 0.4);
+      }
+      70% {
+        box-shadow: 0 4px 16px rgba(184, 134, 11, 0.3), 0 0 0 14px rgba(184, 134, 11, 0);
+      }
+      100% {
+        box-shadow: 0 4px 16px rgba(184, 134, 11, 0.3), 0 0 0 0 rgba(184, 134, 11, 0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="dv-wrap">
+
+    <!-- ──── Barra topo ──── -->
+    <div class="dv-topbar">Exclusivo para Mulheres Ocupadas</div>
+
+    <!-- ──── Hero ──── -->
+    <div class="dv-hero">
+      <div class="dv-logo">
+      </div>
+
+      <div class="dv-social-proof">
+        <span class="dv-social-stars">★★★★★</span>
+        <div class="dv-avatars">
+          <div class="dv-avatar" style="background-position: 5% 5%;"></div>
+          <div class="dv-avatar" style="background-position: 53% 2%;"></div>
+          <div class="dv-avatar" style="background-position: 100% 18%;"></div>
+        </div>
+      </div>
+
+      <h1>
+        Descubra como Mulheres Ocupadas estão ficando mais <span class="dv-highlight">Elegantes, Magnéticas</span> e
+        <span class="dv-highlight">Ricas</span> mudando sua forma de vestir&hellip;
+      </h1>
+
+      <p class="dv-hero-sub">
+        &hellip; Sem entender nada de moda, perder tempo ou deixar de ser quem são.
+      </p>
+
+      <p class="dv-hero-sub2">
+        Clique no botão abaixo e entre no grupo para receber o link da aula no dia.
+      </p>
+
+      <div class="dv-cta-wrap">
+        <button class="dv-btn" onclick="sendPrompt('Garantir Vaga Gratuita')">
+          🔓 Quero minha vaga gratuita
+        </button>
+        <span class="dv-cta-note">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;margin-bottom:1px"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>10/06 às 19:00 &nbsp;·&nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:3px;margin-bottom:1px"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>Aula ao vivo &nbsp;
+        </span>
+      </div>
+    </div>
+
+    <!-- ──── Transição / Marquee ──── -->
+    <div class="dv-transition">
+      <!-- Faixa de Fundo (Laranja) -->
+      <div class="dv-transition-bar dv-bar-bg">
+        <div class="dv-marquee-content">
+          <span>Aula ao vivo</span><span class="dv-sep">|</span><span>Elegância Na Prática</span><span
+            class="dv-sep">|</span>
+          <span>Aula ao vivo</span><span class="dv-sep">|</span><span>Elegância Na Prática</span><span
+            class="dv-sep">|</span>
+          <span>Aula ao vivo</span><span class="dv-sep">|</span><span>Elegância Na Prática</span><span
+            class="dv-sep">|</span>
+          <span>Aula ao vivo</span><span class="dv-sep">|</span><span>Elegância Na Prática</span><span
+            class="dv-sep">|</span>
+          <span>Aula ao vivo</span><span class="dv-sep">|</span><span>Elegância Na Prática</span><span
+            class="dv-sep">|</span>
+          <span>Aula ao vivo</span><span class="dv-sep">|</span><span>Elegância Na Prática</span><span
+            class="dv-sep">|</span>
+        </div>
+      </div>
+
+      <!-- Faixa da Frente (Clara) -->
+      <div class="dv-transition-bar dv-bar-fg">
+        <div class="dv-marquee-content">
+          <span>Aula ao vivo</span><span class="dv-sep">|</span><span>Elegância Na Prática</span><span
+            class="dv-sep">|</span>
+          <span>Aula ao vivo</span><span class="dv-sep">|</span><span>Elegância Na Prática</span><span
+            class="dv-sep">|</span>
+          <span>Aula ao vivo</span><span class="dv-sep">|</span><span>Elegância Na Prática</span><span
+            class="dv-sep">|</span>
+          <span>Aula ao vivo</span><span class="dv-sep">|</span><span>Elegância Na Prática</span><span
+            class="dv-sep">|</span>
+          <span>Aula ao vivo</span><span class="dv-sep">|</span><span>Elegância Na Prática</span><span
+            class="dv-sep">|</span>
+          <span>Aula ao vivo</span><span class="dv-sep">|</span><span>Elegância Na Prática</span><span
+            class="dv-sep">|</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ──── Seção escura ──── -->
+    <div class="dv-section-dark">
+      <h2 class="dv-section-title">
+        O que você<br><span class="dv-title-orange">vai descobrir</span>
+      </h2>
+
+      <div class="dv-cards">
+        <!-- Card 1 -->
+        <div class="dv-card dv-fade-in" style="margin-top: 24px;">
+          <div class="dv-card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
+            </svg>
+          </div>
+          <div class="dv-card-title">Os 3 Pecados Visuais</div>
+          <p class="dv-card-text">
+            Existem detalhes específicos que sabotam a imagem de mulheres inteligentes todo dia. Você provavelmente
+            comete sem perceber, e é mais fácil de corrigir do que parece. A maioria nunca descobre porque ninguém fala
+            sobre isso.
+          </p>
+        </div>
+
+        <div class="dv-card-connector"></div>
+
+        <!-- Card 2 -->
+        <div class="dv-card dv-fade-in" style="margin-top: 24px;">
+          <div class="dv-card-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5C21.27 7.61 17 4.5 12 4.5zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+            </svg>
+          </div>
+          <div class="dv-card-title">Os Códigos da Elegância</div>
+          <p class="dv-card-text">
+            Depois de entender os erros, você vai entender os princípios simples que qualquer mulher pode aplicar com as roupas que já tem no closet. Sem depender de tendências. É a diferença entre entrar numa sala e ser notada ou passar despercebida.
+          </p>
+        </div>
+
+        <div class="dv-card-connector"></div>
+
+        <!-- Card 3 -->
+        <div class="dv-card dv-fade-in" style="margin-top: 24px;">
+          <div class="dv-card-icon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" />
+            </svg>
+          </div>
+          <div class="dv-card-title">O Método para Mulheres Ocupadas</div>
+          <p class="dv-card-text">
+            Como montar looks refinados para qualquer situação em menos de 5 minutos. Reunião, evento ou dia a dia, sem perder tempo ou sem abrir mão de quem você é. Sem precisar entender nada de moda.
+          </p>
+        </div>
+      </div>
+
+      <!-- CTA final -->
+      <div class="dv-cta-bottom">
+        <button class="dv-btn-final" onclick="sendPrompt('Quero me inscrever na aula Elegância Na Prática')">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="#fff" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Entrar no grupo agora <span class="dv-btn-arrow">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Gradiente de transição inferior -->
+    <div class="dv-footer-gradient"></div>
+
+  </div>
+
+  <script>
+    // Faixas scroll-driven — movem proporcional ao scroll da página
+    (function () {
+      var bgContent = document.querySelector('.dv-bar-bg .dv-marquee-content');
+      var fgContent = document.querySelector('.dv-bar-fg .dv-marquee-content');
+      var speed = 0.35;
+
+      function update() {
+        var scrollY = window.scrollY || window.pageYOffset;
+        var bgHalf = bgContent.scrollWidth / 2;
+        var fgHalf = fgContent.scrollWidth / 2;
+        var bgOffset = -((scrollY * speed) % bgHalf);
+        var fgOffset = (scrollY * speed) % fgHalf;
+        bgContent.style.transform = 'translateX(' + bgOffset + 'px)';
+        fgContent.style.transform = 'translateX(' + fgOffset + 'px)';
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+
+    // Intersection Observer para animação dos cards
+    (function () {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.dv-fade-in').forEach(function (el) {
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
