@@ -321,20 +321,26 @@ h1 .hi{font-style:italic; color:var(--gold-lt); font-weight:400; white-space:now
 
 /* ============================ PROVA SOCIAL ============================ */
 .cases{display:grid; grid-template-columns:1fr; gap:clamp(18px,2.4vw,30px); margin:2.4rem auto 0; max-width:480px}
-.case{background:var(--cream); border:1px solid var(--line-light); border-radius:2px; overflow:hidden; display:flex; flex-direction:column}
+.case{background:var(--cream); border:1px solid var(--line-light); border-radius:2px; overflow:hidden; display:flex; flex-direction:column; cursor:pointer; transition:transform 0.2s ease, box-shadow 0.2s ease; position:relative}
+.case:hover{transform:translateY(-4px); box-shadow:0 12px 24px rgba(0,0,0,0.08)}
 .case > img{width:100%; height:auto; aspect-ratio:1/1; object-fit:cover}
 .case-body{padding:clamp(20px,2.6vw,26px); display:flex; flex-direction:column; flex:1}
 .case p{font-size:.95em; line-height:1.64; color:var(--on-light-mut); margin:1.1rem 0 0}
 .case p.case-name{font-family:var(--display); font-size:1.5rem; line-height:1.2; color:var(--on-light); margin:0}
 .case p.case-role{font-size:.73rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-dp); margin-top:.4rem; line-height:1.4}
-.case p.case-win{
-  margin-top:1.1rem; padding-top:1.1rem; border-top:1px solid var(--line-light);
-  font-size:.9rem; line-height:1.5; letter-spacing:.02em; font-weight:500; color:var(--on-light);
-}
-.case p.case-quote{
-  margin-top:auto; padding-top:1.2rem;
-  font-family:var(--display); font-style:italic; font-size:1.16rem; line-height:1.42; color:var(--on-light);
-}
+.case p.case-click-hint{font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); margin-top:1.5rem; font-weight:500; display:flex; align-items:center; gap:4px}
+.case .case-details{display:none}
+
+.lb-text{position:fixed; inset:0; z-index:100; display:none; background:rgba(12,10,9,.94); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:16px; overflow:auto; overscroll-behavior:contain; -webkit-overflow-scrolling:touch}
+.lb-text.open{display:flex}
+.lb-text-inner{background:var(--cream); color:var(--on-light); padding:clamp(24px,4vw,40px); border-radius:2px; max-width:540px; width:100%; position:relative; max-height:90vh; overflow-y:auto}
+.lb-text-close{position:absolute; top:12px; right:16px; background:none; border:none; font-size:2rem; cursor:pointer; color:var(--on-light-mut); line-height:1; padding:4px}
+.lb-text-inner .case-name{font-family:var(--display); font-size:1.8rem; line-height:1.2; color:var(--on-light); margin:0}
+.lb-text-inner .case-role{font-size:.8rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-dp); margin:.4rem 0 1.5rem; line-height:1.4}
+.lb-text-inner p{font-size:.95em; line-height:1.64; color:var(--on-light-mut); margin:1.1rem 0 0}
+.lb-text-inner p.case-win{margin-top:1.1rem; padding-top:1.1rem; border-top:1px solid var(--line-light); font-size:.9rem; line-height:1.5; letter-spacing:.02em; font-weight:500; color:var(--on-light)}
+.lb-text-inner p.case-quote{margin-top:1.5rem; font-family:var(--display); font-style:italic; font-size:1.16rem; line-height:1.42; color:var(--on-light); border-left:2px solid var(--gold); padding-left:1rem}
+
 
 .gal-title{
   margin:clamp(48px,7vw,86px) 0 1.6rem; text-align:center;
@@ -777,36 +783,45 @@ h1 .hi{font-style:italic; color:var(--gold-lt); font-weight:400; white-space:now
     </div>
 
     <div class="cases rv">
-      <article class="case">
+      <article class="case" tabindex="0" role="button">
         <img src="assets/antes-depois/jessica.jpg" alt="Jéssica antes e depois da Consultoria Scala" loading="lazy" width="700" height="700">
         <div class="case-body">
           <p class="case-name">Jéssica</p>
           <p class="case-role">Advogada · Empresária</p>
-          <p>Iniciou a Consultoria Scala sentindo que a imagem não acompanhava a velocidade do crescimento do seu escritório. Depois do processo, a mudança na forma como clientes e parceiros a percebem foi imediata.</p>
-          <p class="case-win">O escritório segue em crescimento constante, e agora a imagem trabalha a favor, não contra.</p>
-          <p class="case-quote">“As pessoas passaram a me tratar diferente. Não mudei minha competência. Mudei a percepção.”</p>
+          <p class="case-click-hint">Ler caso completo <span>→</span></p>
+          <div class="case-details">
+            <p>Iniciou a Consultoria Scala sentindo que a imagem não acompanhava a velocidade do crescimento do seu escritório. Depois do processo, a mudança na forma como clientes e parceiros a percebem foi imediata.</p>
+            <p class="case-win">O escritório segue em crescimento constante, e agora a imagem trabalha a favor, não contra.</p>
+            <p class="case-quote">“As pessoas passaram a me tratar diferente. Não mudei minha competência. Mudei a percepção.”</p>
+          </div>
         </div>
       </article>
 
-      <article class="case">
+      <article class="case" tabindex="0" role="button">
         <img src="assets/antes-depois/alessandra.jpg" alt="Alessandra antes e depois da Consultoria Scala" loading="lazy" width="700" height="700">
         <div class="case-body">
           <p class="case-name">Alessandra Lopes</p>
           <p class="case-role">Estrategista de Conteúdo</p>
-          <p>Sabia que precisava se posicionar à altura do valor que entregava. Depois da Scala, os clientes pagam sem questionar, porque a imagem comunica o valor antes da proposta chegar.</p>
-          <p class="case-win">Cobra 5 vezes mais pelo mesmo serviço.</p>
-          <p class="case-quote">“Eu sempre soube que meu trabalho valia mais. Agora as pessoas também sabem.”</p>
+          <p class="case-click-hint">Ler caso completo <span>→</span></p>
+          <div class="case-details">
+            <p>Sabia que precisava se posicionar à altura do valor que entregava. Depois da Scala, os clientes pagam sem questionar, porque a imagem comunica o valor antes da proposta chegar.</p>
+            <p class="case-win">Cobra 5 vezes mais pelo mesmo serviço.</p>
+            <p class="case-quote">“Eu sempre soube que meu trabalho valia mais. Agora as pessoas também sabem.”</p>
+          </div>
         </div>
       </article>
 
-      <article class="case">
+      <article class="case" tabindex="0" role="button">
         <img src="assets/antes-depois/melina.jpg" alt="Melina antes e depois da Consultoria Scala" loading="lazy" width="700" height="700">
         <div class="case-body">
           <p class="case-name">Melina</p>
           <p class="case-role">Mentora · Terapeuta</p>
-          <p>Tinha dificuldade em fechar vendas de alto valor: o conteúdo era excelente, mas a imagem não transmitia a autoridade necessária. Depois da Scala, a imagem passou a ser o primeiro argumento.</p>
-          <p class="case-win">Fecha vendas maiores com mais facilidade.</p>
-          <p class="case-quote">“Antes eu precisava convencer. Agora a minha presença faz metade do trabalho.”</p>
+          <p class="case-click-hint">Ler caso completo <span>→</span></p>
+          <div class="case-details">
+            <p>Tinha dificuldade em fechar vendas de alto valor: o conteúdo era excelente, mas a imagem não transmitia a autoridade necessária. Depois da Scala, a imagem passou a ser o primeiro argumento.</p>
+            <p class="case-win">Fecha vendas maiores com mais facilidade.</p>
+            <p class="case-quote">“Antes eu precisava convencer. Agora a minha presença faz metade do trabalho.”</p>
+          </div>
         </div>
       </article>
     </div>
@@ -1083,6 +1098,13 @@ h1 .hi{font-style:italic; color:var(--gold-lt); font-weight:400; white-space:now
   <img id="lbImg" src="" alt="">
 </div>
 
+<div class="lb-text" id="lbText" role="dialog" aria-modal="true" aria-label="Detalhes do caso">
+  <div class="lb-text-inner">
+    <button class="lb-text-close" id="lbTextClose" aria-label="Fechar">×</button>
+    <div id="lbTextContent"></div>
+  </div>
+</div>
+
 <script>
 /* =========================================================================
    ⚠️ TROQUE AQUI PELO LINK DO SEU FORMULÁRIO DE CANDIDATURA
@@ -1183,8 +1205,46 @@ const LINK_CANDIDATURA = "SEU_LINK_DO_FORMULARIO_AQUI";
 
   document.getElementById('lbClose').addEventListener('click', closeLb);
   lb.addEventListener('click', function (ev) { if (ev.target === lb) closeLb(); });
+  
+  /* --- lightbox de texto (casos) --- */
+  var lbText = document.getElementById('lbText');
+  var lbTextContent = document.getElementById('lbTextContent');
+  var lbTextClose = document.getElementById('lbTextClose');
+  
+  function openLbText(html) {
+    lastFocus = document.activeElement;
+    lbTextContent.innerHTML = html;
+    lbText.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    lbTextClose.focus();
+  }
+  function closeLbText() {
+    lbText.classList.remove('open');
+    lbTextContent.innerHTML = '';
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('.case').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var name = el.querySelector('.case-name') ? el.querySelector('.case-name').outerHTML : '';
+      var role = el.querySelector('.case-role') ? el.querySelector('.case-role').outerHTML : '';
+      var details = el.querySelector('.case-details') ? el.querySelector('.case-details').innerHTML : '';
+      openLbText(name + role + details);
+    });
+    el.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); el.click(); }
+    });
+  });
+
+  if (lbTextClose) lbTextClose.addEventListener('click', closeLbText);
+  if (lbText) lbText.addEventListener('click', function (ev) { if (ev.target === lbText) closeLbText(); });
+
   document.addEventListener('keydown', function (ev) {
-    if (ev.key === 'Escape' && lb.classList.contains('open')) closeLb();
+    if (ev.key === 'Escape') {
+      if (lb.classList.contains('open')) closeLb();
+      if (lbText && lbText.classList.contains('open')) closeLbText();
+    }
   });
 })();
 </script>
