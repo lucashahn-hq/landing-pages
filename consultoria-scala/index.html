@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Consultoria Scala: Imagem Estratégica | Letícia Garcia</title>
+<meta name="description" content="Consultoria de imagem estratégica e 100% personalizada para mulheres que já são boas no que fazem e têm pressa de ser percebidas como são. Apenas 4 vagas por mês, por candidatura.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#14110E">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Consultoria Scala: Imagem Estratégica | Letícia Garcia">
+<meta property="og:description" content="Descubra como mulheres ocupadas estão ficando mais elegantes, magnéticas e ricas mudando apenas sua forma de vestir.">
+<meta property="og:image" content="assets/antes-depois/jessica.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" as="image" href="assets/antes-depois/jessica.jpg" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!--
+  ============================================================================
+  ⚠️  ANTES DE PUBLICAR, 2 COISAS PARA TROCAR:
+
+  1) LINK DO FORMULÁRIO DE CANDIDATURA
+     Vá até o final deste arquivo, no <script>, e troque o valor da constante:
+         const LINK_CANDIDATURA = "SEU_LINK_DO_FORMULARIO_AQUI";
+     Todos os botões da página apontam para essa única constante.
+
+  2) FOTO DA LETÍCIA (seção "Quem vai construir a sua imagem estratégica")
+     Salve a foto em:  assets/leticia.jpg
+     e depois procure neste arquivo por:  <!-- FOTO-LETICIA -- >
+     Lá há uma tag <img> pronta, basta descomentar e apagar o placeholder.
+  ============================================================================
+-->
+
+<style>
+/* ============================================================================
+   MOBILE-FIRST
+   As regras base são as do celular. Cada @media (min-width) só ADICIONA
+   complexidade conforme a tela cresce: 2 colunas, tipografia maior, etc.
+   Breakpoints: 600px (sm) · 820px (md) · 960px (lg)
+   ============================================================================ */
+
+/* ============================ TOKENS ============================ */
+:root{
+  --ink:#14110E;
+  --ink-2:#1C1815;
+  --ink-3:#26211B;
+  --line-dark:rgba(198,166,100,.22);
+
+  --cream:#FAF7F2;
+  --cream-2:#F1EAE0;
+  --line-light:rgba(23,19,16,.12);
+
+  --gold:#C6A664;
+  --gold-lt:#E7D3A6;
+  --gold-dp:#9C7F42;
+
+  --on-dark:#F6F1E9;
+  --on-dark-mut:#A99E90;
+  --on-light:#17130F;
+  --on-light-mut:#6B6157;
+
+  --display:"Cormorant Garamond", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --sans:"Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --maxw:1180px;
+  --readw:720px;
+  --pad:clamp(20px, 5vw, 48px);
+  /* padding horizontal que respeita o recorte da tela (notch) em paisagem */
+  --padx:max(var(--pad), env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+  --safe-b:env(safe-area-inset-bottom, 0px);
+  --sec-y:clamp(56px, 10vw, 96px);
+  --sticky-h:0px;            /* espaço reservado para a barra fixa do celular */
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--on-light);
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:clamp(16.5px, 1.05vw, 18px);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+/* âncoras não param escondidas atrás do header fixo */
+[id]{scroll-margin-top:88px}
+
+/* ============================ LAYOUT ============================ */
+.sec{padding:var(--sec-y) var(--padx); position:relative}
+.wrap{max-width:var(--maxw); margin:0 auto}
+.read{max-width:var(--readw); margin:0 auto}
+.dark{background:var(--ink); color:var(--on-dark)}
+.dark-2{background:var(--ink-2); color:var(--on-dark)}
+.light{background:var(--cream); color:var(--on-light)}
+.light-2{background:var(--cream-2); color:var(--on-light)}
+
+/* ============================ TIPOGRAFIA ============================ */
+h1,h2,h3,h4{font-family:var(--display); font-weight:400; margin:0; letter-spacing:-.01em; line-height:1.14; text-wrap:balance}
+h1{font-size:clamp(1.7rem, 7.4vw, 2.6rem); font-weight:300}
+h2{font-size:clamp(1.7rem, 6.2vw, 2.45rem); line-height:1.16}
+h3{font-size:clamp(1.3rem, 4.4vw, 1.6rem); line-height:1.26}
+p{margin:0 0 1.35em; text-wrap:pretty}
+p:last-child{margin-bottom:0}
+em{font-style:italic}
+
+.eyebrow{
+  font-family:var(--sans); font-size:.68rem; font-weight:500;
+  letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); margin:0 0 1.4rem;
+  display:flex; align-items:center; gap:.85rem;
+}
+.eyebrow::after{content:""; flex:1; height:1px; background:linear-gradient(90deg,var(--line-dark),transparent); max-width:120px}
+.light .eyebrow{color:var(--gold-dp)}
+.light .eyebrow::after{background:linear-gradient(90deg,rgba(156,127,66,.35),transparent)}
+.eyebrow.center{justify-content:center}
+.eyebrow.center::after{display:none}
+
+.gold{color:var(--gold)}
+.light .gold{color:var(--gold-dp)}
+.ital{font-family:var(--display); font-style:italic}
+.lead{font-size:1.08em; line-height:1.65}
+.mut{color:var(--on-dark-mut)}
+.light .mut{color:var(--on-light-mut)}
+
+.rule{width:56px; height:1px; background:var(--gold); border:0; margin:1.9rem 0}
+.rule.center{margin-inline:auto}
+
+.h-sec{margin-bottom:1.4rem}
+.h-sec + .lead{margin-top:0}
+
+/* ============================ BOTÃO ============================ */
+.cta{
+  display:inline-flex; align-items:center; justify-content:center; gap:.7em;
+  font-family:var(--sans); font-size:clamp(.86rem,1.5vw,.98rem); font-weight:500;
+  letter-spacing:.13em; text-transform:uppercase; text-decoration:none;
+  min-height:52px;                       /* alvo de toque confortável */
+  padding:1.1em 2em; border-radius:2px; border:1px solid var(--gold);
+  background:linear-gradient(180deg,var(--gold-lt),var(--gold));
+  color:#1A150C; position:relative; overflow:hidden;
+  transition:transform .2s ease, box-shadow .25s ease, filter .25s ease;
+  box-shadow:0 10px 34px -14px rgba(198,166,100,.75);
+  cursor:pointer;
+}
+.cta:focus-visible{outline:2px solid var(--gold-lt); outline-offset:4px}
+.cta .arw{transition:transform .25s ease}
+/* feedback de toque (o :hover fica reservado para mouse, mais abaixo) */
+.cta:active{transform:translateY(1px) scale(.99)}
+/* no celular o botão ocupa a largura, é mais fácil de acertar e converte melhor */
+.cta-block .cta{width:100%; max-width:400px}
+.cta-note{
+  display:block; margin-top:.85rem;
+  font-size:.84rem; letter-spacing:.04em;
+  font-family:var(--sans); color:var(--on-dark-mut);
+  font-weight:400;
+}
+.light .cta-note{color:var(--on-light-mut)}
+.cta-block{margin-top:2.2rem}
+.cta-block.center{text-align:center}
+
+/* ============================ HEADER ============================ */
+.hdr{
+  position:fixed; inset:0 0 auto 0; z-index:60;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; padding:.95rem var(--padx);
+  transition:background .35s ease, border-color .35s ease, padding .35s ease;
+  border-bottom:1px solid transparent;
+}
+.hdr.stuck{background:rgba(20,17,14,.92); backdrop-filter:blur(14px); border-bottom-color:var(--line-dark); padding-block:.7rem}
+.brand{font-family:var(--display); font-size:1.1rem; letter-spacing:.16em; text-transform:uppercase; color:var(--on-dark); text-decoration:none}
+.brand small{display:block; font-family:var(--sans); font-size:.54rem; letter-spacing:.3em; color:var(--gold); margin-top:.15rem}
+/* no celular o CTA da topbar aparece de forma suave ao rolar a página */
+.hdr .cta{
+  display:inline-flex;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  min-height:0; padding:.75em 1.5em; font-size:.72rem; box-shadow:none; width:auto; max-width:none
+}
+.hdr.show-cta .cta{
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+/* ============================ HERO ============================ */
+.hero{
+  position:relative; min-height:100svh;
+  display:flex; align-items:center;
+  padding:clamp(84px,11vh,112px) var(--padx) clamp(44px,6vh,64px);
+  background:
+    radial-gradient(120% 90% at 80% 8%, rgba(198,166,100,.14), transparent 58%),
+    radial-gradient(80% 60% at 10% 100%, rgba(198,166,100,.07), transparent 60%),
+    linear-gradient(180deg,#100E0C 0%, var(--ink) 45%, #100E0C 100%);
+  color:var(--on-dark);
+  overflow:hidden;
+}
+.grain{
+  position:absolute; inset:0; pointer-events:none; opacity:.5; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.35'/></svg>");
+}
+.hero-grid{
+  position:relative; z-index:2; width:100%; max-width:var(--maxw); margin:0 auto;
+  display:grid; grid-template-columns:1fr; gap:36px; align-items:center;
+}
+h1 .hi{font-style:italic; color:var(--gold-lt); font-weight:400; white-space:nowrap}
+.hero h1{margin-bottom:1.05rem}
+.hero-sub{max-width:54ch; color:#D9D0C4; font-size:.95em; line-height:1.6}
+.hero .cta-block{margin-top:1.7rem}
+
+.hero-badges{
+  display:flex; flex-wrap:wrap; gap:.45rem 1.2rem; margin-top:1.8rem;
+  padding-top:1.2rem; border-top:1px solid var(--line-dark);
+  font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--on-dark-mut);
+}
+.hero-badges span{display:flex; align-items:center; gap:.55em}
+.hero-badges span::before{content:""; width:5px; height:5px; background:var(--gold); transform:rotate(45deg); flex:none}
+
+/* moldura da foto do hero.
+   width:100% é obrigatório: com margin-inline:auto o item de grid vira
+   shrink-to-fit e, como o filho é absoluto, colapsaria para largura zero */
+.frame{position:relative; padding:14px; width:100%; max-width:400px; margin-inline:auto}
+.frame::before{
+  content:""; position:absolute; inset:0;
+  border:1px solid var(--line-dark); transform:translate(14px,14px);
+}
+.frame > .depois-crop{position:relative; z-index:1}
+
+/* crop que mostra somente o lado "depois" das imagens antes/depois */
+.depois-crop{position:relative; width:100%; overflow:hidden; aspect-ratio:3/4; background:var(--ink-3)}
+.depois-crop img{position:absolute; top:0; left:-100%; width:200%; height:auto; max-width:none}
+
+.scroll-hint{
+  display:none;
+  position:absolute; left:50%; bottom:26px; transform:translateX(-50%); z-index:3;
+  font-size:.62rem; letter-spacing:.3em; text-transform:uppercase; color:var(--on-dark-mut);
+  flex-direction:column; align-items:center; gap:.7rem;
+}
+.scroll-hint::after{content:""; width:1px; height:38px; background:linear-gradient(var(--gold),transparent); animation:drop 2.4s ease-in-out infinite}
+@keyframes drop{0%,100%{opacity:.3; transform:scaleY(.5); transform-origin:top}50%{opacity:1; transform:scaleY(1); transform-origin:top}}
+
+/* ============================ PROVA IMEDIATA ============================ */
+.proof-strip{
+  background:var(--ink-2); border-block:1px solid var(--line-dark);
+  padding:clamp(24px,4vw,38px) var(--padx); color:var(--on-dark);
+}
+.proof-inner{
+  max-width:var(--maxw); margin:0 auto;
+  display:flex; align-items:center; gap:clamp(16px,3vw,28px); flex-wrap:wrap;
+}
+.av{
+  width:60px; height:60px; border-radius:50%; overflow:hidden; flex:none;
+  position:relative; background:var(--ink-3); border:1px solid var(--line-dark);
+}
+.av img{position:absolute; max-width:none; width:var(--z); left:var(--x); top:var(--y)}
+.proof-txt{flex:1 1 300px; min-width:0}
+.proof-txt q{
+  font-family:var(--display); font-style:italic; font-size:clamp(1.05rem,4.4vw,1.4rem);
+  line-height:1.4; color:var(--on-dark); quotes:"“" "”";
+}
+.proof-meta{margin-top:.6rem; font-size:.82rem; letter-spacing:.04em; color:var(--on-dark-mut)}
+.proof-meta b{color:var(--gold-lt); font-weight:500}
+
+/* ============================ IDENTIFICAÇÃO ============================ */
+/* :not(.eyebrow) porque o eyebrow também é um <p> e seria sobrescrito */
+.identify p:not(.eyebrow){font-size:1.04em}
+.identify p.intro{font-size:1.16em; line-height:1.6}
+.identify p.pull{
+  font-family:var(--display); font-size:clamp(1.25rem,5.4vw,1.7rem); line-height:1.32;
+  font-style:italic; color:var(--on-light);
+  border-left:2px solid var(--gold); padding:.2em 0 .2em 1rem;
+  margin:2.2rem 0;
+}
+
+/* ============================ MECANISMO ============================ */
+.wrongs{
+  display:grid; grid-template-columns:1fr; gap:clamp(14px,2vw,22px);
+  margin:2.4rem 0 2.6rem;
+}
+.wrong{
+  background:var(--cream); border:1px solid var(--line-light); border-radius:2px;
+  padding:clamp(20px,3vw,30px); position:relative;
+}
+.wrong svg{width:28px; height:28px; stroke:var(--gold-dp); fill:none; stroke-width:1.1; margin-bottom:1rem}
+.wrong h3{font-size:1.18rem; margin-bottom:.5rem}
+.wrong p{font-size:.95em; line-height:1.62; color:var(--on-light-mut); margin:0}
+.big-line{
+  font-family:var(--display); font-size:clamp(1.4rem,5.6vw,1.9rem); line-height:1.3;
+  margin-top:2.2rem; padding-top:1.9rem; border-top:1px solid var(--line-light);
+}
+
+/* ============================ FUTURE PACING ============================ */
+.futures{list-style:none; padding:0; margin:2.2rem 0 0; display:grid; gap:0}
+.futures li{
+  display:flex; gap:1rem; align-items:flex-start;
+  padding:1.15rem 0; border-bottom:1px solid var(--line-dark);
+  font-size:1.02em; color:#E2DACE;
+}
+.futures li:first-child{border-top:1px solid var(--line-dark)}
+.futures li::before{
+  content:"✦"; color:var(--gold); font-size:.86rem; line-height:1.9; flex:none;
+}
+.closer{
+  margin-top:2.4rem; text-align:center;
+  font-family:var(--display); font-size:clamp(1.35rem,5.6vw,1.9rem); line-height:1.34;
+}
+.closer b{font-weight:500; font-style:italic; color:var(--gold-lt)}
+
+/* ============================ PROVA SOCIAL ============================ */
+.cases{display:grid; grid-template-columns:1fr; gap:clamp(18px,2.4vw,30px); margin:2.4rem auto 0; max-width:480px}
+.case{background:var(--cream); border:1px solid var(--line-light); border-radius:2px; overflow:hidden; display:flex; flex-direction:column}
+.case > img{width:100%; height:auto; aspect-ratio:1/1; object-fit:cover}
+.case-body{padding:clamp(20px,2.6vw,26px); display:flex; flex-direction:column; flex:1}
+.case p{font-size:.95em; line-height:1.64; color:var(--on-light-mut); margin:1.1rem 0 0}
+.case p.case-name{font-family:var(--display); font-size:1.5rem; line-height:1.2; color:var(--on-light); margin:0}
+.case p.case-role{font-size:.73rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-dp); margin-top:.4rem; line-height:1.4}
+.case p.case-win{
+  margin-top:1.1rem; padding-top:1.1rem; border-top:1px solid var(--line-light);
+  font-size:.9rem; line-height:1.5; letter-spacing:.02em; font-weight:500; color:var(--on-light);
+}
+.case p.case-quote{
+  margin-top:auto; padding-top:1.2rem;
+  font-family:var(--display); font-style:italic; font-size:1.16rem; line-height:1.42; color:var(--on-light);
+}
+
+.gal-title{
+  margin:clamp(48px,7vw,86px) 0 1.6rem; text-align:center;
+  font-family:var(--display); font-size:clamp(1.3rem,4.8vw,1.9rem);
+}
+.masonry{columns:1; column-gap:clamp(14px,2vw,20px)}
+.shot{
+  break-inside:avoid; margin:0 0 clamp(14px,2vw,20px);
+  background:#fff; border:1px solid var(--line-light); border-radius:3px; padding:10px;
+  cursor:zoom-in; transition:transform .2s ease, box-shadow .25s ease;
+  box-shadow:0 2px 10px -6px rgba(23,19,16,.25);
+}
+.shot:active{transform:scale(.99)}
+.shot img{width:100%; height:auto; border-radius:2px}
+/* print vertical do WhatsApp: fonte original bem maior que a dos demais,
+   largura reduzida para o texto ficar na mesma escala visual do resto */
+.shot.tall{max-width:345px; margin-inline:auto}
+.gal-note{margin-top:1.2rem; text-align:center; font-size:.8rem; letter-spacing:.05em; color:var(--on-light-mut)}
+
+/* lightbox.
+   No celular a imagem é exibida MAIOR que a tela e o usuário arrasta na
+   horizontal: é a única forma de o texto do print ficar legível. */
+.lb{
+  position:fixed; inset:0; z-index:100; display:none;
+  background:rgba(12,10,9,.94); backdrop-filter:blur(6px);
+  align-items:center; justify-content:flex-start;
+  padding:16px; overflow:auto; overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+}
+.lb.open{display:flex}
+.lb img{
+  flex:none; margin:auto;
+  width:min(660px, 172vw); max-width:none; height:auto;
+  border-radius:4px; background:#fff; padding:10px;
+}
+.lb-close{
+  position:fixed; top:14px; right:16px; width:44px; height:44px; border-radius:50%;
+  border:1px solid var(--line-dark); background:rgba(20,17,14,.7); color:var(--on-dark);
+  font-size:1.5rem; line-height:1; cursor:pointer; display:grid; place-items:center; z-index:2;
+}
+
+/* ============================ TAKE AWAY ============================ */
+.fit-intro{max-width:60ch}
+.fits{display:grid; grid-template-columns:1fr; gap:clamp(18px,3vw,32px); margin-top:2.4rem}
+.fit{background:var(--cream); border:1px solid var(--line-light); border-radius:2px; padding:clamp(22px,3.2vw,36px)}
+.fit.no{background:transparent; border-style:dashed}
+.fit h3{font-size:1.3rem; margin-bottom:1.3rem}
+.fit ul{list-style:none; margin:0; padding:0; display:grid; gap:1rem}
+.fit li{display:flex; gap:.85rem; font-size:.96em; line-height:1.6}
+.fit li svg{width:17px; height:17px; flex:none; margin-top:.42em; stroke-width:1.6; fill:none}
+.fit.yes li svg{stroke:var(--gold-dp)}
+.fit.no li svg{stroke:rgba(107,97,87,.75)}
+.fit.no li{color:var(--on-light-mut)}
+.select-line{
+  margin-top:2.4rem; text-align:center; font-family:var(--display); font-style:italic;
+  font-size:clamp(1.15rem,4.6vw,1.45rem); line-height:1.4;
+}
+
+/* ============================ COMO FUNCIONA ============================ */
+.phases{display:grid; gap:clamp(16px,2.4vw,24px); margin:2.4rem auto 0; max-width:980px}
+.phase{
+  display:grid; grid-template-columns:1fr; gap:12px;
+  padding:clamp(22px,3.4vw,40px);
+  background:var(--ink-2); border:1px solid var(--line-dark); border-radius:2px;
+}
+.phase-n{
+  font-family:var(--display); font-size:clamp(2.2rem,9vw,4rem); line-height:.85;
+  color:transparent; -webkit-text-stroke:1px var(--gold); font-weight:500;
+}
+.phase h3{color:var(--gold-lt); margin-bottom:.8rem}
+.phase p{color:#D2C9BC; font-size:.98em; margin:0}
+.never{
+  margin:2.4rem auto 0; max-width:900px; text-align:center; font-family:var(--display);
+  font-size:clamp(1.25rem,5.2vw,1.75rem); line-height:1.36;
+}
+.never b{color:var(--gold-lt); font-weight:500; font-style:italic}
+
+/* ============================ STACK ============================ */
+.stack-box{
+  border:1px solid var(--line-dark); border-radius:2px; padding:clamp(24px,4vw,52px);
+  background:linear-gradient(160deg, rgba(198,166,100,.06), transparent 60%);
+}
+.stack-list{list-style:none; margin:1.6rem 0 0; padding:0; display:grid; grid-template-columns:1fr; gap:0 clamp(20px,3vw,44px)}
+.stack-list li{
+  display:flex; gap:.9rem; align-items:baseline;
+  padding:.9rem 0; border-bottom:1px solid var(--line-dark);
+  font-size:1em; color:#E2DACE;
+}
+.stack-list li::before{content:"✦"; color:var(--gold); font-size:.8rem; flex:none}
+
+/* ============================ GARANTIA ============================ */
+.seal{width:46px; height:46px; stroke:var(--gold-dp); fill:none; stroke-width:1; margin-bottom:1.4rem}
+.vagas{
+  display:inline-block; margin:1.8rem 0; padding:1rem 1.3rem;
+  border:1px solid rgba(156,127,66,.4); border-radius:2px; background:rgba(198,166,100,.09);
+  font-size:.94em; line-height:1.5;
+}
+.vagas b{font-weight:500}
+
+/* ============================ FAQ ============================ */
+.faq{margin-top:2.2rem; border-top:1px solid var(--line-light)}
+.faq details{border-bottom:1px solid var(--line-light)}
+.faq summary{
+  list-style:none; cursor:pointer; padding:1.35rem 2.6rem 1.35rem 0; position:relative;
+  font-family:var(--display); font-size:clamp(1.1rem,4.2vw,1.32rem); line-height:1.35;
+  transition:color .2s ease;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:""; position:absolute; right:4px; top:50%; width:14px; height:14px;
+  margin-top:-7px;
+  background:
+    linear-gradient(var(--gold-dp),var(--gold-dp)) center/14px 1px no-repeat,
+    linear-gradient(var(--gold-dp),var(--gold-dp)) center/1px 14px no-repeat;
+  transition:transform .3s ease;
+}
+.faq details[open] summary::after{transform:rotate(90deg); background:linear-gradient(var(--gold-dp),var(--gold-dp)) center/14px 1px no-repeat}
+.faq .ans{padding:0 1.5rem 1.7rem 0; color:var(--on-light-mut); font-size:.98em; animation:fade .35s ease}
+@keyframes fade{from{opacity:0; transform:translateY(-4px)}to{opacity:1; transform:none}}
+
+/* ============================ AUTORIDADE ============================ */
+.auth{display:grid; grid-template-columns:1fr; gap:32px; align-items:center}
+.photo-ph{
+  aspect-ratio:4/5; border:1px solid var(--line-dark); border-radius:2px;
+  background:linear-gradient(150deg,var(--ink-3),var(--ink-2));
+  display:grid; align-content:center; justify-items:center; grid-auto-rows:min-content;
+  text-align:center; padding:2rem; gap:1rem; max-width:380px; margin-inline:auto; width:100%;
+}
+.photo-ph svg{width:40px; height:40px; stroke:var(--gold); fill:none; stroke-width:1; opacity:.7}
+.photo-ph span{font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--on-dark-mut); line-height:1.9}
+.photo-ph code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.7rem; color:var(--gold); letter-spacing:0}
+.auth p:not(.eyebrow){color:#D2C9BC}
+.auth p.intro{font-size:1.12em; color:var(--on-dark)}
+.auth p.sign{
+  margin-top:2.2rem; padding-top:1.6rem; border-top:1px solid var(--line-dark);
+  font-family:var(--display); font-size:1.6rem; font-style:italic; color:var(--gold-lt);
+}
+.auth p.sign small{display:block; font-family:var(--sans); font-style:normal; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--on-dark-mut); margin-top:.5rem}
+
+/* ============================ CTA FINAL ============================ */
+.final{
+  background:
+    radial-gradient(90% 70% at 50% 0%, rgba(198,166,100,.15), transparent 60%),
+    linear-gradient(180deg,#100E0C,#0B0A08);
+  text-align:center; color:var(--on-dark); position:relative; overflow:hidden;
+}
+.final h2{font-size:clamp(1.9rem,7vw,2.6rem); margin-bottom:1.6rem}
+.final .read p{color:#CFC6B9}
+.tagline{
+  font-family:var(--display); font-style:italic; font-size:clamp(1.45rem,6.4vw,2rem);
+  line-height:1.3; color:var(--gold-lt); margin:2.4rem auto; max-width:22ch;
+}
+.next-steps{
+  border:1px solid var(--line-dark); border-radius:2px; padding:clamp(22px,3.4vw,34px);
+  max-width:640px; margin:0 auto 2.4rem; text-align:left; background:rgba(255,255,255,.02);
+}
+.next-steps h3{font-size:1.1rem; color:var(--gold-lt); margin-bottom:.9rem; font-family:var(--sans); font-weight:500; letter-spacing:.02em}
+.next-steps p{font-size:.96em; margin:0; color:#CFC6B9}
+
+/* ============================ FOOTER ============================ */
+/* padding-bottom extra para a barra fixa não cobrir o rodapé no celular */
+.ft{
+  background:#0B0A08; color:var(--on-dark-mut); border-top:1px solid var(--line-dark);
+  padding:clamp(36px,6vw,60px) var(--padx) calc(clamp(36px,6vw,60px) + var(--sticky-h) + var(--safe-b));
+}
+.ft-in{max-width:var(--maxw); margin:0 auto; display:flex; flex-wrap:wrap; gap:1.2rem 2.5rem; justify-content:space-between; align-items:flex-start; font-size:.82rem; line-height:1.8}
+.ft .brand{font-size:1rem}
+.ft a{color:var(--on-dark-mut); text-decoration:none; border-bottom:1px solid transparent}
+/* alvo de toque de 44px nos links do rodapé */
+.ft-links{display:flex; flex-direction:column; margin:0}
+.ft-links a{display:inline-flex; align-items:center; min-height:44px; align-self:flex-start}
+.ft-legal{max-width:46ch; font-size:.76rem; opacity:.75}
+
+
+
+/* ============================ REVEAL ============================
+   O estado oculto só é aplicado quando o JS está ativo (classe .js no <html>).
+   Sem JS, o conteúdo aparece normalmente e nunca some. */
+.js .rv{opacity:0; transform:translateY(18px); transition:opacity .8s cubic-bezier(.2,.7,.3,1), transform .8s cubic-bezier(.2,.7,.3,1)}
+.js .rv.in{opacity:1; transform:none}
+
+
+/* ============================================================================
+   >= 600px  (celular grande em paisagem / tablet pequeno)
+   ============================================================================ */
+@media (min-width:600px){
+  .cta-block .cta{width:auto; max-width:none}
+  .phase{grid-template-columns:auto 1fr; gap:clamp(20px,3vw,40px)}
+  .stack-list{grid-template-columns:1fr 1fr}
+  .lb{justify-content:center}
+  .lb img{width:auto; max-width:min(880px,92vw); max-height:88vh; padding:12px}
+}
+
+/* ============================================================================
+   >= 820px  (tablet)
+   ============================================================================ */
+@media (min-width:820px){
+  .wrongs{grid-template-columns:repeat(3,1fr)}
+  .fits{grid-template-columns:1fr 1fr}
+  .masonry{columns:2}
+  .faq .ans{padding-right:2.5rem}
+}
+
+/* ============================================================================
+   >= 960px  (desktop): 2 colunas no hero, tipografia grande, sem barra fixa
+   ============================================================================ */
+@media (min-width:960px){
+  :root{ --sec-y:clamp(96px, 11vw, 140px); --sticky-h:0px; }
+
+  h1{font-size:clamp(2.6rem, 4.85vw, 3.4rem); line-height:1.12}
+  h2{font-size:clamp(2.45rem, 4.6vw, 3.1rem); line-height:1.14}
+  h3{font-size:clamp(1.6rem, 2.4vw, 1.75rem)}
+  .lead{font-size:1.12em; line-height:1.7}
+  .eyebrow{font-size:.72rem; letter-spacing:.24em; margin-bottom:1.6rem}
+  .h-sec{margin-bottom:1.6rem}
+  .rule{margin:2.2rem 0}
+  .cta-block{margin-top:2.6rem}
+
+  .hdr{padding:1.1rem var(--padx)}
+  .hdr.stuck{padding-block:.8rem}
+  .hdr .cta{
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    transition: none;
+  }
+  .brand{font-size:1.16rem}
+  .brand small{font-size:.56rem; letter-spacing:.32em}
+
+  .hero{padding:clamp(100px,12vh,132px) var(--padx) clamp(56px,7vh,80px)}
+  .hero-grid{grid-template-columns:1fr; max-width:var(--readw); margin:0 auto}
+  .hero h1{max-width:none; margin-bottom:1.4rem}
+  .hero-sub{font-size:.97em; line-height:1.62}
+  .hero .cta-block{margin-top:2rem}
+  .hero-badges{margin-top:2.1rem; padding-top:1.3rem; font-size:.76rem; letter-spacing:.14em; gap:.5rem 1.6rem}
+  .frame{max-width:none; margin-inline:0}
+  .scroll-hint{display:flex}
+
+  .av{width:64px; height:64px}
+  .identify p:not(.eyebrow){font-size:1.06em}
+  .identify p.intro{font-size:1.2em; line-height:1.62}
+  .identify p.pull{font-size:clamp(1.7rem,3.4vw,2.1rem); padding-left:1.1em; margin:2.6rem 0}
+
+  .wrongs{margin:2.8rem 0 3rem}
+  .big-line{font-size:clamp(1.9rem,3.6vw,2.35rem); margin-top:2.6rem; padding-top:2.2rem}
+  .futures{margin-top:2.8rem}
+  .futures li{padding:1.35rem 0; font-size:1.04em}
+  .closer{margin-top:3rem; font-size:clamp(1.9rem,3.6vw,2.4rem)}
+
+  .cases{grid-template-columns:repeat(3,1fr); max-width:none; margin-top:3rem}
+  .fits{margin-top:3rem}
+  .select-line{margin-top:3rem; font-size:clamp(1.45rem,2.6vw,1.6rem)}
+  .phases{margin-top:3rem}
+  .never{margin-top:3rem; font-size:clamp(1.75rem,3.2vw,2.1rem)}
+  .stack-list{margin-top:2rem}
+  .stack-list li{padding:1rem 0}
+  .seal{width:52px; height:52px; margin-bottom:1.6rem}
+  .vagas{margin:2rem 0; padding:1rem 1.6rem}
+  .faq{margin-top:2.6rem}
+  .faq summary{padding:1.5rem 3rem 1.5rem 0; font-size:clamp(1.32rem,2.1vw,1.35rem)}
+  .faq .ans{padding-bottom:1.9rem}
+
+  .auth{grid-template-columns:.85fr 1.15fr; gap:clamp(32px,5vw,72px)}
+  .photo-ph{max-width:none; margin-inline:0}
+  .auth p.intro{font-size:1.14em}
+  .auth p.sign{margin-top:2.4rem; padding-top:1.8rem; font-size:1.7rem}
+  .auth p.sign small{font-size:.7rem; letter-spacing:.22em}
+
+  .final h2{font-size:clamp(2.6rem,5.6vw,3.7rem); margin-bottom:2rem}
+  .final .cta{font-size:clamp(.9rem,1.7vw,1.05rem); padding:1.25em 2.9em}
+  .tagline{font-size:clamp(2rem,4vw,2.6rem); margin:3rem auto}
+  .next-steps{padding:clamp(24px,3.4vw,34px); margin-bottom:3rem}
+  .next-steps h3{font-size:1.15rem; margin-bottom:1rem}
+  .gal-title{margin-bottom:1.8rem}
+  .gal-note{margin-top:1.4rem}
+
+  .sticky{display:none}
+}
+
+/* ============================================================================
+   Estados de HOVER: só para quem tem mouse.
+   Em telas de toque o :hover "gruda" depois do tap e parece bug.
+   ============================================================================ */
+@media (hover:hover) and (pointer:fine){
+  .cta:hover{transform:translateY(-2px); filter:brightness(1.06); box-shadow:0 16px 40px -14px rgba(198,166,100,.9)}
+  .cta:hover .arw{transform:translateX(4px)}
+  .shot:hover{transform:translateY(-3px); box-shadow:0 14px 30px -18px rgba(23,19,16,.5)}
+  .lb-close:hover{border-color:var(--gold); color:var(--gold)}
+  .faq summary:hover{color:var(--gold-dp)}
+  .ft a:hover{color:var(--gold); border-bottom-color:var(--gold)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .js .rv{opacity:1; transform:none; transition:none}
+  .scroll-hint::after{animation:none}
+  .cta,.shot{transition:none}
+}
+</style>
+<script>
+  /* Marca que o JS está ativo e habilita as animações de entrada.
+     Se o JS falhar, o conteúdo continua 100% visível. */
+  document.documentElement.className += ' js';
+  /* Rede de segurança: se o script principal não tiver rodado em 2.5s
+     (erro de parse, bloqueio, etc), remove o estado oculto e mostra tudo. */
+  setTimeout(function () {
+    if (!window.__scalaReady) document.documentElement.className =
+      document.documentElement.className.replace(/\bjs\b/, '');
+  }, 2500);
+</script>
+</head>
+<body>
+
+<!-- ======================= HEADER ======================= -->
+<header class="hdr" id="hdr">
+  <a class="brand" href="#topo">Consultoria Scala</a>
+  <a class="cta" data-cta href="#candidatura">Quero me candidatar</a>
+</header>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="topo">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="hero-grid">
+    <div>
+      <h1>
+        Descubra como mulheres ocupadas estão ficando mais
+        <span class="hi">Elegantes</span>, <span class="hi">Magnéticas</span> e
+        <span class="hi">Ricas</span> mudando apenas sua forma de vestir...
+      </h1>
+      <p class="hero-sub">
+        Essa é a experiência exclusiva e personalizada para mulheres que não têm mais tempo a perder,
+        que já são boas no que fazem e têm pressa de ser percebidas como são.
+        Se você é uma mulher inteligente e já percebeu que precisa construir uma Imagem Estratégica,
+        você está no lugar certo.
+      </p>
+      <div class="cta-block">
+        <a class="cta" data-cta href="#candidatura">Quero me candidatar <span class="arw">→</span></a>
+        <span class="cta-note">Apenas 4 vagas por mês. Leva 2 minutos. </span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Role</div>
+</section>
+
+<!-- ======================= PROVA IMEDIATA ======================= -->
+<div class="proof-strip">
+  <div class="proof-inner">
+    <div class="av" style="--z:600%; --x:-397%; --y:-31%">
+      <img src="assets/antes-depois/alessandra.jpg" alt="Alessandra, estrategista de conteúdo" loading="lazy">
+    </div>
+    <div class="proof-txt">
+      <q>Eu sempre soube que meu trabalho valia mais. Agora as pessoas também sabem. Hoje cobro 5x mais pelo mesmo serviço.</q>
+      <p class="proof-meta">Alessandra Lopes</p>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= IDENTIFICAÇÃO ======================= -->
+<section class="sec light identify">
+  <div class="read rv">
+    <h2 class="h-sec">Você se reconhece?</h2>
+
+    <p class="intro">Você já tem resultado. Já tem autoridade no que faz. Já cobra bem, já entrega bem, já é reconhecida pelo seu trabalho.</p>
+
+    <p>Mas quando você se vê em uma foto de evento, em um vídeo de palestra, na câmera de uma reunião... sente que a imagem ainda não chegou onde você já chegou.</p>
+
+    <p>Você abre o guarda-roupa todo dia e perde tempo. Experimenta três, quatro combinações. Vai de uma que "serve", mas não de uma que comunica.</p>
+
+    <p>Você participa de eventos, imersões, masterminds. Olha para as outras mulheres e percebe: algumas simplesmente transmitem algo diferente quando entram na sala. Não é sobre ser mais bonita. É sobre presença.</p>
+
+    <p>Você sabe que deveria estar sendo percebida de outra forma. Sabe que está deixando oportunidades na mesa, não por falta de competência, mas por falta de congruência entre quem você é e o que a sua imagem comunica.</p>
+
+    <p>E o pior: você já tentou resolver sozinha. Já comprou peças que pareciam certas. Já seguiu tendências. Já gastou dinheiro em roupas que estão paradas no armário.</p>
+
+    <p class="pull">Só que continuar tentando sozinha tem custo. Em tempo. Em dinheiro gasto errado. E em oportunidades que você nem percebe que está perdendo.</p>
+  </div>
+</section>
+
+<!-- ======================= MECANISMO ======================= -->
+<section class="sec light-2">
+  <div class="wrap rv">
+    <div class="read">
+      <h2 class="h-sec">O problema não é falta de roupa.<br>É falta de estratégia.</h2>
+      <p class="lead">A maioria das mulheres profissionais tenta resolver a imagem de três formas, e nenhuma delas funciona, porque nenhuma delas parte de você.</p>
+    </div>
+
+    <div class="wrongs">
+      <article class="wrong">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l5-6 4 4 5-7 4 5"/><circle cx="12" cy="12" r="10.2" opacity=".28"/></svg>
+        <h3>Seguindo tendências</h3>
+        <p>Tendências não consideram o seu corpo, a sua rotina, o seu objetivo profissional nem a mensagem que você precisa transmitir.</p>
+      </article>
+      <article class="wrong">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="3.2" width="12" height="12" rx="1.4"/><rect x="8.8" y="8.8" width="12" height="12" rx="1.4"/></svg>
+        <h3>Copiando referências</h3>
+        <p>Referências de Instagram foram construídas para outra pessoa, com outro corpo, outra história e outro contexto.</p>
+      </article>
+      <article class="wrong">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6v18.8"/><path d="M17 6.6c0-1.8-2.2-3-5-3s-5 1.2-5 3.2c0 4.6 10 2.6 10 7.2 0 2-2.2 3.4-5 3.4s-5-1.4-5-3.2"/></svg>
+        <h3>Comprando peças caras</h3>
+        <p>Esperar que o preço resolva o problema não funciona. Peças caras sem estratégia são só peças caras.</p>
+      </article>
+    </div>
+
+    <div class="read">
+      <p class="lead"><strong style="font-weight:500">O que falta não é informação. É intenção.</strong></p>
+      <p>Traduzir quem você é, sua essência, sua competência, sua ambição, em uma imagem que comunique isso de forma intencional. Sem personagem. Sem fantasia. Sem perder quem você é.</p>
+      <p>Isso não se aprende em curso. Não se resolve com dicas. Se resolve com um processo personalizado, feito por alguém que entende de estratégia de imagem, que vai estudar você, montar o caminho e aplicar junto com você.</p>
+      <p class="big-line">Foi por isso que eu criei a <span class="gold ital">Consultoria Scala</span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FUTURE PACING ======================= -->
+<section class="sec dark">
+  <div class="read rv">
+    <h2 class="h-sec">Imagine isso como o seu novo normal.</h2>
+
+    <ul class="futures">
+      <li>Você acorda e sabe exatamente o que vestir. Sem dúvida. Sem perder tempo. Cada peça do seu guarda-roupa tem um propósito.</li>
+      <li>Você entra em um evento e as pessoas notam a sua presença antes de você se apresentar.</li>
+      <li>Você sobe em um palco e a imagem já comunica autoridade, antes da primeira palavra.</li>
+      <li>Você para de gastar em peças erradas e começa a investir em peças certas. Seu guarda-roupa diminui, mas suas possibilidades multiplicam.</li>
+      <li>As pessoas notam a sua presença, te respeitam e te valorizam.</li>
+      <li>Você nunca mais sai de um evento sentindo que não deixou a marca que podia ter deixado.</li>
+    </ul>
+
+    <p style="margin-top:2.4rem" class="mut">... E o mais importante: tudo isso sem perder sua essência. Pelo contrário, fortalecendo ainda mais ela. Sem criar um personagem.</p>
+
+    <p class="closer">Esse é o poder de ter uma imagem estratégica:<br><b>você deixa de ser um potencial e passa a ser uma potência.</b></p>
+    <p style="text-align:center; margin-top:1.4rem" class="mut">Isso não é exagero. É o que as minhas clientes descrevem depois do processo.</p>
+  </div>
+</section>
+
+<!-- ======================= PROVA SOCIAL ======================= -->
+<section class="sec light">
+  <div class="wrap">
+    <div class="read rv" style="text-align:center">
+      <h2 class="h-sec">Não basta ser boa,<br>você precisa parecer ser.</h2>
+      <hr class="rule center">
+    </div>
+
+    <div class="cases rv">
+      <article class="case">
+        <img src="assets/antes-depois/jessica.jpg" alt="Jéssica antes e depois da Consultoria Scala" loading="lazy" width="1000" height="1000">
+        <div class="case-body">
+          <p class="case-name">Jéssica</p>
+          <p class="case-role">Advogada · Empresária</p>
+          <p>Iniciou a Consultoria Scala sentindo que a imagem não acompanhava a velocidade do crescimento do seu escritório. Depois do processo, a mudança na forma como clientes e parceiros a percebem foi imediata.</p>
+          <p class="case-win">O escritório segue em crescimento constante, e agora a imagem trabalha a favor, não contra.</p>
+          <p class="case-quote">“As pessoas passaram a me tratar diferente. Não mudei minha competência. Mudei a percepção.”</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <img src="assets/antes-depois/alessandra.jpg" alt="Alessandra antes e depois da Consultoria Scala" loading="lazy" width="1000" height="1000">
+        <div class="case-body">
+          <p class="case-name">Alessandra Lopes</p>
+          <p class="case-role">Estrategista de Conteúdo</p>
+          <p>Sabia que precisava se posicionar à altura do valor que entregava. Depois da Scala, os clientes pagam sem questionar, porque a imagem comunica o valor antes da proposta chegar.</p>
+          <p class="case-win">Cobra 5 vezes mais pelo mesmo serviço.</p>
+          <p class="case-quote">“Eu sempre soube que meu trabalho valia mais. Agora as pessoas também sabem.”</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <img src="assets/antes-depois/melina.jpg" srcset="assets/antes-depois/melina-700.jpg 700w, assets/antes-depois/melina.jpg 1000w" sizes="(min-width:960px) 340px, (min-width:600px) 460px, 92vw" alt="Melina antes e depois da Consultoria Scala" loading="lazy" width="1000" height="1000">
+        <div class="case-body">
+          <p class="case-name">Melina</p>
+          <p class="case-role">Mentora · Terapeuta</p>
+          <p>Tinha dificuldade em fechar vendas de alto valor: o conteúdo era excelente, mas a imagem não transmitia a autoridade necessária. Depois da Scala, a imagem passou a ser o primeiro argumento.</p>
+          <p class="case-win">Fecha vendas maiores com mais facilidade.</p>
+          <p class="case-quote">“Antes eu precisava convencer. Agora a minha presença faz metade do trabalho.”</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="rv">
+      <p class="gal-title">Mensagens reais de quem já passou pelo processo</p>
+
+      <div class="masonry">
+        <figure class="shot"><img src="assets/depoimentos/depo-10x-mais-caro.png" alt="Depoimento: depois da estratégia de imagem comecei a cobrar 10x mais caro" loading="lazy" width="1000" height="211"></figure>
+        <figure class="shot"><img src="assets/depoimentos/depo-porta-de-entrada.png" alt="Depoimento: a minha roupa foi a porta de entrada para iniciar uma relação de negócio" loading="lazy" width="987" height="168"></figure>
+        <figure class="shot"><img src="assets/depoimentos/depo-5x-mais-caro.png" alt="Depoimento: hoje eu cobro 5x mais pelo meu serviço" loading="lazy" width="1000" height="212"></figure>
+        <figure class="shot"><img src="assets/depoimentos/depo-68-looks.png" alt="Depoimento: montamos mais de 68 looks" loading="lazy" width="1000" height="214"></figure>
+        <figure class="shot"><img src="assets/depoimentos/depo-ta-poderosa.png" alt="Depoimento: cinco pessoas vieram me dizer que eu estava poderosa" loading="lazy" width="1000" height="237"></figure>
+        <figure class="shot"><img src="assets/depoimentos/depo-outra-pessoa.png" alt="Depoimento: eu me sinto outra pessoa" loading="lazy" width="987" height="168"></figure>
+        <figure class="shot"><img src="assets/depoimentos/depo-odiava-comprar.png" alt="Depoimento: fui da pessoa que odiava comprar roupas para a pessoa que ama roupas novas" loading="lazy" width="1000" height="151"></figure>
+        <figure class="shot tall"><img src="assets/depoimentos/depo-antes-e-depois-da-leticia.jpg" alt="Depoimento: existe um antes da Letícia e um depois da Letícia" loading="lazy" width="828" height="596"></figure>
+      </div>
+
+      <p class="gal-note">Clique em qualquer mensagem para ampliar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= TAKE AWAY ======================= -->
+<section class="sec light-2">
+  <div class="wrap">
+    <div class="read rv">
+      <h2 class="h-sec">A Consultoria Scala não é para todo mundo.</h2>
+      <p class="fit-intro">É um processo artesanal e próximo. Eu não consigo atender qualquer pessoa, nem que eu quisesse. Eu escolho com quem eu trabalho, porque preciso entender se é o seu momento, se vou conseguir me conectar com você, se o processo realmente vai te ajudar.</p>
+    </div>
+
+    <div class="fits rv">
+      <div class="fit yes">
+        <h3>A Scala é para você se:</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.6l5.2 5.2L20 6.6"/></svg>Você é empreendedora, mentora, advogada ou profissional liberal que já tem sucesso, e quer que a imagem transmita isso.</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.6l5.2 5.2L20 6.6"/></svg>Você está em um momento de crescimento, faturando R$ 10 mil/mês ou mais, e sabe que a próxima fase exige uma imagem à altura.</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.6l5.2 5.2L20 6.6"/></svg>Você participa de eventos, imersões e grupos de alto nível, e quer ser a mulher que as pessoas lembram depois que vão embora.</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.6l5.2 5.2L20 6.6"/></svg>Você quer resolver de uma vez, com acompanhamento profissional, em vez de continuar tentando sozinha.</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12.6l5.2 5.2L20 6.6"/></svg>Você valoriza processo personalizado, feito sob medida, não soluções genéricas de massa.</li>
+        </ul>
+      </div>
+
+      <div class="fit no">
+        <h3>A Scala não é para você se:</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>Você busca apenas "arrumar o guarda-roupa" ou seguir tendências. A Scala é estratégia de posicionamento, não consultoria de moda.</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>Você não está disposta a investir na sua imagem como investiria em qualquer outro ativo do seu negócio.</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>Você quer um curso com videoaulas para assistir no seu ritmo. A Scala é um processo individualizado, feito comigo, não é curso.</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg>Você espera resultados sem participar do processo. Eu faço por você, mas preciso da sua vontade e comprometimento.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="select-line rv">Se for o seu momento, eu te falo.<br>Se não for, eu também te falo. Mas para isso, você precisa se candidatar.</p>
+
+    <div class="cta-block center rv">
+      <a class="cta" data-cta href="#candidatura">Quero me candidatar <span class="arw">→</span></a>
+      <span class="cta-note">Leva 2 minutos.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= COMO FUNCIONA ======================= -->
+<section class="sec dark">
+  <div class="wrap">
+    <div class="read rv">
+      <h2 class="h-sec">Na Consultoria Scala você terá o caminho para transmitir a mensagem certa através da sua imagem.</h2>
+      <p class="lead mut">Não é um curso. É uma experiência exclusiva e personalizada desenvolvida para mulheres que não têm tempo. Você não precisa aprender nada, eu faço tudo por você. Só preciso da sua vontade.</p>
+    </div>
+
+    <div class="phases rv">
+      <article class="phase">
+        <div class="phase-n">01</div>
+        <div>
+          <h3>Estratégia</h3>
+          <p>Começa pelo diagnóstico: entendo o seu momento, suas necessidades, seus gostos, seu objetivo. Depois faço a análise de proporção corporal, você descobre exatamente o que valoriza o seu corpo e como cada peça funciona na sua estrutura. Em seguida, o estudo de cores e contraste: você ganha total liberdade de usar todas as cores sabendo como equilibrá-las. Por fim, monto a sua estratégia visual completa: estilos de essência, necessidade do dia a dia e intenção de imagem. Você recebe o <strong style="font-weight:500; color:var(--gold-lt)">Dossiê Scala</strong>: um documento completo, visual e prático com toda a sua estratégia, da cabeça aos pés. Tudo o que você precisa saber, sempre que quiser consultar.</p>
+        </div>
+      </article>
+
+      <article class="phase">
+        <div class="phase-n">02</div>
+        <div>
+          <h3>Prática</h3>
+          <p>Aqui a estratégia sai do papel. Começo pela revitalização do seu guarda-roupa: analiso todas as peças e separamos o que faz sentido e o que não faz mais para a sua nova comunicação visual. Criamos a sua lista de desejos estratégica. Depois, a <strong style="font-weight:500; color:var(--gold-lt)">Experiência VIP em Compras</strong>: vamos juntas às lojas e você aprende na prática o que funciona para o seu corpo, estilo e objetivo, comprando apenas o necessário. Na sequência, monto pelo menos 30 looks com as peças novas e as que você já tinha. Fotografamos tudo. Você sai com um catálogo visual do seu guarda-roupa para economizar muito tempo no dia a dia.</p>
+        </div>
+      </article>
+
+      <article class="phase">
+        <div class="phase-n">03</div>
+        <div>
+          <h3>Acompanhamento</h3>
+          <p>O processo não termina quando os looks ficam prontos. Você recebe <strong style="font-weight:500; color:var(--gold-lt)">30 dias de acompanhamento comigo pelo WhatsApp</strong> para tirar dúvidas, pedir ajuda com novas compras ou eventos importantes. Você não fica sozinha.</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="never rv">Depois da Consultoria Scala você nunca mais vai olhar para uma vitrine sem saber o que te valoriza.<br><b>Nunca mais vai ter dúvida nisso. Nunca mais.</b></p>
+  </div>
+</section>
+
+<!-- ======================= STACK DE VALOR ======================= -->
+<section class="sec dark-2">
+  <div class="read rv">
+    <div class="stack-box">
+      <h2 style="font-size:clamp(1.7rem,3.6vw,2.5rem)">Você vai receber:</h2>
+      <ul class="stack-list">
+        <li>Diagnóstico completo do seu estilo</li>
+        <li>Análise da sua proporção corporal</li>
+        <li>Diagnóstico de cores e contraste</li>
+        <li>Revitalização do seu guarda-roupa</li>
+        <li>Experiência VIP em compras</li>
+        <li>Montagem de looks estratégicos</li>
+        <li>Catálogo visual do seu guarda-roupa</li>
+        <li>Mapa Estratégico da sua imagem</li>
+        <li>Acompanhamento exclusivo por 30 dias</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= GARANTIA ======================= -->
+<section class="sec light">
+  <div class="read rv">
+    <svg class="seal" viewBox="0 0 48 48" aria-hidden="true">
+      <path d="M24 3.5l4.9 3.9 6.2-.7 2.2 5.9 5.5 3-1.6 6 1.6 6-5.5 3-2.2 5.9-6.2-.7L24 39.7l-4.9-3.9-6.2.7-2.2-5.9-5.5-3 1.6-6-1.6-6 5.5-3 2.2-5.9 6.2.7z"/>
+      <path d="M17.5 23.4l4.6 4.6 8.4-9.4"/>
+    </svg>
+    <h2 class="h-sec">O processo de seleção é a sua garantia.</h2>
+
+    <p>A Consultoria Scala não aceita todas as candidatas. E isso é proposital.</p>
+
+    <p class="vagas">Como o processo é feito por mim, do início ao fim, sem equipe, <b>atendo apenas 4 clientes por mês.</b></p>
+
+    <p>Antes de iniciar qualquer processo, eu analiso pessoalmente cada candidatura e faço uma sessão estratégica individual com você. O objetivo é entender se esse é realmente o momento certo para você, e se o processo vai gerar o resultado que você espera.</p>
+
+    <p>Se não for o momento, eu vou te dizer. Sem pressão. Sem constrangimento.</p>
+
+    <p>Isso significa que quando você é aceita, é porque existe clareza de que o processo vai funcionar para a sua realidade, seu corpo, seu estilo de vida e seu objetivo profissional.</p>
+
+    <p>Cada estratégia é construída do zero para você. Não existe fórmula genérica. Eu já fiz isso para advogadas, mentoras, terapeutas, empresárias, estrategistas. <strong style="font-weight:500">O método se adapta a você, não o contrário.</strong></p>
+  </div>
+</section>
+
+<!-- ======================= FAQ ======================= -->
+<section class="sec light-2">
+  <div class="read rv">
+    <h2 class="h-sec">Perguntas frequentes.</h2>
+
+    <div class="faq">
+      <details>
+        <summary>Qual o investimento da Consultoria Scala?</summary>
+        <div class="ans"><p>O investimento é discutido na sessão estratégica individual, porque ele depende do formato e da personalização do processo para a sua realidade. O que posso te dizer: clientes que cobram mais depois do processo (como a Alessandra, que passou a cobrar 5x mais) recuperam o investimento em poucos meses. A pergunta mais importante não é "quanto custa", mas "quanto está custando não ter uma imagem estratégica".</p></div>
+      </details>
+
+      <details>
+        <summary>Não tenho tempo para isso.</summary>
+        <div class="ans"><p>A Scala foi desenhada para mulheres que não têm tempo. Você não precisa aprender nada, eu faço tudo por você. Só preciso da sua vontade. São encontros individuais organizados dentro da sua agenda, e o acompanhamento por WhatsApp acontece no seu ritmo.</p></div>
+      </details>
+
+      <details>
+        <summary>E se não funcionar para mim?</summary>
+        <div class="ans"><p>O processo é 100% personalizado. Não existe fórmula aplicada igual para todas. Eu já atendi advogadas, mentoras, terapeutas, empresárias, estrategistas, cada uma com corpo, estilo e objetivo diferentes. E o processo de seleção existe justamente para garantir que você só entre se for o momento certo.</p></div>
+      </details>
+
+      <details>
+        <summary>Posso resolver isso sozinha?</summary>
+        <div class="ans"><p>Pode tentar. Mas se já tentou e o guarda-roupa ainda te frustra, as fotos ainda não te representam e você ainda perde tempo escolhendo o que vestir, é porque resolver sozinha não está funcionando. Continuar tentando tem custo: tempo, dinheiro gasto em peças erradas e oportunidades que passam sem você perceber.</p></div>
+      </details>
+
+      <details>
+        <summary>É consultoria de moda?</summary>
+        <div class="ans"><p>Não. A Scala é consultoria estratégica de imagem. Não trabalho com tendências. Trabalho com estratégia: o que funciona para o seu corpo, para a sua essência e para o seu objetivo profissional. A diferença é que moda muda a cada estação. Estratégia de imagem funciona enquanto você quiser.</p></div>
+      </details>
+
+      <details>
+        <summary>Funciona para o meu nicho/área?</summary>
+        <div class="ans"><p>Já atendi mulheres de áreas completamente diferentes (do direito à terapia, de marketing a mentorias) e o processo funciona porque parte de você, não do nicho. A estratégia é construída para comunicar a SUA essência no SEU contexto profissional.</p></div>
+      </details>
+
+      <details>
+        <summary>Quanto tempo dura o processo?</summary>
+        <div class="ans"><p>O processo completo, da Fase 1 (Estratégia) até a Fase 2 (Prática, com a entrega dos looks finalizados), leva entre 4 e 6 semanas. Depois disso, você ainda tem 30 dias de acompanhamento comigo pelo WhatsApp para tirar dúvidas e ajustar o que for preciso.</p></div>
+      </details>
+
+      <details>
+        <summary>Atende online ou só presencial?</summary>
+        <div class="ans"><p>O processo funciona nos dois formatos, adaptado à sua realidade e localização.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= AUTORIDADE ======================= -->
+<section class="sec dark">
+  <div class="wrap auth rv">
+    <div>
+      <img src="assets/leticia.jpeg" alt="Letícia Garcia, consultora estratégica de imagem" style="aspect-ratio:4/5; object-fit:cover; border:1px solid var(--line-dark); border-radius:2px" loading="lazy">
+    </div>
+
+    <div>
+      <h2 class="h-sec">Quem vai construir a sua imagem estratégica.</h2>
+
+      <p class="intro">Eu sou a <span class="gold">Letícia Garcia</span>, consultora estratégica de imagem e criadora da Consultoria Scala.</p>
+
+      <p>Nos últimos anos, trabalhei individualmente com dezenas de mulheres (empreendedoras, mentoras, advogadas, terapeutas, estrategistas) que já tinham resultado, já tinham competência, mas sentiam que a imagem não estava no mesmo nível.</p>
+
+      <p>O que eu faço é traduzir quem você já é em uma imagem que comunique isso de forma estratégica, intencional e autêntica. Sem ficar seguindo tendências e sem criar um personagem.</p>
+
+      <p>Eu acredito que em cada ambiente que você entra, a sua presença está comunicando algo. A pergunta é: o que está sendo comunicado hoje está a favor ou contra o que você quer conquistar?</p>
+
+      <p>Muitas vezes eu não preciso nem me apresentar. As pessoas já sabem quem eu sou pela forma que eu me visto. Porque a minha imagem fala por mim. <strong style="font-weight:400; color:var(--gold-lt)">E é isso que eu construo para cada cliente: a imagem que fala por você.</strong></p>
+
+      <p>Eu escolho com quem trabalho. Porque o processo é íntimo, artesanal e personalizado. Eu preciso me conectar com cada cliente. Preciso entender se é o momento certo. Por isso a Scala funciona por candidatura, e por isso os resultados são consistentes.</p>
+
+      <p class="sign">Letícia Garcia<small>Consultora Estratégica de Imagem</small></p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CTA FINAL ======================= -->
+<section class="sec final" id="candidatura">
+  <div class="grain" aria-hidden="true"></div>
+  <div class="wrap rv" style="position:relative; z-index:2">
+    <h2>Você tem uma escolha.</h2>
+
+    <div class="read">
+      <p>Em cada ambiente que você entra, a sua presença está comunicando algo. A questão é: o que está sendo comunicado hoje está a favor ou contra o que você quer conquistar?</p>
+      <p>Cada reunião, cada evento, cada proposta, cada vez que você liga a câmera. A sua imagem está trabalhando. A favor ou contra.</p>
+      <p>Enquanto você pensa, continua sendo percebida como menos do que é. E essa diferença tem preço: oportunidades que não chegam, convites que não vêm, contratos que demoram mais do que deveriam.</p>
+      <p><strong style="font-weight:400; color:var(--on-dark)">Você já é boa no que faz. Isso não está em questão. A questão é: o mundo já sabe?</strong></p>
+    </div>
+
+    <p class="tagline">Porque não basta ser boa, precisa parecer ser.</p>
+
+    <div class="read" style="margin-bottom:2.6rem">
+      <p class="mut">Como o processo é feito por mim, pessoalmente, com cada cliente, abro <strong style="color:var(--gold-lt); font-weight:500">apenas 4 vagas por mês</strong> para a Consultoria Scala.</p>
+    </div>
+
+    <div class="next-steps">
+      <h3>O que acontece quando você clica</h3>
+      <p>Você preenche o formulário, eu analiso o seu perfil pessoalmente e entro em contato. Se for o seu momento, eu te falo. Se não for, eu também te falo. Mas para ter essa resposta, você precisa preencher.</p>
+    </div>
+
+    <div class="cta-block center" style="margin-top:0">
+      <a class="cta" data-cta href="#candidatura">Quero me candidatar <span class="arw">→</span></a>
+      <span class="cta-note">Leva 2 minutos.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="ft">
+  <div class="ft-in">
+    <div>
+      <span class="brand" style="display:block">Scala<small>Letícia Garcia</small></span>
+      <p style="margin:1rem 0 0">Consultoria Scala · Letícia Garcia<br>Todos os direitos reservados.</p>
+    </div>
+    <div>
+      <p class="ft-links">
+        <a href="#politica-de-privacidade">Política de Privacidade</a>
+        <a href="#termos-de-uso">Termos de Uso</a>
+      </p>
+    </div>
+    <p class="ft-legal">Resultados variam de acordo com o perfil, dedicação e contexto de cada cliente.</p>
+  </div>
+</footer>
+
+
+
+<!-- ======================= LIGHTBOX ======================= -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Depoimento ampliado">
+  <button class="lb-close" id="lbClose" aria-label="Fechar">×</button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<script>
+/* =========================================================================
+   ⚠️ TROQUE AQUI PELO LINK DO SEU FORMULÁRIO DE CANDIDATURA
+   (Typeform, Google Forms, página de aplicação, etc.)
+   Todos os botões da página usam esta única constante.
+   ========================================================================= */
+const LINK_CANDIDATURA = "SEU_LINK_DO_FORMULARIO_AQUI";
+
+(function () {
+  'use strict';
+  window.__scalaReady = true;
+
+  /* --- aplica o link em todos os CTAs ---
+     Só aplica se o valor já parecer um link de verdade. Enquanto for o
+     texto placeholder, os botões continuam rolando até o CTA final. */
+  if (/^(https?:\/\/|\/|mailto:|tel:)/i.test(LINK_CANDIDATURA)) {
+    document.querySelectorAll('[data-cta]').forEach(function (a) {
+      a.href = LINK_CANDIDATURA;
+      if (/^https?:\/\//i.test(LINK_CANDIDATURA)) {
+        a.target = '_blank';
+        a.rel = 'noopener';
+      }
+    });
+  }
+
+  /* --- header ganha fundo ao rolar + barra de CTA fixa no celular ---
+     No celular a barra fixa é o único CTA depois do hero, então ela não
+     depende de IntersectionObserver: é medida direto no scroll (com rAF
+     para não forçar layout mais de uma vez por quadro). Ela aparece no
+     momento exato em que o botão do hero sai da tela, em vez de usar um
+     percentual fixo que erra em telas muito baixas. */
+  var hdr = document.getElementById('hdr');
+  var heroCta = document.querySelector('.hero .cta-block');
+  var ticking = false;
+
+  function update() {
+    ticking = false;
+    var y = window.scrollY || window.pageYOffset;
+    hdr.classList.toggle('stuck', y > 40);
+    hdr.classList.toggle('show-cta',
+      heroCta ? heroCta.getBoundingClientRect().bottom < 0
+              : y > window.innerHeight * 0.75);
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  update();
+
+  /* --- reveal on scroll --- */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revs = document.querySelectorAll('.rv');
+
+  if (reduce || !('IntersectionObserver' in window)) {
+    revs.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+    revs.forEach(function (el) { io.observe(el); });
+  }
+
+  /* --- lightbox dos depoimentos --- */
+  var lb = document.getElementById('lb');
+  var lbImg = document.getElementById('lbImg');
+  var lastFocus = null;
+
+  function openLb(src, alt) {
+    lastFocus = document.activeElement;
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lbClose').focus();
+  }
+  function closeLb() {
+    lb.classList.remove('open');
+    lbImg.src = '';
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('.shot').forEach(function (fig) {
+    fig.setAttribute('tabindex', '0');
+    fig.setAttribute('role', 'button');
+    var img = fig.querySelector('img');
+    fig.addEventListener('click', function () { openLb(img.src, img.alt); });
+    fig.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); openLb(img.src, img.alt); }
+    });
+  });
+
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  lb.addEventListener('click', function (ev) { if (ev.target === lb) closeLb(); });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape' && lb.classList.contains('open')) closeLb();
+  });
+})();
+</script>
+</body>
+</html>
