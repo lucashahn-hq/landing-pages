@@ -401,28 +401,6 @@ h1 .hi{font-style:italic; color:var(--gold-lt); font-weight:400; white-space:now
 .curl.l{left:6px;  transform:rotate(-3deg)}
 .curl.r{right:6px; transform:rotate(3deg)}
 
-/* ---- vincos de dobra ----
-   Carta que veio dobrada no envelope. Cada vinco é uma faixa onde a face de
-   cima pega luz (linha clara) e a de baixo fica na sombra. Passa POR CIMA do
-   texto porque a deformação é do papel inteiro, tinta incluída. */
-.crease{
-  position:absolute; left:0; right:0; height:38px; z-index:3;
-  pointer-events:none;
-  background:linear-gradient(180deg,
-    rgba(122,98,64,0)     0%,
-    rgba(122,98,64,.05)   34%,
-    rgba(122,98,64,.11)   46%,
-    rgba(255,255,255,.95) 50%,
-    rgba(122,98,64,.17)   54%,
-    rgba(122,98,64,.09)   64%,
-    rgba(122,98,64,.02)   84%,
-    rgba(122,98,64,0)     100%);
-}
-/* nenhuma dobra é igual à outra: cada vinco tem sua própria força */
-.crease.c1{top:25%; opacity:.9}
-.crease.c2{top:50%; opacity:1;   height:42px}
-.crease.c3{top:75%; opacity:.82}
-
 /* ---- fitas ----
    multiply para o papel aparecer por baixo; clip-path desenha a ponta rasgada;
    drop-shadow (e não box-shadow) porque só ele acompanha o recorte. */
@@ -1017,10 +995,6 @@ h1 .hi{font-style:italic; color:var(--gold-lt); font-weight:400; white-space:now
     <article class="letter">
     <span class="tape l" aria-hidden="true"></span>
     <span class="tape r" aria-hidden="true"></span>
-    <span class="crease c1" aria-hidden="true"></span>
-    <span class="crease c2" aria-hidden="true"></span>
-    <span class="crease c3" aria-hidden="true"></span>
-
     <header class="lt-head">
       <span class="mono" aria-hidden="true">LG</span>
       <h2 class="lt-title">Carta aberta</h2>
