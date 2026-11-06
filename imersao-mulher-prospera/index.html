@@ -231,7 +231,13 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 .hero-grade { display: grid; gap: 28px; }
 .hero-logo { width: min(100%, 440px); height: auto; margin-inline: auto; }
 .hero-sub { color: var(--creme); }
-.hero-foto { --ar: 7 / 7.2; }
+.hero-foto { margin-inline: calc(var(--lateral) * -1); }
+.hero-foto img {
+  width: 100%; height: auto; aspect-ratio: 1052 / 941; max-height: 640px;
+  object-fit: cover; object-position: 100% 20%;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 88%, transparent 100%);
+}
 .dados { display: grid; grid-template-columns: auto auto; justify-content: space-between; gap: 16px; }
 .dados div { display: flex; align-items: center; gap: 10px; font-size: 15px; line-height: 1.35; text-wrap: balance; }
 .dados dt { position: relative; flex: 0 0 26px; height: 26px; color: var(--ouro-400); }
@@ -251,18 +257,27 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 .contagem-itens small { display: block; margin-top: 8px; font-size: 11px; line-height: 1; letter-spacing: .04em; color: var(--muted-claro); }
 .hero-video { max-width: 860px; margin: 64px auto 0; padding-bottom: var(--secao); }
 .hero-video .slot { --ar: 16 / 9; }
-@media (min-width: 900px) {
-  .hero { padding-top: 64px; }
-  .hero-grade {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
-    grid-template-areas: "texto foto" "info cta";
-    column-gap: 56px; row-gap: 24px; align-items: start;
+@media (min-width: 1100px) {
+  .hero { padding-top: 0; }
+  .hero-capa {
+    position: relative; margin-inline: calc(var(--lateral) * -1); padding-inline: var(--lateral);
+    min-height: min(56.25vw, 900px); display: flex; align-items: center;
   }
-  .hero-texto { grid-area: texto; }
-  .hero-foto { grid-area: foto; aspect-ratio: auto; align-self: stretch; }
-  .hero-info { grid-area: info; }
-  .hero-logo { margin-inline: 0 auto; }
-  .hero .cta { grid-area: cta; margin-top: 0; }
+  .hero-capa .conteudo { width: 100%; }
+  .hero-foto { position: absolute; inset: 0; margin: 0; }
+  .hero-foto::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, rgb(43 1 7 / .92) 0, rgb(43 1 7 / .7) 36%, rgb(43 1 7 / 0) 50%),
+      linear-gradient(0deg, var(--bordo-900) 0, rgb(43 1 7 / 0) 16%);
+  }
+  .hero-foto img { width: 100%; height: 100%; aspect-ratio: auto; max-height: none; object-position: 100% 0; -webkit-mask-image: none; mask-image: none; }
+  .hero-grade { max-width: min(34vw, 470px); padding-block: 56px; gap: 22px; }
+  .hero-texto, .hero .cta, .hero-info { position: relative; z-index: 1; }
+  .hero-logo { width: 340px; margin-inline: 0 auto; }
+  .hero h1 { font-size: clamp(2.75rem, 3.6vw, 3.5rem); }
+  .hero .cta { margin-top: 0; justify-content: flex-start; }
+  .hero-video { margin-top: 24px; }
 }
 
 /* Blocos de duas colunas */
@@ -512,6 +527,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
 
 <!-- HERO -->
 <section class="secao bordo hero">
+  <div class="hero-capa">
   <div class="conteudo">
     <div class="hero-grade">
       <div class="hero-texto pilha">
@@ -519,9 +535,8 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         <h1>Desapareça por 3 dias e volte uma <span class="destaque-ouro">mulher próspera.</span></h1>
         <p class="corpo-g hero-sub">Uma imersão presencial na região de Florianópolis para você parar de só dar conta de tudo e começar a prosperar em todas as áreas da sua vida.</p>
       </div>
-      <div class="slot slot--recorte hero-foto">
-        <img src="assets/02-hero-leticia-melina.png" alt="Letícia Garcia e Melina Dani" fetchpriority="high">
-        <span class="rotulo"><b>ASSET 02</b>Letícia e Melina juntas, recortadas<small>PNG transparente · 1400 × 1600</small></span>
+      <div class="hero-foto">
+        <img src="assets/02-hero-leticia-melina.webp" alt="Letícia Garcia e Melina Dani" width="1672" height="941" fetchpriority="high">
       </div>
       <div class="cta"><button class="btn" data-checkout>QUERO MINHA VAGA POR R$ 97</button></div>
       <div class="hero-info pilha">
@@ -540,6 +555,9 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         </div>
       </div>
     </div>
+  </div>
+  </div>
+  <div class="conteudo">
     <div class="hero-video">
       <div class="slot">
         <video controls playsinline preload="metadata" poster="assets/05-video-capa.jpg" aria-label="Vídeo-convite de Letícia e Melina"><source src="assets/05-video-convite.mp4" type="video/mp4"></video>
