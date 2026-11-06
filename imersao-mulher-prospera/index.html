@@ -241,6 +241,14 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 .dados dd { margin: 0; }
 .hero .cta { margin-top: -8px; }
 .hero .btn { width: 100%; }
+.contagem-titulo { font-weight: 600; color: var(--ouro-300); }
+.contagem-itens {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 12px; padding: 16px 8px;
+  background: var(--bordo-800); border: 1px solid rgb(235 174 82 / .35); border-radius: var(--raio-cartao);
+  text-align: center;
+}
+.contagem-itens span { display: block; font: 600 38px/1 var(--fonte-texto); font-variant-numeric: tabular-nums; color: var(--creme); }
+.contagem-itens small { display: block; margin-top: 8px; font-size: 11px; line-height: 1; letter-spacing: .04em; color: var(--muted-claro); }
 .hero-video { max-width: 860px; margin: 64px auto 0; padding-bottom: var(--secao); }
 .hero-video .slot { --ar: 16 / 9; }
 @media (min-width: 900px) {
@@ -523,6 +531,15 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
           <div><dt><svg aria-hidden="true"><use href="#i-calendario"/></svg><span class="sr">Quando</span></dt><dd>11, 12 e 13 de dezembro</dd></div>
           <div><dt><svg aria-hidden="true"><use href="#i-local"/></svg><span class="sr">Onde</span></dt><dd>AEMFLO / CDL-SJ, São José (SC)</dd></div>
         </dl>
+        <div class="contagem" id="contagem" hidden>
+          <p class="contagem-titulo">O evento acontecerá em…</p>
+          <div class="contagem-itens" role="timer" aria-label="Tempo até o início do evento">
+            <div><span id="cDias">00</span><small>Dias</small></div>
+            <div><span id="cHoras">00</span><small>Horas</small></div>
+            <div><span id="cMin">00</span><small>Minutos</small></div>
+            <div><span id="cSeg">00</span><small>Segundos</small></div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="hero-video">
@@ -994,7 +1011,8 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
     vagasPreenchidasPct: 67, // número real de 0 a 100. Sem número real, a barra não vai para o ar.
     checkoutUrl: '',           // link do checkout; recebe ?name=&phone= (ajustar se a plataforma usar outros nomes)
     cadastroUrl: '',           // webhook ou CRM que recebe nome e telefone do pop-up
-    whatsappUrl: ''            // ex.: https://wa.me/55DDDNUMERO
+    whatsappUrl: '',           // ex.: https://wa.me/55DDDNUMERO
+    eventoInicio: '2026-12-11T00:00:00-03:00' // alvo do contador; ajustar se houver horário de início
   };
 
   /* Barra de vagas */
@@ -1005,6 +1023,24 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
     setTimeout(function () { document.getElementById('barraFill').style.width = pct + '%'; }, 150);
     document.querySelector('.barra-trilho').setAttribute('aria-valuenow', pct);
     document.getElementById('barraPct').textContent = pct + '%';
+  })();
+
+  /* Contador até o evento: some quando a data chega, sem reiniciar. */
+  (function () {
+    var alvo = new Date(CONFIG.eventoInicio).getTime();
+    var caixa = document.getElementById('contagem');
+    function par(n) { return String(n).padStart(2, '0'); }
+    function atualizar() {
+      var resta = Math.floor((alvo - Date.now()) / 1000);
+      if (!(resta > 0)) { caixa.hidden = true; clearInterval(relogio); return; }
+      document.getElementById('cDias').textContent = par(Math.floor(resta / 86400));
+      document.getElementById('cHoras').textContent = par(Math.floor(resta / 3600) % 24);
+      document.getElementById('cMin').textContent = par(Math.floor(resta / 60) % 60);
+      document.getElementById('cSeg').textContent = par(resta % 60);
+      caixa.hidden = false;
+    }
+    var relogio = setInterval(atualizar, 1000);
+    atualizar();
   })();
 
   /* WhatsApp */
