@@ -382,8 +382,7 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 .lote { border-radius: var(--raio-cartao); padding: 28px 24px; }
 .lote--prox { background: var(--cinza-fundo); border: 1px solid var(--cinza-borda); color: var(--cinza-texto); padding: 18px 20px; width: 92%; justify-self: center; display: grid; grid-template-columns: 1fr auto; column-gap: 16px; align-items: center; }
 .lote--prox .pilula { color: var(--cinza-texto); border-color: var(--cinza-borda); background: none; justify-self: start; }
-.lote--prox .preco { color: var(--cinza-texto); font-size: 36px; font-weight: 800; line-height: 1; grid-column: 2; grid-row: 1 / span 2; }
-.lote--prox p:not(.preco) { margin-top: 8px; }
+.lote--prox .preco { color: var(--cinza-texto); font-size: 36px; font-weight: 800; line-height: 1; }
 .lote--atual { background: var(--bordo-800); border: 2px solid var(--ouro-400); padding: 32px 24px; box-shadow: 0 0 48px rgb(235 174 82 / .22); }
 .lote--atual .preco { font-size: var(--preco); font-weight: 800; line-height: 1; margin-block: 24px; }
 .lote--atual .btn { width: 100%; min-width: 0; padding-inline: 12px; letter-spacing: 0; text-wrap: balance; }
@@ -394,8 +393,8 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 @media (min-width: 900px) {
   .lotes { grid-template-columns: 1.3fr 1fr 1fr; gap: 20px; }
   .lote--atual { padding: 40px 36px; }
-  .lote--prox { width: 100%; min-height: 430px; padding: 32px 28px; display: flex; flex-direction: column; align-items: flex-start; }
-  .lote--prox .preco { font-size: 52px; margin-top: auto; }
+  .lote--prox { width: 100%; min-height: 430px; padding: 32px 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; }
+  .lote--prox .preco { font-size: 52px; }
 }
 
 /* Perguntas frequentes */
@@ -896,12 +895,10 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       </article>
       <article class="lote lote--prox surge">
         <span class="pilula">Lote 2</span>
-        <p>Mesmo ingresso.</p>
         <p class="preco">R$ 297</p>
       </article>
       <article class="lote lote--prox surge">
         <span class="pilula">Lote 3</span>
-        <p>Mesmo ingresso.</p>
         <p class="preco">R$ 497</p>
       </article>
     </div>
