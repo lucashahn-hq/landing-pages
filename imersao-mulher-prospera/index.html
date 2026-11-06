@@ -81,10 +81,10 @@
 @media (min-width: 900px) { :root { --secao: 120px; } }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-padding-top: calc(var(--barra) + 16px); -webkit-text-size-adjust: 100%; }
+html { scroll-padding-top: 16px; -webkit-text-size-adjust: 100%; }
 html:has(dialog[open]) { overflow: hidden; }
 body {
-  margin: 0; padding-top: var(--barra);
+  margin: 0;
   background: var(--marfim); color: var(--grafite);
   font: 400 var(--corpo)/1.65 var(--fonte-texto);
   -webkit-font-smoothing: antialiased;
@@ -207,7 +207,7 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 
 /* Barra de vagas */
 .barra {
-  position: fixed; inset: 0 0 auto; z-index: 20; height: var(--barra);
+  height: var(--barra);
   display: flex; align-items: center; justify-content: center; padding-inline: var(--lateral);
   background: var(--bordo-900); border-bottom: 1px solid rgb(235 174 82 / .35);
 }
@@ -266,7 +266,7 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 .janela { --ar: 4 / 5; }
 @media (min-width: 900px) {
   .duo { grid-template-columns: 1fr 1fr; gap: 72px; }
-  .duo-sticky { position: sticky; top: calc(var(--barra) + 24px); align-self: start; }
+  .duo-sticky { position: sticky; top: 24px; align-self: start; }
   .duo--inv > :first-child { order: 2; }
 }
 
