@@ -76,7 +76,7 @@
   --sombra: 0 12px 32px rgb(90 31 45 / 0.10);
   --secao: 72px;
   --lateral: 20px;
-  --barra: 40px;
+  --barra: 56px;
 }
 @media (min-width: 900px) { :root { --secao: 120px; } }
 
@@ -208,17 +208,24 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 /* Barra de vagas */
 .barra {
   position: fixed; inset: 0 0 auto; z-index: 20; height: var(--barra);
-  display: flex; align-items: center; justify-content: center; gap: 12px; padding-inline: var(--lateral);
-  background: var(--bordo-800); color: var(--creme);
-  font-size: 15px; line-height: 1.2; font-weight: 500;
+  display: flex; align-items: center; justify-content: center; padding-inline: var(--lateral);
+  background: var(--bordo-900); border-bottom: 1px solid rgb(235 174 82 / .35);
 }
 .barra-trilho {
-  flex: 0 1 240px; min-width: 56px; height: 8px; border-radius: var(--raio-pilula);
-  background: rgb(235 174 82 / .2); overflow: hidden;
+  width: min(100%, 480px); height: 36px; border-radius: var(--raio-pilula);
+  background: var(--areia); overflow: hidden;
 }
-.barra-fill { height: 100%; width: 0; background: var(--ouro-400); border-radius: inherit; transition: width 300ms; }
-.barra-txt { white-space: nowrap; font-size: 13px; letter-spacing: .04em; }
-@media (min-width: 600px) { .barra-txt { font-size: 15px; } }
+.barra-fill {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  height: 100%; width: 0; padding-inline: 16px; overflow: hidden;
+  background: var(--ouro-400); color: var(--bordo-900);
+  font-size: 13px; line-height: 1; font-weight: 700; white-space: nowrap;
+  transition: width 1s ease-in-out;
+}
+.barra-txt { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.barra-pct { flex: none; }
+@media (max-width: 359px) { .barra-fill { padding-inline: 12px; font-size: 12px; gap: 6px; } }
+@media (prefers-reduced-motion: reduce) { .barra-fill { transition: none; } }
 
 /* Hero */
 .hero { padding-bottom: 0; overflow: hidden; }
@@ -489,8 +496,9 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
 
 <!-- BARRA DE VAGAS: só publique com número real (CONFIG.vagasPreenchidasPct). -->
 <div class="barra" id="barra">
-  <div class="barra-trilho" role="progressbar" aria-label="Vagas preenchidas" aria-valuemin="0" aria-valuemax="100"><div class="barra-fill" id="barraFill"></div></div>
-  <span class="barra-txt" id="barraTxt">67% DAS VAGAS PREENCHIDAS</span>
+  <div class="barra-trilho" role="progressbar" aria-label="Vagas preenchidas" aria-valuemin="0" aria-valuemax="100">
+    <div class="barra-fill" id="barraFill"><span class="barra-txt">VAGAS PREENCHIDAS</span><span class="barra-pct" id="barraPct"></span></div>
+  </div>
 </div>
 
 <main>
@@ -997,9 +1005,9 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
     var pct = CONFIG.vagasPreenchidasPct;
     if (pct === null) return;
     pct = Math.max(0, Math.min(100, Math.round(pct)));
-    document.getElementById('barraFill').style.width = pct + '%';
+    setTimeout(function () { document.getElementById('barraFill').style.width = pct + '%'; }, 150);
     document.querySelector('.barra-trilho').setAttribute('aria-valuenow', pct);
-    document.getElementById('barraTxt').textContent = pct + '% DAS VAGAS PREENCHIDAS';
+    document.getElementById('barraPct').textContent = pct + '%';
   })();
 
   /* WhatsApp */
