@@ -224,7 +224,8 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 }
 .barra-txt { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .barra-pct { flex: none; }
-@media (max-width: 359px) { .barra-fill { padding-inline: 12px; font-size: 12px; gap: 6px; } }
+@media (max-width: 479px) { .barra { padding-inline: 8px; } .barra-fill { padding-inline: 12px; font-size: 12px; gap: 6px; } }
+@media (max-width: 359px) { .barra-fill { padding-inline: 9px; font-size: 10.5px; gap: 4px; } }
 @media (prefers-reduced-motion: reduce) { .barra-fill { transition: none; } }
 
 /* Hero */
@@ -497,7 +498,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
 <!-- BARRA DE VAGAS: só publique com número real (CONFIG.vagasPreenchidasPct). -->
 <div class="barra" id="barra">
   <div class="barra-trilho" role="progressbar" aria-label="Vagas preenchidas" aria-valuemin="0" aria-valuemax="100">
-    <div class="barra-fill" id="barraFill"><span class="barra-txt">VAGAS PREENCHIDAS</span><span class="barra-pct" id="barraPct"></span></div>
+    <div class="barra-fill" id="barraFill"><span class="barra-txt">POUCAS VAGAS DISPONÍVEIS</span><span class="barra-pct" id="barraPct"></span></div>
   </div>
 </div>
 
