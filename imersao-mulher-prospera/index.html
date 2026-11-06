@@ -231,12 +231,10 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 .hero-grade { display: grid; gap: 28px; }
 .hero-logo { width: min(100%, 440px); height: auto; margin-inline: auto; }
 .hero-sub { color: var(--creme); }
-.hero-plano { font-weight: 600; color: var(--ouro-300); }
-.hero-com { color: var(--cor-apoio); }
 .hero-foto { --ar: 7 / 7.2; }
-.dados { display: grid; gap: 10px; }
-.dados div { display: flex; align-items: center; gap: 12px; font-size: 16px; line-height: 1.4; }
-.dados dt { flex: 0 0 26px; height: 26px; color: var(--ouro-400); }
+.dados { display: grid; grid-template-columns: auto auto; justify-content: space-between; gap: 16px; }
+.dados div { display: flex; align-items: center; gap: 10px; font-size: 15px; line-height: 1.35; text-wrap: balance; }
+.dados dt { position: relative; flex: 0 0 26px; height: 26px; color: var(--ouro-400); }
 .dados dt svg { display: block; width: 26px; height: 26px; }
 .dados dd { margin: 0; }
 .hero .cta { margin-top: -8px; }
@@ -525,8 +523,6 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       </div>
       <div class="cta"><button class="btn" data-checkout>QUERO MINHA VAGA POR R$ 97</button></div>
       <div class="hero-info pilha">
-        <p class="hero-plano">Saia com o seu Plano Mulher Próspera pronto.</p>
-        <p class="hero-com">Com Letícia Garcia e Melina Dani</p>
         <dl class="dados">
           <div><dt><svg aria-hidden="true"><use href="#i-calendario"/></svg><span class="sr">Quando</span></dt><dd>11, 12 e 13 de dezembro</dd></div>
           <div><dt><svg aria-hidden="true"><use href="#i-local"/></svg><span class="sr">Onde</span></dt><dd>AEMFLO / CDL-SJ, São José (SC)</dd></div>
