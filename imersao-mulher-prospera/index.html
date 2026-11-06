@@ -227,7 +227,7 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 @media (prefers-reduced-motion: reduce) { .barra-fill { transition: none; } }
 
 /* Hero */
-.hero { padding-bottom: 0; overflow: hidden; }
+.hero { overflow: hidden; }
 .hero-grade { display: grid; gap: 28px; }
 .hero-logo { width: min(100%, 440px); height: auto; margin-inline: auto; }
 .hero-sub { color: var(--creme); }
@@ -255,10 +255,8 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 }
 .contagem-itens span { display: block; font: 600 38px/1 var(--fonte-texto); font-variant-numeric: tabular-nums; color: var(--creme); }
 .contagem-itens small { display: block; margin-top: 8px; font-size: 11px; line-height: 1; letter-spacing: .04em; color: var(--muted-claro); }
-.hero-video { max-width: 860px; margin: 64px auto 0; padding-bottom: var(--secao); }
-.hero-video .slot { --ar: 16 / 9; }
 @media (min-width: 1100px) {
-  .hero { padding-top: 0; }
+  .hero { padding-block: 0; }
   .hero-capa {
     position: relative; margin-inline: calc(var(--lateral) * -1); padding-inline: var(--lateral);
     min-height: min(56.25vw, 900px); display: flex; align-items: center;
@@ -277,7 +275,6 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
   .hero-logo { width: 340px; margin-inline: 0 auto; }
   .hero h1 { font-size: clamp(2.75rem, 3.6vw, 3.5rem); }
   .hero .cta { margin-top: 0; justify-content: flex-start; }
-  .hero-video { margin-top: 24px; }
 }
 
 /* Blocos de duas colunas */
@@ -556,14 +553,6 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       </div>
     </div>
   </div>
-  </div>
-  <div class="conteudo">
-    <div class="hero-video">
-      <div class="slot">
-        <video controls playsinline preload="metadata" poster="assets/05-video-capa.jpg" aria-label="Vídeo-convite de Letícia e Melina"><source src="assets/05-video-convite.mp4" type="video/mp4"></video>
-        <span class="rotulo"><b>ASSET 05</b>Vídeo-convite e capa<small>MP4 + capa JPG · 1280 × 720</small></span>
-      </div>
-    </div>
   </div>
 </section>
 
