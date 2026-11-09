@@ -249,14 +249,18 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 @media (max-width: 359px) { .dados { column-gap: 8px; } .dados div { gap: 6px; font-size: 13.5px; } .dados dt, .dados dt svg { flex-basis: 22px; width: 22px; height: 22px; } }
 .hero .cta { margin-top: -8px; }
 .hero .btn { width: 100%; }
-/* Mobile e tablet: foto no topo, logo apoiada na base da foto, sem tocar nos rostos */
+/* Mobile e tablet: foto no topo, só a tag na base da foto, headline logo em seguida */
+.hero-tag { display: none; }
 @media (max-width: 1279px) {
   .hero { padding-top: 0; }
   .hero-foto img {
-    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 8%, #000 52%, transparent 96%);
-    mask-image: linear-gradient(180deg, transparent 0, #000 8%, #000 52%, transparent 96%);
+    aspect-ratio: 1052 / 880; object-position: 100% 0;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 8%, #000 58%, transparent 96%);
+    mask-image: linear-gradient(180deg, transparent 0, #000 8%, #000 58%, transparent 96%);
   }
-  .hero-logo { position: relative; z-index: 1; width: min(78%, 360px); margin-top: calc(-28px - min(26vw, 150px)); }
+  .hero-logo { display: none; }
+  .hero-foto { margin-bottom: calc(-28px - min(13vw, 72px)); }
+  .hero-tag { display: block; position: relative; z-index: 1; width: min(84vw, 420px); height: auto; margin: 0 auto -12px; }
 }
 .contagem-titulo { font-weight: 600; color: var(--ouro-300); }
 .contagem-itens {
@@ -545,6 +549,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         <img src="assets/02-hero-leticia-melina.webp" alt="Letícia Garcia e Melina Dani" width="1672" height="941" fetchpriority="high">
       </div>
       <img class="hero-logo" src="assets/logo-sem-fundo.svg" alt="Mulher Próspera: imersão presencial, 3 dias" width="1692" height="640">
+      <img class="hero-tag" src="assets/tag-imersao.svg" alt="Imersão presencial, 3 dias" width="1414" height="106">
       <div class="hero-texto pilha">
         <h1>Desapareça por 3 dias e volte uma <span class="destaque-ouro">mulher próspera.</span></h1>
         <p class="corpo-g hero-sub">Uma imersão presencial na região de Florianópolis para você parar de só dar conta de tudo e começar a prosperar em todas as áreas da sua vida.</p>
