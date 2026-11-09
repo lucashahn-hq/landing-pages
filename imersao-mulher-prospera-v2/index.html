@@ -249,6 +249,15 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 @media (max-width: 359px) { .dados { column-gap: 8px; } .dados div { gap: 6px; font-size: 13.5px; } .dados dt, .dados dt svg { flex-basis: 22px; width: 22px; height: 22px; } }
 .hero .cta { margin-top: -8px; }
 .hero .btn { width: 100%; }
+/* Mobile e tablet: foto no topo, logo apoiada na base da foto, sem tocar nos rostos */
+@media (max-width: 1279px) {
+  .hero { padding-top: 0; }
+  .hero-foto img {
+    -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 8%, #000 52%, transparent 96%);
+    mask-image: linear-gradient(180deg, transparent 0, #000 8%, #000 52%, transparent 96%);
+  }
+  .hero-logo { position: relative; z-index: 1; width: min(78%, 360px); margin-top: calc(-28px - min(26vw, 150px)); }
+}
 .contagem-titulo { font-weight: 600; color: var(--ouro-300); }
 .contagem-itens {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 12px; padding: 16px 8px;
@@ -273,7 +282,7 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
   }
   .hero-foto img { width: 100%; height: 100%; aspect-ratio: auto; max-height: none; object-position: 100% 0; -webkit-mask-image: none; mask-image: none; }
   .hero-grade { max-width: min(34vw, 470px); padding-block: 56px; gap: 22px; }
-  .hero-texto, .hero .cta, .hero-info { position: relative; z-index: 1; }
+  .hero-logo, .hero-texto, .hero .cta, .hero-info { position: relative; z-index: 1; }
   .hero-logo { width: 340px; margin-inline: 0 auto; }
   .hero h1 { font-size: clamp(2.75rem, 3.6vw, 3.5rem); }
   .hero .cta { margin-top: 0; justify-content: flex-start; }
@@ -532,13 +541,13 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
   <div class="hero-capa">
   <div class="conteudo">
     <div class="hero-grade">
-      <div class="hero-texto pilha">
-        <img class="hero-logo" src="assets/logo-sem-fundo.svg" alt="Mulher Próspera: imersão presencial, 3 dias" width="1692" height="640">
-        <h1>Desapareça por 3 dias e volte uma <span class="destaque-ouro">mulher próspera.</span></h1>
-        <p class="corpo-g hero-sub">Uma imersão presencial na região de Florianópolis para você parar de só dar conta de tudo e começar a prosperar em todas as áreas da sua vida.</p>
-      </div>
       <div class="hero-foto">
         <img src="assets/02-hero-leticia-melina.webp" alt="Letícia Garcia e Melina Dani" width="1672" height="941" fetchpriority="high">
+      </div>
+      <img class="hero-logo" src="assets/logo-sem-fundo.svg" alt="Mulher Próspera: imersão presencial, 3 dias" width="1692" height="640">
+      <div class="hero-texto pilha">
+        <h1>Desapareça por 3 dias e volte uma <span class="destaque-ouro">mulher próspera.</span></h1>
+        <p class="corpo-g hero-sub">Uma imersão presencial na região de Florianópolis para você parar de só dar conta de tudo e começar a prosperar em todas as áreas da sua vida.</p>
       </div>
       <div class="cta"><button class="btn" data-checkout>QUERO MINHA VAGA POR R$ 97</button></div>
       <div class="hero-info pilha">
@@ -800,7 +809,6 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         <p>Melina é terapeuta, mentora de profissionais da saúde, palestrante, criadora do método Four Feel, mentora de alta performance e treinadora de alto impacto.</p>
         <p style="margin-top:16px">Formou centenas de terapeutas e profissionais da saúde no Brasil e na Europa, ajudando-os a estruturarem seus negócios, se posicionarem com autoridade e viverem com mais prosperidade.</p>
         <p style="margin-top:16px">Com mais de duas décadas de atuação na área da saúde, seu trabalho integra estratégia, comportamento e expansão de consciência, conduzindo pessoas a destravarem padrões emocionais e assumirem uma vida com mais clareza, resultado e propósito.</p>
-        <p style="margin-top:16px"><span class="pendente">[HISTÓRIA PESSOAL DA MELINA A INSERIR, SE ELA AUTORIZAR]</span></p>
       </article>
     </div>
   </div>
