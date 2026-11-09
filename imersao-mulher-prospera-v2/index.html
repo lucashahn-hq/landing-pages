@@ -398,16 +398,18 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 .videos .slot { --ar: 9 / 16; }
 .deps { display: grid; gap: 16px; margin-top: 40px; }
 .dep { background: var(--marfim); border-radius: var(--raio-cartao); padding: 24px; }
-.prints { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 40px; }
-.prints .slot { --ar: 4 / 5; }
+/* Prints de comentários: mesmas faixas da galeria, com largura fixa (os prints são largos e baixos) e mais devagar para dar tempo de ler */
+.faixas--prints { margin-top: 40px; }
+.faixas--prints .faixa-trilho { align-items: center; animation-duration: 110s; }
+.faixas--prints .faixa img { height: auto; width: min(84vw, 360px); border-radius: 14px; background: #1f2023; }
+.faixas--prints:active .faixa-trilho { animation-play-state: paused; }
+@media (min-width: 900px) { .faixas--prints .faixa img { width: 440px; } }
 .palcos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
 .palcos .slot { --ar: 16 / 9; }
 .numeros { margin-top: 40px; }
 @media (min-width: 900px) {
   .videos { grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .deps { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .prints { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .prints .slot { --ar: 4 / 3; }
   .palcos { gap: 16px; margin-top: 16px; }
 }
 
@@ -905,10 +907,19 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       <article class="dep"><span class="pendente pendente--bloco">[DEPOIMENTO 1 A INSERIR: nome e negócio, situação antes, resultado concreto e o que mais surpreendeu]</span></article>
       <article class="dep"><span class="pendente pendente--bloco">[DEPOIMENTO 2 A INSERIR: de outro tipo de negócio, com um resultado diferente]</span></article>
     </div>
-    <div class="prints surge">
-      <div class="slot"><img src="assets/24-depoimento-print-01.webp" alt="Print de depoimento 1" loading="lazy"><span class="rotulo"><b>ASSET 24 · 1</b>Print ou foto de depoimento<small>WebP · 800 de largura</small></span></div>
-      <div class="slot"><img src="assets/24-depoimento-print-02.webp" alt="Print de depoimento 2" loading="lazy"><span class="rotulo"><b>ASSET 24 · 2</b>Print ou foto de depoimento<small>WebP · 800 de largura</small></span></div>
-      <div class="slot"><img src="assets/24-depoimento-print-03.webp" alt="Print de depoimento 3" loading="lazy"><span class="rotulo"><b>ASSET 24 · 3</b>Print ou foto de depoimento<small>WebP · 800 de largura</small></span></div>
+    <div class="faixas faixas--prints surge" aria-label="Comentários de participantes da última imersão">
+      <div class="faixa faixa--esquerda">
+        <div class="faixa-trilho">
+          <img src="assets/24-depoimento-print-01.webp" alt="Comentário de danieledecampos: Imersão foi maravilhosa, muitas viradas de chave e muitas coisas que preciso mudar e sei que sou capaz de realizar estas mudanças." width="924" height="184" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-05.webp" alt="Comentário de caarol.ortega: Sem palavras, foi a mistura de emoções! Estou em Flow até agora." width="936" height="118" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-07.webp" alt="Comentário de neivamattos2021: A imersão pra mim foi o que eu estava precisando viver há muito tempo. Foi o meu melhor final de semana." width="938" height="240" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-06.webp" alt="Comentário de soulilianmassoterapeuta: O lugar certo com as pessoas certas!" width="928" height="112" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-10.webp" alt="Comentário de pinheiromonise: Foi um fim de semana incrível. Conhecer a Melina e participar desse movimento foi surreal. Muitas transformações." width="928" height="190" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-09.webp" alt="Comentário de simonenass_oficial: Não existem palavras para descrever esse final de semana e quão impactante foi." width="932" height="116" loading="lazy" decoding="async">
+          <span class="faixa-copia" aria-hidden="true"><img src="assets/24-depoimento-print-01.webp" alt="" width="924" height="184" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-05.webp" alt="" width="936" height="118" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-07.webp" alt="" width="938" height="240" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-06.webp" alt="" width="928" height="112" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-10.webp" alt="" width="928" height="190" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-09.webp" alt="" width="932" height="116" loading="lazy" decoding="async"></span>
+        </div>
+      </div>
+      <div class="faixa faixa--direita">
+        <div class="faixa-trilho">
+          <img src="assets/24-depoimento-print-02.webp" alt="Comentário de rubianiasouza: A imersão foi profunda e transformadora. Aprendi que eu sou quem sou, e que reconhecer minha essência muda a forma como vejo minha vida e minha caminhada." width="928" height="186" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-11.webp" alt="Comentário de jacquelinesaraiva08: Final de semana incrível de grandes aprendizados!" width="920" height="120" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-03.webp" alt="Comentário de pinottialessandra: Pra mim foi uma imersão de conexões, as dinâmicas foram fundamentais pra sentir e agrupar tudo. Sigo com muitos insights e muita gratidão." width="928" height="180" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-08.webp" alt="Comentário de paulinhapassospinheiro: Foi renovador e intenso!" width="940" height="140" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-04.webp" alt="Comentário de cinthianagyterapeuta: A Imersão foi incrível, gratidão por tantos ensinamentos." width="926" height="182" loading="lazy" decoding="async">
+          <span class="faixa-copia" aria-hidden="true"><img src="assets/24-depoimento-print-02.webp" alt="" width="928" height="186" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-11.webp" alt="" width="920" height="120" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-03.webp" alt="" width="928" height="180" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-08.webp" alt="" width="940" height="140" loading="lazy" decoding="async"><img src="assets/24-depoimento-print-04.webp" alt="" width="926" height="182" loading="lazy" decoding="async"></span>
+        </div>
+      </div>
     </div>
     <div class="palcos surge">
       <div class="slot"><img src="assets/25-palco-01.webp" alt="Letícia ou Melina em um grande palco" loading="lazy"><span class="rotulo"><b>ASSET 25 · 1</b>Referências ou grandes palcos<small>WebP · 800 × 450</small></span></div>
