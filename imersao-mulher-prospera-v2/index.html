@@ -372,6 +372,7 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 @keyframes faixa-rolar { to { transform: translateX(calc(-50% - 6px)); } }
 @media (min-width: 900px) { .faixas { margin-inline: 0; gap: 16px; } .faixa-trilho { gap: 16px; } .faixa img { height: 260px; } @keyframes faixa-rolar { to { transform: translateX(calc(-50% - 8px)); } } }
 /* Faixa feliz no fim da hero */
+.hero-contagem { max-width: 480px; margin: 32px auto 0; text-align: center; }
 .faixas--hero { margin: 40px calc(var(--lateral) * -1) 0; }
 .faixas--hero .faixa img { height: 140px; }
 .faixas--hero .faixa-trilho { animation-duration: 70s; }
@@ -588,15 +589,6 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
           <div><dt><svg aria-hidden="true"><use href="#i-calendario"/></svg><span class="sr">Quando</span></dt><dd><span class="nb">11, 12 e 13</span> <span class="nb">de dezembro</span></dd></div>
           <div><dt><svg aria-hidden="true"><use href="#i-local"/></svg><span class="sr">Onde</span></dt><dd><span class="nb">AEMFLO / CDL-SJ,</span> <span class="nb">São José (SC)</span></dd></div>
         </dl>
-        <div class="contagem" id="contagem" hidden>
-          <p class="contagem-titulo">O evento acontecerá em…</p>
-          <div class="contagem-itens" role="timer" aria-label="Tempo até o início do evento">
-            <div><span id="cDias">00</span><small>Dias</small></div>
-            <div><span id="cHoras">00</span><small>Horas</small></div>
-            <div><span id="cMin">00</span><small>Minutos</small></div>
-            <div><span id="cSeg">00</span><small>Segundos</small></div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -622,6 +614,17 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         <img src="assets/galeria/evento-34.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
         <img src="assets/galeria/evento-14.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
         <span class="faixa-copia" aria-hidden="true"><img src="assets/galeria/evento-06.webp" alt="" width="508" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-04.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-03.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-28.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-07.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-32.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-01.webp" alt="" width="585" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-16.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-09.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-05.webp" alt="" width="1110" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-02.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-29.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-08.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-33.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-27.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-34.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-14.webp" alt="" width="900" height="600" loading="lazy" decoding="async"></span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-contagem">
+    <div class="contagem" id="contagem" hidden>
+      <p class="contagem-titulo">O evento acontecerá em…</p>
+      <div class="contagem-itens" role="timer" aria-label="Tempo até o início do evento">
+        <div><span id="cDias">00</span><small>Dias</small></div>
+        <div><span id="cHoras">00</span><small>Horas</small></div>
+        <div><span id="cMin">00</span><small>Minutos</small></div>
+        <div><span id="cSeg">00</span><small>Segundos</small></div>
       </div>
     </div>
   </div>
