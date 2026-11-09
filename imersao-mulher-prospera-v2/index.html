@@ -461,6 +461,9 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 .rodape { padding: 56px var(--lateral); background: var(--bordo-900); color: var(--muted-claro); --cor-apoio: var(--muted-claro); text-align: center; }
 .rodape img { width: 120px; height: auto; margin: 0 auto 24px; }
 .rodape p + p { margin-top: 8px; }
+.rodape-links { margin-top: 24px; display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 10px; font-size: 13px; }
+.rodape-links a { color: var(--muted-claro); text-decoration: none; }
+.rodape-links a:hover, .rodape-links a:focus-visible { color: var(--creme); text-decoration: underline; }
 
 /* Pop-up */
 dialog.popup {
@@ -640,7 +643,6 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
   <div class="conteudo">
     <div class="surge">
       <h2>Cronograma</h2>
-      <p style="margin-top:16px"><span class="pendente">[RASCUNHO: VALIDAR A DIVISÃO DOS DIAS E AS ENTREGAS COM LETÍCIA E MELINA]</span></p>
     </div>
     <div class="dias">
 
@@ -652,13 +654,13 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         <div class="dia-texto">
           <div><span class="pilula">Dia 1</span></div>
           <p class="selo-txt">Identidade</p>
-          <h3>Quem é você quando ninguém está te pedindo nada?</h3>
+          <h3>Quem é você de verdade?</h3>
           <p class="dia-promessa">Volte a saber quem você é, do que gosta e do que não gosta, da superfície até os pontos mais profundos.</p>
           <p class="dia-vai">Você vai:</p>
           <ul class="lista-vai">
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Separar o que você quer do que esperam de você.</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Identificar em que momento você deixou de se ouvir.</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Nomear do que gosta, do que não gosta e o que não quer mais aceitar.</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Separar o que você quer do que esperam de você</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Identificar em que momento você deixou de se ouvir</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Nomear do que gosta, do que não gosta e o que não quer mais aceitar</li>
             <li><svg aria-hidden="true"><use href="#i-check"/></svg>Responder, sem pensar nos outros primeiro: o que eu quero?</li>
           </ul>
         </div>
@@ -667,7 +669,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
             <img src="assets/12-mockup-mapa-identidade.png" alt="Mapa de Identidade" loading="lazy">
             <span class="rotulo"><b>12</b><small>Mockup</small></span>
           </div>
-          <p>Você sai com: <strong>o seu Mapa de Identidade.</strong></p>
+          <p>Você sai com o seu <strong> Mapa de Identidade</strong></p>
         </div>
       </article>
 
@@ -678,15 +680,15 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         </div></div>
         <div class="dia-texto">
           <div><span class="pilula">Dia 2</span></div>
-          <p class="selo-txt">Mentalidade e posicionamento</p>
+          <p class="selo-txt">Mentalidade</p>
           <h3>O que impede você de viver a vida que quer?</h3>
           <p class="dia-promessa">Encontre as crenças que estão decidindo por você e mude a forma como você se coloca nas suas relações.</p>
           <p class="dia-vai">Você vai:</p>
           <ul class="lista-vai">
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Identificar as crenças que te prendem, como a de que precisa escolher entre o sucesso e a família.</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Entender de onde vem a culpa de querer mais.</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Olhar para a sua relação com dinheiro e merecimento.</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Rever como você se posiciona no casamento, nas amizades e no negócio.</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Identificar as crenças que te prendem</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Olhar para a sua relação com dinheiro e merecimento</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Romper padrões antigos</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Definir um novo posicionamento no seu casamento, nas amizades e nos negócios</li>
           </ul>
         </div>
         <div class="dia-sai">
@@ -694,7 +696,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
             <img src="assets/13-mockup-mapa-crencas.png" alt="Mapa de Crenças" loading="lazy">
             <span class="rotulo"><b>13</b><small>Mockup</small></span>
           </div>
-          <p>Você sai com: <strong>o seu Mapa de Crenças e o que vai mudar nas suas relações.</strong></p>
+          <p>Você sai com o seu <strong>Mapa de Crenças</strong></p>
         </div>
       </article>
 
@@ -710,10 +712,10 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
           <p class="dia-promessa">Transforme tudo o que descobriu em decisões para a sua família, o seu negócio, o seu dinheiro e a sua vida.</p>
           <p class="dia-vai">Você vai:</p>
           <ul class="lista-vai">
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Avaliar como está cada área da sua vida e onde quer chegar.</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Falar abertamente de dinheiro e do que ele significa no seu plano.</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Definir, com a Letícia, como quer ser vista no mercado e o que a sua imagem precisa comunicar.</li>
-            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Colocar tudo em um plano com próximos passos claros.</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Avaliar como está cada área da sua vida e onde quer chegar</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Falar abertamente de dinheiro e do que ele significa no seu plano</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Definir, com a Letícia, como quer ser vista no mercado e o que a sua imagem precisa comunicar</li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg>Colocar tudo em um plano com próximos passos claros</li>
           </ul>
         </div>
         <div class="dia-sai">
@@ -721,7 +723,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
             <img src="assets/14-mockup-plano-mulher-prospera.png" alt="Plano Mulher Próspera" loading="lazy">
             <span class="rotulo"><b>14</b><small>Mockup</small></span>
           </div>
-          <p>Você sai com: <strong>o seu Plano Mulher Próspera.</strong></p>
+          <p>Você sai com o seu <strong>Plano Mulher Próspera</strong></p>
         </div>
       </article>
 
@@ -738,8 +740,8 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       <span class="rotulo"><b>ASSET 15</b>Mesa “segunda-feira depois”<small>WebP · 1600 × 1000</small></span>
     </div>
     <div class="pilha">
-      <h2>Imagine a segunda-feira depois da imersão.</h2>
-      <p>Os compromissos são os mesmos, mas você olha para a sua agenda sabendo o que é seu e o que nunca foi. Você volta para casa mais presente. Chega ao seu negócio com mais clareza sobre o lugar que quer ocupar. Conversa com quem ama sem aquela sensação de estar devendo.</p>
+      <h2>Imagine a segunda-feira depois da imersão..</h2>
+      <p>Os compromissos são os mesmos, mas você olha para a sua agenda sabendo o que é seu e o que nunca foi. Você volta para casa mais presente. Chega ao seu negócio com mais clareza sobre o lugar que quer ocupar. Conversa com quem ama sem aquela sensação de culpa.</p>
       <p class="corpo-g"><strong>E, quando alguém perguntar o que você quer, você vai saber responder.</strong></p>
     </div>
   </div>
@@ -767,8 +769,8 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       </article>
       <article class="beneficio surge">
         <svg aria-hidden="true"><use href="#i-grupo"/></svg>
-        <h3>100 mulheres na mesma jornada</h3>
-        <p>Empresárias que também querem mais do que dar conta. É difícil falar disso com quem acha que a sua vida já está ótima.</p>
+        <h3>Outras mulheres na mesma jornada</h3>
+        <p>Empreendedoras que também querem mais do que dar conta. É difícil falar disso com quem acha que a sua vida já está ótima.</p>
       </article>
     </div>
     <div class="galeria surge">
@@ -779,7 +781,6 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       <div class="slot"><img src="assets/17-galeria-05.webp" alt="Imagem ilustrativa criada por IA do auditório da imersão" loading="lazy"><span class="rotulo"><b>ASSET 17 · 5</b>Galeria de eventos<small>WebP · 1200 × 900</small></span></div>
       <div class="slot"><img src="assets/17-galeria-06.webp" alt="Imagem ilustrativa criada por IA do auditório da imersão" loading="lazy"><span class="rotulo"><b>ASSET 17 · 6</b>Galeria de eventos<small>WebP · 1200 × 900</small></span></div>
     </div>
-    <p class="galeria-legenda">Imagens ilustrativas, criadas por IA, de como será a imersão no auditório.</p>
   </div>
 </section>
 
@@ -865,9 +866,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
           <p class="objecao-q">“Já fui em evento de mulheres. Saí animada e, uma semana depois, tudo voltou ao normal.”</p>
           <div class="objecao-r">
             <p>Se você sentiu isso, é justo desconfiar. A animação passa rápido quando a pessoa ouve uma mensagem bonita e volta para a mesma vida. Aqui o trabalho é prático e segue uma ordem: quem você é, o que te trava e como construir a partir disso. E você vai embora com o seu Plano Mulher Próspera nas mãos, então o que muda não depende da empolgação.</p>
-            <p><span class="pendente">[DEPOIMENTO SOBRE ESTA OBJEÇÃO A INSERIR]</span></p>
           </div>
-          <div class="slot objecao-foto"><img src="assets/26-dinamica.webp" alt="Mãos de uma mulher escrevendo em um caderno de capa vinho" loading="lazy"><span class="rotulo"><b>ASSET 26</b>Foto de dinâmica em andamento<small>WebP · 1200 × 800</small></span></div>
         </article>
         <article class="surge">
           <p class="objecao-q">“R$ 97 por 3 dias? Qual é a pegadinha?”</p>
@@ -889,7 +888,6 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       <p class="selo-txts" style="text-align:center"><span>Garantia até o final do 2º dia</span><span>100% do ingresso de volta</span></p>
     </div>
     <div class="pilha">
-      <p class="selo-txt">Garantia</p>
       <h2>Queremos que a sua única dúvida seja se vai estar lá.</h2>
       <p>Participe dos dois primeiros dias. Se, até o final do segundo dia, você acreditar que não valeu a pena, é só pedir seu dinheiro de volta e devolvemos 100% do valor do seu ingresso.</p>
       <p>Isso significa que você vive dois dias inteiros da imersão antes de decidir se o ingresso valeu.</p>
@@ -921,9 +919,6 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         <p class="preco">R$ 497</p>
       </article>
     </div>
-    <div class="leitura invest-final surge">
-      <p>Hoje, você garante sua vaga por R$ 97. São 3 dias inteiros com Letícia Garcia e Melina Dani, com dinâmicas práticas e a garantia até o final do segundo dia. Clique no botão, informe seu nome e seu telefone, finalize no Pix ou no cartão e você recebe a confirmação da sua inscrição. <span class="pendente">[CONFIRMAR COMO A CONFIRMAÇÃO É ENVIADA]</span></p>
-      <div class="cta"><button class="btn" data-checkout>QUERO MINHA VAGA POR R$ 97</button></div>
     </div>
   </div>
 </section>
@@ -989,6 +984,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
   <img src="assets/emblema.svg" alt="Emblema da Imersão Mulher Próspera" width="120" height="86" loading="lazy">
   <p class="apoio">AEMFLO / CDL-SJ, R. Vidal Procópio Lohn, nº 91, Distrito Industrial, São José (SC)</p>
   <p class="apoio" style="margin-top:12px"><span class="pendente">[INFORMAÇÕES LEGAIS A CONFIRMAR]</span></p>
+  <nav class="rodape-links" aria-label="Informações legais"><a href="termos-de-uso.html">Termos de Uso</a><span aria-hidden="true">·</span><a href="politica-de-privacidade.html">Política de Privacidade</a></nav>
 </footer>
 
 <!-- POP-UP ANTES DO CHECKOUT -->
