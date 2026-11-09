@@ -355,6 +355,24 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 @media (min-width: 700px) { .beneficios { grid-template-columns: 1fr 1fr; gap: 20px; } }
 @media (min-width: 900px) { .galeria { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
 
+/* Faixas de fotos que deslizam (cada faixa para um lado) */
+.faixas { display: grid; gap: 12px; margin: 48px calc(var(--lateral) * -1) 0; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%); }
+.faixa { overflow: hidden; }
+.faixa-trilho { display: flex; gap: 12px; width: max-content; animation: faixa-rolar 90s linear infinite; }
+.faixa--direita .faixa-trilho { animation-direction: reverse; }
+.faixa-copia { display: contents; }
+.faixa img { height: 180px; width: auto; border-radius: 12px; object-fit: cover; background: var(--cor-slot); }
+.faixas:hover .faixa-trilho { animation-play-state: paused; }
+@keyframes faixa-rolar { to { transform: translateX(calc(-50% - 6px)); } }
+@media (min-width: 900px) { .faixas { margin-inline: 0; gap: 16px; } .faixa-trilho { gap: 16px; } .faixa img { height: 260px; } @keyframes faixa-rolar { to { transform: translateX(calc(-50% - 8px)); } } }
+@media (prefers-reduced-motion: reduce) {
+  .faixa { overflow-x: auto; }
+  .faixa-trilho { animation: none; }
+  .faixa-copia { display: none; }
+}
+
 /* Quem conduz */
 .condutoras { display: grid; gap: 56px; margin-top: 48px; }
 .condutora-foto { --ar: 4 / 5; margin-bottom: 28px; }
@@ -787,34 +805,51 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         <p>Empreendedoras que também querem mais do que dar conta. É difícil falar disso com quem acha que a sua vida já está ótima.</p>
       </article>
     </div>
-    <div class="galeria surge">
-      <div class="slot"><img src="assets/17-galeria-01.webp" alt="Imagem ilustrativa criada por IA do auditório da imersão" loading="lazy"><span class="rotulo"><b>ASSET 17 · 1</b>Galeria de eventos<small>WebP · 1200 × 900</small></span></div>
-      <div class="slot"><img src="assets/17-galeria-02.webp" alt="Imagem ilustrativa criada por IA do auditório da imersão" loading="lazy"><span class="rotulo"><b>ASSET 17 · 2</b>Galeria de eventos<small>WebP · 1200 × 900</small></span></div>
-      <div class="slot"><img src="assets/17-galeria-03.webp" alt="Imagem ilustrativa criada por IA do auditório da imersão" loading="lazy"><span class="rotulo"><b>ASSET 17 · 3</b>Galeria de eventos<small>WebP · 1200 × 900</small></span></div>
-      <div class="slot"><img src="assets/17-galeria-04.webp" alt="Imagem ilustrativa criada por IA do auditório da imersão" loading="lazy"><span class="rotulo"><b>ASSET 17 · 4</b>Galeria de eventos<small>WebP · 1200 × 900</small></span></div>
-      <div class="slot"><img src="assets/17-galeria-05.webp" alt="Imagem ilustrativa criada por IA do auditório da imersão" loading="lazy"><span class="rotulo"><b>ASSET 17 · 5</b>Galeria de eventos<small>WebP · 1200 × 900</small></span></div>
-      <div class="slot"><img src="assets/17-galeria-06.webp" alt="Imagem ilustrativa criada por IA do auditório da imersão" loading="lazy"><span class="rotulo"><b>ASSET 17 · 6</b>Galeria de eventos<small>WebP · 1200 × 900</small></span></div>
-    </div>
-  </div>
-</section>
-
-<!-- QUEM VAI CONDUZIR -->
-<section class="secao marfim">
-  <div class="conteudo">
-    <h2 class="surge">Quem vai conduzir</h2>
-    <div class="condutoras">
-      <article class="condutora surge">
-        <div class="slot condutora-foto"><img src="assets/18-retrato-leticia-real.webp" alt="Retrato de Letícia Garcia" loading="lazy"><span class="rotulo"><b>ASSET 18</b>Retrato da Letícia<small>WebP · 1000 × 1250</small></span></div>
-        <h3>Letícia Garcia</h3>
-        <p>Letícia é consultora estrategista de imagem, palestrante e professora de consultoras de imagem. Cresceu em uma vila, começou como atendente de call center e ouviu que era nova demais para querer mais. Durante um tempo, acreditou: deixou de dar sua opinião nas reuniões e calou a própria voz. Quando alinhou a própria imagem ao que já sabia fazer, foi promovida à gestão, saiu do emprego para empreender e, nos primeiros 32 dias, faturou 7 vezes mais do que ganhava. Hoje ela tem uma missão: ajudar outras mulheres a se tornarem verdadeiras potências.</p>
-      </article>
-      <article class="condutora surge">
-        <div class="slot condutora-foto"><img src="assets/19-retrato-melina-real.webp" alt="Retrato de Melina Dani" loading="lazy"><span class="rotulo"><b>ASSET 19</b>Retrato da Melina<small>WebP · 1000 × 1250</small></span></div>
-        <h3>Melina Dani</h3>
-        <p>Melina é terapeuta, mentora de profissionais da saúde, palestrante, criadora do método Four Feel, mentora de alta performance e treinadora de alto impacto.</p>
-        <p style="margin-top:16px">Formou centenas de terapeutas e profissionais da saúde no Brasil e na Europa, ajudando-os a estruturarem seus negócios, se posicionarem com autoridade e viverem com mais prosperidade.</p>
-        <p style="margin-top:16px">Com mais de duas décadas de atuação na área da saúde, seu trabalho integra estratégia, comportamento e expansão de consciência, conduzindo pessoas a destravarem padrões emocionais e assumirem uma vida com mais clareza, resultado e propósito.</p>
-      </article>
+    <div class="faixas surge" aria-label="Fotos de eventos anteriores">
+      <div class="faixa faixa--esquerda">
+        <div class="faixa-trilho">
+          <img src="assets/galeria/evento-06.webp" alt="Participantes felizes em um evento anterior" width="508" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-22.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-04.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-13.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-03.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-24.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-28.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-18.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-07.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-20.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-32.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-31.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-01.webp" alt="Participantes felizes em um evento anterior" width="585" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-11.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-16.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-26.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-09.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-10.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <span class="faixa-copia" aria-hidden="true"><img src="assets/galeria/evento-06.webp" alt="" width="508" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-22.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-04.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-13.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-03.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-24.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-28.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-18.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-07.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-20.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-32.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-31.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-01.webp" alt="" width="585" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-11.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-16.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-26.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-09.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-10.webp" alt="" width="400" height="600" loading="lazy" decoding="async"></span>
+        </div>
+      </div>
+      <div class="faixa faixa--direita">
+        <div class="faixa-trilho">
+          <img src="assets/galeria/evento-19.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-05.webp" alt="Participantes felizes em um evento anterior" width="1110" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-15.webp" alt="Participante emocionada em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-02.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-23.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-29.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-12.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-08.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-25.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-33.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-17.webp" alt="Participante emocionada em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-27.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-21.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-34.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-30.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-14.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <span class="faixa-copia" aria-hidden="true"><img src="assets/galeria/evento-19.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-05.webp" alt="" width="1110" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-15.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-02.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-23.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-29.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-12.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-08.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-25.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-33.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-17.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-27.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-21.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-34.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-30.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-14.webp" alt="" width="900" height="600" loading="lazy" decoding="async"></span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1119,6 +1154,15 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
 
   /* Entrada dos elementos, uma única vez */
   (function () {
+    /* Galeria: quando chega perto da tela, carrega todas as fotos das faixas de uma vez (o lazy nativo não acompanha o movimento) */
+    var faixas = document.querySelector('.faixas');
+    if (faixas) {
+      var carregarFaixas = function () { faixas.querySelectorAll('img[loading="lazy"]').forEach(function (i) { i.loading = 'eager'; }); };
+      if ('IntersectionObserver' in window) {
+        var ioF = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { carregarFaixas(); ioF.disconnect(); } }, { rootMargin: '800px 0px' });
+        ioF.observe(faixas);
+      } else { carregarFaixas(); }
+    }
     var itens = document.querySelectorAll('.surge');
     if (!('IntersectionObserver' in window)) {
       itens.forEach(function (el) { el.classList.add('visto'); });
