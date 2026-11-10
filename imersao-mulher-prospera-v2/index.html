@@ -406,7 +406,14 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 .video .play svg { margin-left: 3px; }
 .video button:hover .play { transform: scale(1.08); }
 .video iframe { display: block; width: 100%; height: 100%; border: 0; }
-.videos-dica { margin: 12px var(--lateral) 0; text-align: center; font-size: 14px; color: var(--muted-escuro); }
+/* Destaque do vídeo que está tocando: maior e com contorno dourado; as outras capas ficam em preto e branco */
+.videos-trilho { padding-block: 18px 36px; }
+.video { transition: transform 300ms ease-out, box-shadow 300ms ease-out; }
+.video img { transition: filter 300ms ease-out; }
+.video.tocando { transform: scale(1.06); box-shadow: 0 0 0 3px var(--ouro-400), 0 16px 36px rgb(43 1 7 / .28); z-index: 1; }
+.tem-tocando .video:not(.tocando) img { filter: grayscale(1); }
+.tem-tocando .video:not(.tocando) button:hover img { filter: none; }
+.videos-dica { margin: -8px var(--lateral) 0; text-align: center; font-size: 14px; color: var(--muted-escuro); }
 .videos-setas { display: none; }
 .deps { display: grid; gap: 16px; margin-top: 40px; }
 .dep { background: var(--marfim); border-radius: var(--raio-cartao); padding: 24px; }
@@ -420,11 +427,11 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 .palcos .slot { --ar: 16 / 9; }
 .numeros { margin-top: 40px; }
 @media (min-width: 900px) {
-  .videos { margin-inline: 0; }
-  .videos-trilho { gap: 16px; padding-inline: 0; scroll-padding-inline: 0; }
+  .videos { margin-inline: -12px; }
+  .videos-trilho { gap: 16px; padding-inline: 12px; scroll-padding-inline: 12px; }
   .video { flex-basis: calc((100% - 48px) / 4); max-width: none; }
   .videos-dica { display: none; }
-  .videos-setas { display: flex; justify-content: center; gap: 12px; margin-top: 24px; }
+  .videos-setas { display: flex; justify-content: center; gap: 12px; margin-top: 4px; }
   .videos-setas button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--vinho); background: transparent; color: var(--vinho); display: grid; place-items: center; cursor: pointer; transition: background 200ms, color 200ms; }
   .videos-setas button:hover:not(:disabled) { background: var(--vinho); color: var(--creme); }
   .videos-setas button:disabled { opacity: .3; cursor: default; }
@@ -1237,6 +1244,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       var v = b.parentNode;
       v.dataset.capa = v.innerHTML;
       v.classList.add('tocando');
+      trilho.classList.add('tem-tocando');
       var f = document.createElement('iframe');
       f.src = 'https://player.vimeo.com/video/' + b.dataset.vimeo + '?autoplay=1&badge=0&autopause=0&title=0&byline=0&portrait=0&dnt=1';
       f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
