@@ -420,17 +420,12 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 .tem-tocando .video:not(.tocando) button:hover img { filter: none; }
 .videos-dica { margin: -8px var(--lateral) 0; text-align: center; font-size: 14px; color: var(--muted-escuro); }
 .videos-setas { display: none; }
-.deps { display: grid; gap: 16px; margin-top: 40px; }
-.dep { background: var(--marfim); border-radius: var(--raio-cartao); padding: 24px; }
 /* Prints de comentários: mesmas faixas da galeria, com largura fixa (os prints são largos e baixos) e mais devagar para dar tempo de ler */
 .faixas--prints { margin-top: 40px; }
 .faixas--prints .faixa-trilho { align-items: center; animation-duration: 110s; }
 .faixas--prints .faixa img { height: auto; width: min(84vw, 360px); border-radius: 14px; background: #1f2023; }
 .faixas--prints:active .faixa-trilho { animation-play-state: paused; }
 @media (min-width: 900px) { .faixas--prints .faixa img { width: 440px; } }
-.palcos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
-.palcos .slot { --ar: 16 / 9; }
-.numeros { margin-top: 40px; }
 @media (min-width: 900px) {
   .videos { margin-inline: -12px; }
   .videos-trilho { gap: 16px; padding-inline: 12px; scroll-padding-inline: 12px; }
@@ -440,8 +435,6 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
   .videos-setas button { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--vinho); background: transparent; color: var(--vinho); display: grid; place-items: center; cursor: pointer; transition: background 200ms, color 200ms; }
   .videos-setas button:hover:not(:disabled) { background: var(--vinho); color: var(--creme); }
   .videos-setas button:disabled { opacity: .3; cursor: default; }
-  .deps { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .palcos { gap: 16px; margin-top: 16px; }
 }
 
 /* Para quem é */
