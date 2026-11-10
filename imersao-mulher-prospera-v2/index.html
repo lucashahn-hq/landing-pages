@@ -394,30 +394,21 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 @media (min-width: 900px) { .condutoras { grid-template-columns: 1fr 1fr; gap: 56px; } }
 
 /* Depoimentos */
-/* Vídeos de depoimento: carrossel arrastável; a capa vira o player do Vimeo só no clique */
+/* Vídeos de depoimento: carrossel arrastável. O player do Vimeo carrega quando o card chega perto da tela,
+   para o toque cair direto no play dele (no iPhone, só assim o vídeo toca com som no primeiro toque) */
 .videos { margin: 48px calc(var(--lateral) * -1) 0; }
-.videos-trilho { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 var(--lateral) 4px; scroll-padding-inline: var(--lateral); scrollbar-width: none; overscroll-behavior-x: contain; }
+.videos-trilho { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 18px var(--lateral) 36px; scroll-padding-inline: var(--lateral); scrollbar-width: none; overscroll-behavior-x: contain; }
 .videos-trilho::-webkit-scrollbar { display: none; }
-.video { flex: 0 0 62%; max-width: 280px; aspect-ratio: 9 / 16; scroll-snap-align: start; border-radius: var(--raio-cartao); overflow: hidden; position: relative; background: var(--bordo-800); }
-.video button { all: unset; box-sizing: border-box; display: block; width: 100%; height: 100%; position: relative; cursor: pointer; }
-.video button:focus-visible { outline: 3px solid var(--vinho); outline-offset: -3px; border-radius: var(--raio-cartao); }
-.video img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.video .play { position: absolute; inset: 0; margin: auto; width: 64px; height: 64px; border-radius: 50%; background: rgb(43 1 7 / .72); color: var(--ouro-300); display: grid; place-items: center; transition: transform 200ms ease-out; }
-.video .play svg { margin-left: 3px; }
-.video button:hover .play { transform: scale(1.08); }
-.video iframe { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border: 0; opacity: 0; transition: opacity 300ms ease-out; }
+.video { flex: 0 0 62%; max-width: 280px; aspect-ratio: 9 / 16; scroll-snap-align: start; border-radius: var(--raio-cartao); overflow: hidden; position: relative; background: var(--bordo-800); transition: transform 300ms ease-out, box-shadow 300ms ease-out; }
+.video img, .video iframe { position: absolute; inset: 0; display: block; width: 100%; height: 100%; border: 0; transition: filter 300ms ease-out, opacity 300ms ease-out; }
+.video img { object-fit: cover; pointer-events: none; }
+.video iframe { opacity: 0; }
 .video.pronto iframe { opacity: 1; }
-/* Enquanto o player do Vimeo carrega, o play vira um indicador girando */
-.video.carregando .play svg { display: none; }
-.video.carregando .play::after { content: ""; width: 26px; height: 26px; border-radius: 50%; border: 3px solid rgb(249 211 143 / .3); border-top-color: var(--ouro-300); animation: girar 800ms linear infinite; }
-@keyframes girar { to { transform: rotate(360deg); } }
-/* Destaque do vídeo que está tocando: maior e com contorno dourado; as outras capas ficam em preto e branco */
-.videos-trilho { padding-block: 18px 36px; }
-.video { transition: transform 300ms ease-out, box-shadow 300ms ease-out; }
-.video img { transition: filter 300ms ease-out; }
+.video.pronto img { opacity: 0; }
+/* Destaque do vídeo que está tocando: maior e com contorno dourado; os outros ficam em preto e branco */
 .video.tocando { transform: scale(1.06); box-shadow: 0 0 0 3px var(--ouro-400), 0 16px 36px rgb(43 1 7 / .28); z-index: 1; }
-.tem-tocando .video:not(.tocando) img { filter: grayscale(1); }
-.tem-tocando .video:not(.tocando) button:hover img { filter: none; }
+.tem-tocando .video:not(.tocando) iframe, .tem-tocando .video:not(.tocando) img { filter: grayscale(1); }
+@media (hover: hover) { .tem-tocando .video:not(.tocando):hover iframe, .tem-tocando .video:not(.tocando):hover img { filter: none; } }
 .videos-dica { margin: -8px var(--lateral) 0; text-align: center; font-size: 14px; color: var(--muted-escuro); }
 .videos-setas { display: none; }
 /* Prints de comentários: mesmas faixas da galeria, com largura fixa (os prints são largos e baixos) e mais devagar para dar tempo de ler */
@@ -923,19 +914,19 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
     <h2 class="surge">O que dizem as mulheres que já passaram por elas</h2>
     <div class="videos surge">
       <div class="videos-trilho" aria-label="Vídeos de depoimento">
-        <div class="video"><button type="button" data-vimeo="1245328422" aria-label="Assistir depoimento 1 de 13"><img src="assets/depoimentos/video-01.webp" alt="" width="480" height="854" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg></span></button></div>
-        <div class="video"><button type="button" data-vimeo="1245328588" aria-label="Assistir depoimento 2 de 13"><img src="assets/depoimentos/video-02.webp" alt="" width="480" height="854" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg></span></button></div>
-        <div class="video"><button type="button" data-vimeo="1245328521" aria-label="Assistir depoimento 3 de 13"><img src="assets/depoimentos/video-03.webp" alt="" width="480" height="854" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg></span></button></div>
-        <div class="video"><button type="button" data-vimeo="1245328511" aria-label="Assistir depoimento 4 de 13"><img src="assets/depoimentos/video-04.webp" alt="" width="480" height="854" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg></span></button></div>
-        <div class="video"><button type="button" data-vimeo="1245328543" aria-label="Assistir depoimento 5 de 13"><img src="assets/depoimentos/video-05.webp" alt="" width="480" height="854" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg></span></button></div>
-        <div class="video"><button type="button" data-vimeo="1245328561" aria-label="Assistir depoimento 6 de 13"><img src="assets/depoimentos/video-06.webp" alt="" width="480" height="854" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg></span></button></div>
-        <div class="video"><button type="button" data-vimeo="1245328466" aria-label="Assistir depoimento 7 de 13"><img src="assets/depoimentos/video-07.webp" alt="" width="480" height="854" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg></span></button></div>
-        <div class="video"><button type="button" data-vimeo="1245328424" aria-label="Assistir depoimento 8 de 13"><img src="assets/depoimentos/video-08.webp" alt="" width="480" height="854" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg></span></button></div>
-        <div class="video"><button type="button" data-vimeo="1245328477" aria-label="Assistir depoimento 9 de 13"><img src="assets/depoimentos/video-09.webp" alt="" width="480" height="854" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg></span></button></div>
-        <div class="video"><button type="button" data-vimeo="1245328411" aria-label="Assistir depoimento 10 de 13"><img src="assets/depoimentos/video-10.webp" alt="" width="480" height="854" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg></span></button></div>
-        <div class="video"><button type="button" data-vimeo="1245328410" aria-label="Assistir depoimento 11 de 13"><img src="assets/depoimentos/video-11.webp" alt="" width="480" height="854" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg></span></button></div>
-        <div class="video"><button type="button" data-vimeo="1245328408" aria-label="Assistir depoimento 12 de 13"><img src="assets/depoimentos/video-12.webp" alt="" width="480" height="854" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg></span></button></div>
-        <div class="video"><button type="button" data-vimeo="1245328409" aria-label="Assistir depoimento 13 de 13"><img src="assets/depoimentos/video-13.webp" alt="" width="480" height="854" loading="lazy" decoding="async"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M8 5.5v13l10.5-6.5z"/></svg></span></button></div>
+        <div class="video" data-vimeo="1245328422" data-titulo="depoimento 1 de 13"><img src="assets/depoimentos/video-01.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
+        <div class="video" data-vimeo="1245328588" data-titulo="depoimento 2 de 13"><img src="assets/depoimentos/video-02.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
+        <div class="video" data-vimeo="1245328521" data-titulo="depoimento 3 de 13"><img src="assets/depoimentos/video-03.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
+        <div class="video" data-vimeo="1245328511" data-titulo="depoimento 4 de 13"><img src="assets/depoimentos/video-04.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
+        <div class="video" data-vimeo="1245328543" data-titulo="depoimento 5 de 13"><img src="assets/depoimentos/video-05.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
+        <div class="video" data-vimeo="1245328561" data-titulo="depoimento 6 de 13"><img src="assets/depoimentos/video-06.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
+        <div class="video" data-vimeo="1245328466" data-titulo="depoimento 7 de 13"><img src="assets/depoimentos/video-07.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
+        <div class="video" data-vimeo="1245328424" data-titulo="depoimento 8 de 13"><img src="assets/depoimentos/video-08.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
+        <div class="video" data-vimeo="1245328477" data-titulo="depoimento 9 de 13"><img src="assets/depoimentos/video-09.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
+        <div class="video" data-vimeo="1245328411" data-titulo="depoimento 10 de 13"><img src="assets/depoimentos/video-10.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
+        <div class="video" data-vimeo="1245328410" data-titulo="depoimento 11 de 13"><img src="assets/depoimentos/video-11.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
+        <div class="video" data-vimeo="1245328408" data-titulo="depoimento 12 de 13"><img src="assets/depoimentos/video-12.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
+        <div class="video" data-vimeo="1245328409" data-titulo="depoimento 13 de 13"><img src="assets/depoimentos/video-13.webp" alt="" width="480" height="854" loading="lazy" decoding="async"></div>
       </div>
       <p class="videos-dica" aria-hidden="true">Arraste para o lado para ver mais</p>
       <div class="videos-setas">
@@ -1231,34 +1222,59 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
     });
   })();
 
-  /* Vídeos de depoimento: troca a capa pelo player do Vimeo no clique; só um toca por vez */
+  /* Vídeos de depoimento: o player do Vimeo entra no lugar da capa quando o card chega perto da tela.
+     A API do Vimeo avisa qual começou a tocar: ele ganha o destaque e os outros são pausados. */
   (function () {
     var trilho = document.querySelector('.videos-trilho');
     if (!trilho) return;
-    trilho.addEventListener('click', function (e) {
-      var b = e.target.closest('button[data-vimeo]');
-      if (!b || b.parentNode.classList.contains('tocando')) return;
-      trilho.querySelectorAll('.video.tocando').forEach(function (v) { v.classList.remove('tocando', 'carregando', 'pronto'); v.innerHTML = v.dataset.capa; });
-      var v = b.parentNode;
-      v.dataset.capa = v.innerHTML;
-      v.classList.add('tocando', 'carregando');
-      trilho.classList.add('tem-tocando');
+    var cards = trilho.querySelectorAll('.video[data-vimeo]');
+    var api = null;
+    var players = [];
+    var carregarApi = function () {
+      if (api) return api;
+      api = new Promise(function (ok) {
+        var s = document.createElement('script');
+        s.src = 'https://player.vimeo.com/api/player.js';
+        s.async = true;
+        s.onload = function () { ok(window.Vimeo); };
+        s.onerror = function () { ok(null); };
+        document.head.appendChild(s);
+      });
+      return api;
+    };
+    var montar = function (v) {
+      if (v.querySelector('iframe')) return;
       var f = document.createElement('iframe');
-      f.src = 'https://player.vimeo.com/video/' + b.dataset.vimeo + '?autoplay=1&badge=0&autopause=0&title=0&byline=0&portrait=0&dnt=1';
+      f.src = 'https://player.vimeo.com/video/' + v.dataset.vimeo + '?badge=0&title=0&byline=0&portrait=0&dnt=1&playsinline=1';
       f.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media';
       f.allowFullscreen = true;
-      f.title = b.getAttribute('aria-label');
-      /* A capa fica com o indicador até o player carregar; depois o player aparece por cima e a capa sai */
-      var mostrar = function () {
-        if (!f.isConnected || v.classList.contains('pronto')) return;
-        v.classList.remove('carregando');
-        v.classList.add('pronto');
-        setTimeout(function () { if (b.isConnected) b.remove(); }, 300);
-      };
-      f.addEventListener('load', mostrar);
-      setTimeout(mostrar, 8000);
+      f.title = 'Vídeo: ' + v.dataset.titulo;
+      f.addEventListener('load', function () { v.classList.add('pronto'); });
       v.appendChild(f);
-    });
+      carregarApi().then(function (Vimeo) {
+        if (!Vimeo) return;
+        var pl = new Vimeo.Player(f);
+        players.push(pl);
+        pl.on('play', function () {
+          players.forEach(function (o) { if (o !== pl) o.pause().catch(function () {}); });
+          cards.forEach(function (c) { c.classList.toggle('tocando', c === v); });
+          trilho.classList.add('tem-tocando');
+        });
+      });
+    };
+    /* Só começa a montar os players quando a seção se aproxima; depois, monta os cards visíveis no trilho e o próximo */
+    if (!('IntersectionObserver' in window)) { cards.forEach(montar); }
+    else {
+      var ioCards = new IntersectionObserver(function (ents) {
+        ents.forEach(function (en) { if (en.isIntersecting) { montar(en.target); ioCards.unobserve(en.target); } });
+      }, { root: trilho, rootMargin: '0px 50% 0px 50%' });
+      var ioSecao = new IntersectionObserver(function (ents) {
+        if (!ents[0].isIntersecting) return;
+        ioSecao.disconnect();
+        cards.forEach(function (c) { ioCards.observe(c); });
+      }, { rootMargin: '600px 0px' });
+      ioSecao.observe(trilho);
+    }
     var ant = document.querySelector('.videos-ant'), prox = document.querySelector('.videos-prox');
     var atualizar = function () {
       ant.disabled = trilho.scrollLeft <= 2;
