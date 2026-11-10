@@ -706,7 +706,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
 <section class="secao bordo">
   <div class="conteudo duo">
     <div class="pilha surge">
-      <h2>Por isso, a Imersão Mulher Próspera começa por onde quase ninguém começa: <span class="destaque-ouro">por você.</span></h2>
+      <h2>Por isso a Imersão Mulher Próspera começa <span class="destaque-ouro">por você.</span></h2>
       <p>São 3 dias inteiros pensados para percorrer, nesta ordem, as 3 Camadas da Mulher Próspera. A ordem importa. Sem saber quem você é, qualquer meta vira mais uma cobrança. Sem mudar as crenças que te prendem, você volta para o mesmo lugar. E só depois disso a prosperidade deixa de ser mais um peso e passa a ser a vida que você escolheu.</p>
       <p>Em cada dia, você faz o trabalho na sala e leva o resultado com você. E o seu posicionamento atravessa os 3 dias: começa no modo como você se coloca nos seus relacionamentos e chega até como o mercado enxerga você.</p>
     </div>
@@ -1104,7 +1104,6 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
 <footer class="rodape">
   <img src="assets/emblema.svg" alt="Emblema da Imersão Mulher Próspera" width="120" height="86" loading="lazy">
   <p class="apoio">AEMFLO / CDL-SJ, R. Vidal Procópio Lohn, nº 91, Distrito Industrial, São José (SC)</p>
-  <p class="apoio" style="margin-top:12px"><span class="pendente">[INFORMAÇÕES LEGAIS A CONFIRMAR]</span></p>
   <nav class="rodape-links" aria-label="Informações legais"><a href="termos-de-uso.html">Termos de Uso</a><span aria-hidden="true">·</span><a href="politica-de-privacidade.html">Política de Privacidade</a></nav>
 </footer>
 
@@ -1130,11 +1129,50 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
   /* ==== PREENCHER ANTES DE PUBLICAR ==== */
   var CONFIG = {
     vagasPreenchidasPct: 67, // número real de 0 a 100. Sem número real, a barra não vai para o ar.
-    checkoutUrl: '',           // link do checkout; recebe ?name=&phone= (ajustar se a plataforma usar outros nomes)
-    cadastroUrl: '',           // webhook ou CRM que recebe nome e telefone do pop-up
+    checkoutUrl: '',           // link de pagamento do Asaas (o Asaas não preenche nome/telefone pelo link)
+    cadastroUrl: '',           // webhook do n8n (Renan): recebe cada cadastro do pop-up com origem e IDs da Meta
+    pixelId: '',               // ID do pixel da Meta da conta de anúncios da imersão. Vazio = pixel desligado.
+    valorIngresso: 97,         // valor do lote atual, enviado no InitiateCheckout (atualizar ao virar o lote)
     whatsappUrl: '',           // ex.: https://wa.me/55DDDNUMERO
     eventoInicio: '2026-12-11T00:00:00-03:00' // alvo do contador; ajustar se houver horário de início
   };
+
+  /* Pixel da Meta: a fila do fbq existe desde já (nenhum evento se perde), mas o script da Meta
+     só é baixado depois que a página terminou de carregar, para não atrasar a primeira tela. */
+  (function () {
+    if (!CONFIG.pixelId) { window.fbq = function () {}; return; }
+    var n = window.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+    if (!window._fbq) window._fbq = n;
+    n.push = n; n.loaded = true; n.version = '2.0'; n.queue = [];
+    fbq('init', CONFIG.pixelId);
+    fbq('track', 'PageView');
+    function carregar() {
+      var s = document.createElement('script');
+      s.async = true; s.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      document.head.appendChild(s);
+    }
+    if (document.readyState === 'complete') setTimeout(carregar, 0);
+    else addEventListener('load', function () { setTimeout(carregar, 0); });
+  })();
+
+  /* Origem da visita: guarda UTMs e fbclid da última entrada que veio com eles (a pessoa pode voltar
+     depois pelo link direto, sem parâmetros) para mandar junto com o cadastro. */
+  var ORIGEM = (function () {
+    var chaves = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'utm_id', 'fbclid'];
+    var salvo = {};
+    try { salvo = JSON.parse(localStorage.getItem('imp_origem') || '{}'); } catch (e) {}
+    var q = new URLSearchParams(location.search), nova = {};
+    chaves.forEach(function (k) { if (q.get(k)) nova[k] = q.get(k); });
+    if (Object.keys(nova).length) {
+      nova.entrada_em = new Date().toISOString();
+      nova.entrada_url = location.href;
+      nova.referrer = document.referrer;
+      salvo = nova;
+      try { localStorage.setItem('imp_origem', JSON.stringify(salvo)); } catch (e) {}
+    }
+    if (!salvo.referrer && document.referrer) salvo.referrer = document.referrer;
+    return salvo;
+  })();
 
   /* Barra de vagas */
   (function () {
@@ -1216,15 +1254,42 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       if (!nomeOk) { nome.focus(); return; }
       if (!telOk) { tel.focus(); return; }
 
-      if (!CONFIG.checkoutUrl) { aviso.hidden = false; return; }
+      if (enviado) return;
+      enviado = true;
 
-      var dados = { nome: nome.value.trim(), telefone: digitos };
-      if (CONFIG.cadastroUrl) navigator.sendBeacon(CONFIG.cadastroUrl, JSON.stringify(dados));
-      var url = new URL(CONFIG.checkoutUrl);
-      url.searchParams.set('name', dados.nome);
-      url.searchParams.set('phone', dados.telefone);
-      location.href = url.toString();
+      // Mesmo ID no pixel e no cadastro: se o n8n também mandar o Lead pela API de Conversões da Meta,
+      // a Meta junta os dois e não conta em dobro.
+      var id = Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+      var dados = Object.assign({}, ORIGEM, {
+        nome: nome.value.trim(),
+        telefone: '55' + digitos,
+        evento_lead_id: 'lead-' + id,
+        evento_checkout_id: 'ic-' + id,
+        fbp: cookie('_fbp'),
+        fbc: cookie('_fbc') || (ORIGEM.fbclid ? 'fb.1.' + Date.parse(ORIGEM.entrada_em || new Date()) + '.' + ORIGEM.fbclid : ''),
+        pagina: location.origin + location.pathname,
+        lote: 'Lote 1',
+        valor: CONFIG.valorIngresso,
+        user_agent: navigator.userAgent,
+        cadastrado_em: new Date().toISOString()
+      });
+
+      fbq('track', 'Lead', { content_name: 'Imersão Mulher Próspera' }, { eventID: dados.evento_lead_id });
+      // Formulário (x-www-form-urlencoded): o navegador envia sem pedir permissão antes ao n8n
+      // e o envio continua mesmo com a pessoa saindo para o pagamento.
+      if (CONFIG.cadastroUrl) navigator.sendBeacon(CONFIG.cadastroUrl, new URLSearchParams(dados));
+
+      if (!CONFIG.checkoutUrl) { aviso.hidden = false; enviado = false; return; }
+      fbq('track', 'InitiateCheckout', { value: CONFIG.valorIngresso, currency: 'BRL', content_name: 'Imersão Mulher Próspera' }, { eventID: dados.evento_checkout_id });
+      // Pequena espera para os eventos do pixel saírem antes de trocar de página.
+      setTimeout(function () { location.href = CONFIG.checkoutUrl; }, 300);
     });
+
+    var enviado = false;
+    function cookie(nomeCookie) {
+      var m = document.cookie.match('(?:^|; )' + nomeCookie + '=([^;]*)');
+      return m ? decodeURIComponent(m[1]) : '';
+    }
   })();
 
   /* Vídeos de depoimento: o player do Vimeo entra no lugar da capa quando o card chega perto da tela.
