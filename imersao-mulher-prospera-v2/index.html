@@ -2,7 +2,9 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<!-- O site publica sem barra final; a barra faz os caminhos relativos apontarem para esta pasta. -->
+<!-- A URL publicada não tem barra final; o base faz os caminhos relativos (assets/...) apontarem para esta pasta desde o primeiro byte. -->
+<base href="/imersao-mulher-prospera-v2/">
+<!-- Com o base, a URL também precisa da barra final, senão os links #âncora recarregariam a página. -->
 <script>if (location.protocol !== 'file:' && !location.pathname.endsWith('/')) history.replaceState(null, '', location.pathname + '/' + location.search + location.hash);</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Imersão Mulher Próspera | Letícia Garcia e Melina Dani</title>
@@ -14,9 +16,8 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="/imersao-mulher-prospera-v2/assets/30-compartilhamento.jpg">
 <link rel="icon" href="assets/emblema.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/abhaya-libre-800-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script>
   /* Assets: cada .slot tenta carregar o arquivo. Se ele existir em assets/, a foto entra no lugar do aviso. */
   (function () {
@@ -36,6 +37,10 @@
   })();
 </script>
 <style>
+/* Fontes hospedadas aqui (antes vinham do Google Fonts e travavam a primeira pintura) */
+@font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(assets/fonts/figtree-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Abhaya Libre'; font-style: normal; font-weight: 700; font-display: swap; src: url(assets/fonts/abhaya-libre-700-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Abhaya Libre'; font-style: normal; font-weight: 800; font-display: swap; src: url(assets/fonts/abhaya-libre-800-latin.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 :root {
   /* Cor */
   --bordo-900: #2B0107;
@@ -592,7 +597,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
   <div class="conteudo">
     <div class="hero-grade">
       <div class="hero-foto">
-        <img src="assets/02-hero-leticia-melina.webp" alt="Letícia Garcia e Melina Dani" width="1672" height="941" fetchpriority="high">
+        <img src="assets/02-hero-leticia-melina.webp" srcset="assets/02-hero-leticia-melina-800.webp 800w, assets/02-hero-leticia-melina-1200.webp 1200w, assets/02-hero-leticia-melina.webp 1672w" sizes="100vw" alt="Letícia Garcia e Melina Dani" width="1672" height="941" fetchpriority="high">
       </div>
       <img class="hero-logo" src="assets/logo-sem-fundo.svg" alt="Mulher Próspera: imersão presencial, 3 dias" width="1692" height="640">
       <img class="hero-tag" src="assets/tag-imersao.svg" alt="Imersão presencial, 3 dias" width="1414" height="106">
@@ -613,24 +618,24 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
   <div class="faixas faixas--hero" aria-label="Fotos de eventos anteriores">
     <div class="faixa faixa--esquerda">
       <div class="faixa-trilho">
-        <img src="assets/galeria/evento-06.webp" alt="Participantes felizes em um evento anterior" width="508" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-04.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-03.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-28.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-07.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-32.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-01.webp" alt="Participantes felizes em um evento anterior" width="585" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-16.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-09.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-05.webp" alt="Participantes felizes em um evento anterior" width="1110" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-02.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-29.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-08.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-33.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-27.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-34.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-        <img src="assets/galeria/evento-14.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-        <span class="faixa-copia" aria-hidden="true"><img src="assets/galeria/evento-06.webp" alt="" width="508" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-04.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-03.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-28.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-07.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-32.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-01.webp" alt="" width="585" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-16.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-09.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-05.webp" alt="" width="1110" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-02.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-29.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-08.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-33.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-27.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-34.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-14.webp" alt="" width="900" height="600" loading="lazy" decoding="async"></span>
+        <img src="assets/galeria/evento-06.webp" srcset="assets/galeria/evento-06-360.webp 305w, assets/galeria/evento-06.webp 508w" sizes="(min-width: 900px) 169px, 119px" alt="Participantes felizes em um evento anterior" width="508" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-04.webp" srcset="assets/galeria/evento-04-360.webp 540w, assets/galeria/evento-04.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-03.webp" srcset="assets/galeria/evento-03-360.webp 240w, assets/galeria/evento-03.webp 400w" sizes="(min-width: 900px) 133px, 93px" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-28.webp" srcset="assets/galeria/evento-28-360.webp 540w, assets/galeria/evento-28.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-07.webp" srcset="assets/galeria/evento-07-360.webp 240w, assets/galeria/evento-07.webp 400w" sizes="(min-width: 900px) 133px, 93px" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-32.webp" srcset="assets/galeria/evento-32-360.webp 540w, assets/galeria/evento-32.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-01.webp" srcset="assets/galeria/evento-01-360.webp 351w, assets/galeria/evento-01.webp 585w" sizes="(min-width: 900px) 195px, 136px" alt="Participantes felizes em um evento anterior" width="585" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-16.webp" srcset="assets/galeria/evento-16-360.webp 540w, assets/galeria/evento-16.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-09.webp" srcset="assets/galeria/evento-09-360.webp 240w, assets/galeria/evento-09.webp 400w" sizes="(min-width: 900px) 133px, 93px" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-05.webp" srcset="assets/galeria/evento-05-360.webp 666w, assets/galeria/evento-05.webp 1110w" sizes="(min-width: 900px) 370px, 259px" alt="Participantes felizes em um evento anterior" width="1110" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-02.webp" srcset="assets/galeria/evento-02-360.webp 240w, assets/galeria/evento-02.webp 400w" sizes="(min-width: 900px) 133px, 93px" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-29.webp" srcset="assets/galeria/evento-29-360.webp 540w, assets/galeria/evento-29.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-08.webp" srcset="assets/galeria/evento-08-360.webp 240w, assets/galeria/evento-08.webp 400w" sizes="(min-width: 900px) 133px, 93px" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-33.webp" srcset="assets/galeria/evento-33-360.webp 540w, assets/galeria/evento-33.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-27.webp" srcset="assets/galeria/evento-27-360.webp 240w, assets/galeria/evento-27.webp 400w" sizes="(min-width: 900px) 133px, 93px" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-34.webp" srcset="assets/galeria/evento-34-360.webp 540w, assets/galeria/evento-34.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+        <img src="assets/galeria/evento-14.webp" srcset="assets/galeria/evento-14-360.webp 540w, assets/galeria/evento-14.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+        <span class="faixa-copia" aria-hidden="true"><img src="assets/galeria/evento-06.webp" srcset="assets/galeria/evento-06-360.webp 305w, assets/galeria/evento-06.webp 508w" sizes="(min-width: 900px) 169px, 119px" alt="" width="508" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-04.webp" srcset="assets/galeria/evento-04-360.webp 540w, assets/galeria/evento-04.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-03.webp" srcset="assets/galeria/evento-03-360.webp 240w, assets/galeria/evento-03.webp 400w" sizes="(min-width: 900px) 133px, 93px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-28.webp" srcset="assets/galeria/evento-28-360.webp 540w, assets/galeria/evento-28.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-07.webp" srcset="assets/galeria/evento-07-360.webp 240w, assets/galeria/evento-07.webp 400w" sizes="(min-width: 900px) 133px, 93px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-32.webp" srcset="assets/galeria/evento-32-360.webp 540w, assets/galeria/evento-32.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-01.webp" srcset="assets/galeria/evento-01-360.webp 351w, assets/galeria/evento-01.webp 585w" sizes="(min-width: 900px) 195px, 136px" alt="" width="585" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-16.webp" srcset="assets/galeria/evento-16-360.webp 540w, assets/galeria/evento-16.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-09.webp" srcset="assets/galeria/evento-09-360.webp 240w, assets/galeria/evento-09.webp 400w" sizes="(min-width: 900px) 133px, 93px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-05.webp" srcset="assets/galeria/evento-05-360.webp 666w, assets/galeria/evento-05.webp 1110w" sizes="(min-width: 900px) 370px, 259px" alt="" width="1110" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-02.webp" srcset="assets/galeria/evento-02-360.webp 240w, assets/galeria/evento-02.webp 400w" sizes="(min-width: 900px) 133px, 93px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-29.webp" srcset="assets/galeria/evento-29-360.webp 540w, assets/galeria/evento-29.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-08.webp" srcset="assets/galeria/evento-08-360.webp 240w, assets/galeria/evento-08.webp 400w" sizes="(min-width: 900px) 133px, 93px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-33.webp" srcset="assets/galeria/evento-33-360.webp 540w, assets/galeria/evento-33.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-27.webp" srcset="assets/galeria/evento-27-360.webp 240w, assets/galeria/evento-27.webp 400w" sizes="(min-width: 900px) 133px, 93px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-34.webp" srcset="assets/galeria/evento-34-360.webp 540w, assets/galeria/evento-34.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-14.webp" srcset="assets/galeria/evento-14-360.webp 540w, assets/galeria/evento-14.webp 900w" sizes="(min-width: 900px) 300px, 210px" alt="" width="900" height="600" loading="lazy" decoding="async"></span>
       </div>
     </div>
   </div>
@@ -660,7 +665,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         <p>O que a sua família precisa, você já sabe. O que o seu negócio exige, também. Mas o que você quer, de verdade? Se você demorou para responder, este evento foi feito para você.</p>
       </div>
       <div class="slot mesa">
-        <img src="assets/06-mesa-dando-conta.webp" alt="Mesa de trabalho de uma empresária e mãe no começo da manhã" loading="lazy">
+        <img src="assets/06-mesa-dando-conta-1100.webp" srcset="assets/06-mesa-dando-conta-700.webp 700w, assets/06-mesa-dando-conta-1100.webp 1100w" sizes="(min-width: 900px) 544px, 90vw" alt="Mesa de trabalho de uma empresária e mãe no começo da manhã" loading="lazy">
         <span class="rotulo"><b>ASSET 06</b>Mesa “dando conta”<small>WebP · 1600 × 1000</small></span>
       </div>
     </div>
@@ -680,7 +685,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       <p class="frase">Você merece mais do que dar conta. Merece sentir que está viva.</p>
     </div>
     <div class="slot janela duo-sticky">
-      <img src="assets/07-mulher-janela.webp" alt="Mulher de costas, olhando pela janela com uma xícara na mão" loading="lazy">
+      <img src="assets/07-mulher-janela-1100.webp" srcset="assets/07-mulher-janela-700.webp 700w, assets/07-mulher-janela-1100.webp 1100w" sizes="(min-width: 900px) 544px, 90vw" alt="Mulher de costas, olhando pela janela com uma xícara na mão" loading="lazy">
       <span class="rotulo"><b>ASSET 07</b>Mulher à janela, de costas<small>WebP · 1200 × 1500</small></span>
     </div>
   </div>
@@ -734,7 +739,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
 
       <article class="dia surge">
         <div class="dia-foto"><div class="slot">
-          <img src="assets/09-dia-1.webp" alt="Caderno aberto com caneta dourada ao lado de uma xícara de chá" loading="lazy">
+          <img src="assets/09-dia-1-800.webp" alt="Caderno aberto com caneta dourada ao lado de uma xícara de chá" loading="lazy">
           <span class="rotulo"><b>ASSET 09</b>Foto do Dia 1<small>WebP · 1080 × 1080</small></span>
         </div></div>
         <div class="dia-texto">
@@ -752,7 +757,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         </div>
         <div class="dia-sai">
           <div class="slot">
-            <img src="assets/12-mockup-mapa-identidade.png" alt="Mapa de Identidade" loading="lazy">
+            <img src="assets/12-mockup-mapa-identidade-210.webp" alt="Mapa de Identidade" loading="lazy">
             <span class="rotulo"><b>12</b><small>Mockup</small></span>
           </div>
           <p>Você sai com o seu <strong> Mapa de Identidade</strong></p>
@@ -761,7 +766,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
 
       <article class="dia dia--inv surge">
         <div class="dia-foto"><div class="slot">
-          <img src="assets/10-dia-2.webp" alt="Dois cadernos abertos e duas xícaras de café sobre uma mesa redonda" loading="lazy">
+          <img src="assets/10-dia-2-800.webp" alt="Dois cadernos abertos e duas xícaras de café sobre uma mesa redonda" loading="lazy">
           <span class="rotulo"><b>ASSET 10</b>Foto do Dia 2<small>WebP · 1080 × 1080</small></span>
         </div></div>
         <div class="dia-texto">
@@ -779,7 +784,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         </div>
         <div class="dia-sai">
           <div class="slot">
-            <img src="assets/13-mockup-mapa-crencas.png" alt="Mapa de Crenças" loading="lazy">
+            <img src="assets/13-mockup-mapa-crencas-210.webp" alt="Mapa de Crenças" loading="lazy">
             <span class="rotulo"><b>13</b><small>Mockup</small></span>
           </div>
           <p>Você sai com o seu <strong>Mapa de Crenças</strong></p>
@@ -788,7 +793,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
 
       <article class="dia surge">
         <div class="dia-foto"><div class="slot">
-          <img src="assets/11-dia-3.webp" alt="Microfone sobre uma banqueta de madeira, com fundo vinho" loading="lazy">
+          <img src="assets/11-dia-3-800.webp" alt="Microfone sobre uma banqueta de madeira, com fundo vinho" loading="lazy">
           <span class="rotulo"><b>ASSET 11</b>Foto do Dia 3<small>WebP · 1080 × 1080</small></span>
         </div></div>
         <div class="dia-texto">
@@ -806,7 +811,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         </div>
         <div class="dia-sai">
           <div class="slot">
-            <img src="assets/14-mockup-plano-mulher-prospera.png" alt="Plano Mulher Próspera" loading="lazy">
+            <img src="assets/14-mockup-plano-mulher-prospera-210.webp" alt="Plano Mulher Próspera" loading="lazy">
             <span class="rotulo"><b>14</b><small>Mockup</small></span>
           </div>
           <p>Você sai com o seu <strong>Plano Mulher Próspera</strong></p>
@@ -822,7 +827,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
 <section class="secao areia">
   <div class="conteudo duo surge">
     <div class="slot mesa">
-      <img src="assets/15-mesa-segunda-feira.webp" alt="A mesma mesa, agora organizada e banhada pelo sol da manhã" loading="lazy">
+      <img src="assets/15-mesa-segunda-feira-1100.webp" srcset="assets/15-mesa-segunda-feira-700.webp 700w, assets/15-mesa-segunda-feira-1100.webp 1100w" sizes="(min-width: 900px) 544px, 90vw" alt="A mesma mesa, agora organizada e banhada pelo sol da manhã" loading="lazy">
       <span class="rotulo"><b>ASSET 15</b>Mesa “segunda-feira depois”<small>WebP · 1600 × 1000</small></span>
     </div>
     <div class="pilha">
@@ -862,46 +867,46 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
     <div class="faixas surge" aria-label="Fotos de eventos anteriores">
       <div class="faixa faixa--esquerda">
         <div class="faixa-trilho">
-          <img src="assets/galeria/evento-06.webp" alt="Participantes felizes em um evento anterior" width="508" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-22.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-04.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-13.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-03.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-24.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-28.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-18.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-07.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-20.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-32.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-31.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-01.webp" alt="Participantes felizes em um evento anterior" width="585" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-11.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-16.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-26.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-09.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-10.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <span class="faixa-copia" aria-hidden="true"><img src="assets/galeria/evento-06.webp" alt="" width="508" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-22.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-04.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-13.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-03.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-24.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-28.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-18.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-07.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-20.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-32.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-31.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-01.webp" alt="" width="585" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-11.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-16.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-26.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-09.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-10.webp" alt="" width="400" height="600" loading="lazy" decoding="async"></span>
+          <img src="assets/galeria/evento-06.webp" srcset="assets/galeria/evento-06-360.webp 305w, assets/galeria/evento-06.webp 508w" sizes="(min-width: 900px) 220px, 152px" alt="Participantes felizes em um evento anterior" width="508" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-22.webp" srcset="assets/galeria/evento-22-360.webp 240w, assets/galeria/evento-22.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-04.webp" srcset="assets/galeria/evento-04-360.webp 540w, assets/galeria/evento-04.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-13.webp" srcset="assets/galeria/evento-13-360.webp 240w, assets/galeria/evento-13.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-03.webp" srcset="assets/galeria/evento-03-360.webp 240w, assets/galeria/evento-03.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-24.webp" srcset="assets/galeria/evento-24-360.webp 240w, assets/galeria/evento-24.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-28.webp" srcset="assets/galeria/evento-28-360.webp 540w, assets/galeria/evento-28.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-18.webp" srcset="assets/galeria/evento-18-360.webp 240w, assets/galeria/evento-18.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-07.webp" srcset="assets/galeria/evento-07-360.webp 240w, assets/galeria/evento-07.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-20.webp" srcset="assets/galeria/evento-20-360.webp 240w, assets/galeria/evento-20.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-32.webp" srcset="assets/galeria/evento-32-360.webp 540w, assets/galeria/evento-32.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-31.webp" srcset="assets/galeria/evento-31-360.webp 240w, assets/galeria/evento-31.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-01.webp" srcset="assets/galeria/evento-01-360.webp 351w, assets/galeria/evento-01.webp 585w" sizes="(min-width: 900px) 254px, 176px" alt="Participantes felizes em um evento anterior" width="585" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-11.webp" srcset="assets/galeria/evento-11-360.webp 240w, assets/galeria/evento-11.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-16.webp" srcset="assets/galeria/evento-16-360.webp 540w, assets/galeria/evento-16.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-26.webp" srcset="assets/galeria/evento-26-360.webp 240w, assets/galeria/evento-26.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-09.webp" srcset="assets/galeria/evento-09-360.webp 240w, assets/galeria/evento-09.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-10.webp" srcset="assets/galeria/evento-10-360.webp 240w, assets/galeria/evento-10.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <span class="faixa-copia" aria-hidden="true"><img src="assets/galeria/evento-06.webp" srcset="assets/galeria/evento-06-360.webp 305w, assets/galeria/evento-06.webp 508w" sizes="(min-width: 900px) 220px, 152px" alt="" width="508" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-22.webp" srcset="assets/galeria/evento-22-360.webp 240w, assets/galeria/evento-22.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-04.webp" srcset="assets/galeria/evento-04-360.webp 540w, assets/galeria/evento-04.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-13.webp" srcset="assets/galeria/evento-13-360.webp 240w, assets/galeria/evento-13.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-03.webp" srcset="assets/galeria/evento-03-360.webp 240w, assets/galeria/evento-03.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-24.webp" srcset="assets/galeria/evento-24-360.webp 240w, assets/galeria/evento-24.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-28.webp" srcset="assets/galeria/evento-28-360.webp 540w, assets/galeria/evento-28.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-18.webp" srcset="assets/galeria/evento-18-360.webp 240w, assets/galeria/evento-18.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-07.webp" srcset="assets/galeria/evento-07-360.webp 240w, assets/galeria/evento-07.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-20.webp" srcset="assets/galeria/evento-20-360.webp 240w, assets/galeria/evento-20.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-32.webp" srcset="assets/galeria/evento-32-360.webp 540w, assets/galeria/evento-32.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-31.webp" srcset="assets/galeria/evento-31-360.webp 240w, assets/galeria/evento-31.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-01.webp" srcset="assets/galeria/evento-01-360.webp 351w, assets/galeria/evento-01.webp 585w" sizes="(min-width: 900px) 254px, 176px" alt="" width="585" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-11.webp" srcset="assets/galeria/evento-11-360.webp 240w, assets/galeria/evento-11.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-16.webp" srcset="assets/galeria/evento-16-360.webp 540w, assets/galeria/evento-16.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-26.webp" srcset="assets/galeria/evento-26-360.webp 240w, assets/galeria/evento-26.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-09.webp" srcset="assets/galeria/evento-09-360.webp 240w, assets/galeria/evento-09.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-10.webp" srcset="assets/galeria/evento-10-360.webp 240w, assets/galeria/evento-10.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"></span>
         </div>
       </div>
       <div class="faixa faixa--direita">
         <div class="faixa-trilho">
-          <img src="assets/galeria/evento-19.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-05.webp" alt="Participantes felizes em um evento anterior" width="1110" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-15.webp" alt="Participante emocionada em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-02.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-23.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-29.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-12.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-08.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-25.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-33.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-17.webp" alt="Participante emocionada em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-27.webp" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-21.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-34.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-30.webp" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
-          <img src="assets/galeria/evento-14.webp" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
-          <span class="faixa-copia" aria-hidden="true"><img src="assets/galeria/evento-19.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-05.webp" alt="" width="1110" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-15.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-02.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-23.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-29.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-12.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-08.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-25.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-33.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-17.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-27.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-21.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-34.webp" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-30.webp" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-14.webp" alt="" width="900" height="600" loading="lazy" decoding="async"></span>
+          <img src="assets/galeria/evento-19.webp" srcset="assets/galeria/evento-19-360.webp 240w, assets/galeria/evento-19.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-05.webp" srcset="assets/galeria/evento-05-360.webp 666w, assets/galeria/evento-05.webp 1110w" sizes="(min-width: 900px) 481px, 333px" alt="Participantes felizes em um evento anterior" width="1110" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-15.webp" srcset="assets/galeria/evento-15-360.webp 540w, assets/galeria/evento-15.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="Participante emocionada em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-02.webp" srcset="assets/galeria/evento-02-360.webp 240w, assets/galeria/evento-02.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-23.webp" srcset="assets/galeria/evento-23-360.webp 240w, assets/galeria/evento-23.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-29.webp" srcset="assets/galeria/evento-29-360.webp 540w, assets/galeria/evento-29.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-12.webp" srcset="assets/galeria/evento-12-360.webp 240w, assets/galeria/evento-12.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-08.webp" srcset="assets/galeria/evento-08-360.webp 240w, assets/galeria/evento-08.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-25.webp" srcset="assets/galeria/evento-25-360.webp 240w, assets/galeria/evento-25.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-33.webp" srcset="assets/galeria/evento-33-360.webp 540w, assets/galeria/evento-33.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-17.webp" srcset="assets/galeria/evento-17-360.webp 540w, assets/galeria/evento-17.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="Participante emocionada em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-27.webp" srcset="assets/galeria/evento-27-360.webp 240w, assets/galeria/evento-27.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participantes felizes em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-21.webp" srcset="assets/galeria/evento-21-360.webp 240w, assets/galeria/evento-21.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-34.webp" srcset="assets/galeria/evento-34-360.webp 540w, assets/galeria/evento-34.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-30.webp" srcset="assets/galeria/evento-30-360.webp 240w, assets/galeria/evento-30.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="Participante emocionada em um evento anterior" width="400" height="600" loading="lazy" decoding="async">
+          <img src="assets/galeria/evento-14.webp" srcset="assets/galeria/evento-14-360.webp 540w, assets/galeria/evento-14.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="Participantes felizes em um evento anterior" width="900" height="600" loading="lazy" decoding="async">
+          <span class="faixa-copia" aria-hidden="true"><img src="assets/galeria/evento-19.webp" srcset="assets/galeria/evento-19-360.webp 240w, assets/galeria/evento-19.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-05.webp" srcset="assets/galeria/evento-05-360.webp 666w, assets/galeria/evento-05.webp 1110w" sizes="(min-width: 900px) 481px, 333px" alt="" width="1110" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-15.webp" srcset="assets/galeria/evento-15-360.webp 540w, assets/galeria/evento-15.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-02.webp" srcset="assets/galeria/evento-02-360.webp 240w, assets/galeria/evento-02.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-23.webp" srcset="assets/galeria/evento-23-360.webp 240w, assets/galeria/evento-23.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-29.webp" srcset="assets/galeria/evento-29-360.webp 540w, assets/galeria/evento-29.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-12.webp" srcset="assets/galeria/evento-12-360.webp 240w, assets/galeria/evento-12.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-08.webp" srcset="assets/galeria/evento-08-360.webp 240w, assets/galeria/evento-08.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-25.webp" srcset="assets/galeria/evento-25-360.webp 240w, assets/galeria/evento-25.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-33.webp" srcset="assets/galeria/evento-33-360.webp 540w, assets/galeria/evento-33.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-17.webp" srcset="assets/galeria/evento-17-360.webp 540w, assets/galeria/evento-17.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-27.webp" srcset="assets/galeria/evento-27-360.webp 240w, assets/galeria/evento-27.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-21.webp" srcset="assets/galeria/evento-21-360.webp 240w, assets/galeria/evento-21.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-34.webp" srcset="assets/galeria/evento-34-360.webp 540w, assets/galeria/evento-34.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="" width="900" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-30.webp" srcset="assets/galeria/evento-30-360.webp 240w, assets/galeria/evento-30.webp 400w" sizes="(min-width: 900px) 173px, 120px" alt="" width="400" height="600" loading="lazy" decoding="async"><img src="assets/galeria/evento-14.webp" srcset="assets/galeria/evento-14-360.webp 540w, assets/galeria/evento-14.webp 900w" sizes="(min-width: 900px) 390px, 270px" alt="" width="900" height="600" loading="lazy" decoding="async"></span>
         </div>
       </div>
     </div>
@@ -1058,8 +1063,8 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       </div>
     </div>
     <div class="local surge">
-      <img class="local-fachada" src="assets/28-local-fachada.webp" alt="Fachada do prédio da AEMFLO / CDL-SJ em São José (SC)" width="1127" height="1200" loading="lazy">
-      <img class="local-auditorio" src="assets/28-local-auditorio.webp" alt="Auditório da AEMFLO / CDL-SJ com as cadeiras organizadas" width="1200" height="1600" loading="lazy">
+      <img class="local-fachada" src="assets/28-local-fachada-760.webp" alt="Fachada do prédio da AEMFLO / CDL-SJ em São José (SC)" width="1127" height="1200" loading="lazy">
+      <img class="local-auditorio" src="assets/28-local-auditorio-760.webp" alt="Auditório da AEMFLO / CDL-SJ com as cadeiras organizadas" width="1200" height="1600" loading="lazy">
       <iframe title="Mapa da AEMFLO / CDL-SJ em São José (SC)" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=R.%20Vidal%20Proc%C3%B3pio%20Lohn%2C%2091%2C%20Distrito%20Industrial%2C%20S%C3%A3o%20Jos%C3%A9%20-%20SC&output=embed"></iframe>
     </div>
   </div>
@@ -1080,7 +1085,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
 <!-- FECHAMENTO -->
 <section class="secao bordo fechamento">
   <div class="fecho-foto">
-    <div class="slot"><img src="assets/29-fechamento.webp" alt="Mulher de costas caminhando em direção a uma porta aberta cheia de sol" loading="lazy"><span class="rotulo"><b>ASSET 29</b>Foto grande de fechamento<small>WebP · 1920 × 900</small></span></div>
+    <div class="slot"><img src="assets/29-fechamento-900.webp" srcset="assets/29-fechamento-900.webp 900w, assets/29-fechamento.webp 1920w" sizes="100vw" alt="Mulher de costas caminhando em direção a uma porta aberta cheia de sol" loading="lazy"><span class="rotulo"><b>ASSET 29</b>Foto grande de fechamento<small>WebP · 1920 × 900</small></span></div>
   </div>
   <div class="conteudo">
     <div class="leitura fecho-txt pilha surge">
