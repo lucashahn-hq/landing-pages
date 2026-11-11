@@ -1129,7 +1129,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
   /* ==== PREENCHER ANTES DE PUBLICAR ==== */
   var CONFIG = {
     vagasPreenchidasPct: 67, // percentual exibido na barra de vagas (0 a 100), definido pelo Lucas em 10/11
-    checkoutUrl: 'https://www.asaas.com/000/c/rcdlct46hajng2pk', // link de pagamento do Asaas (Lote 1, R$ 97) (o Asaas não preenche nome/telefone pelo link)
+    checkoutUrl: 'https://pay.hotmart.com/F108431581W?bid=1794406512865', // checkout da Hotmart (Lote 1, R$ 97); recebe nome, telefone e origem pela URL
     cadastroUrl: '',           // webhook do n8n (Renan): recebe cada cadastro do pop-up com origem e IDs da Meta
     pixelId: '',               // ID do pixel da Meta da conta de anúncios da imersão. Vazio = pixel desligado.
     valorIngresso: 97,         // valor do lote atual, enviado no InitiateCheckout (atualizar ao virar o lote)
@@ -1281,8 +1281,17 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
 
       if (!CONFIG.checkoutUrl) { aviso.hidden = false; enviado = false; return; }
       fbq('track', 'InitiateCheckout', { value: CONFIG.valorIngresso, currency: 'BRL', content_name: 'Imersão Mulher Próspera' }, { eventID: dados.evento_checkout_id });
+      // Hotmart: nome e telefone já preenchidos no checkout; UTMs e fbclid seguem junto para a venda
+      // ficar com a origem no relatório da Hotmart e para o pixel do checkout atribuir o clique do anúncio.
+      var destino = new URL(CONFIG.checkoutUrl);
+      destino.searchParams.set('name', dados.nome);
+      destino.searchParams.set('phonenumber', dados.telefone);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'].forEach(function (k) {
+        if (ORIGEM[k]) destino.searchParams.set(k, ORIGEM[k]);
+      });
+      if (ORIGEM.utm_source) destino.searchParams.set('src', ORIGEM.utm_source);
       // Pequena espera para os eventos do pixel saírem antes de trocar de página.
-      setTimeout(function () { location.href = CONFIG.checkoutUrl; }, 300);
+      setTimeout(function () { location.href = destino.href; }, 300);
     });
 
     var enviado = false;
