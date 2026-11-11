@@ -1163,14 +1163,32 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
     try { salvo = JSON.parse(localStorage.getItem('imp_origem') || '{}'); } catch (e) {}
     var q = new URLSearchParams(location.search), nova = {};
     chaves.forEach(function (k) { if (q.get(k)) nova[k] = q.get(k); });
-    if (Object.keys(nova).length) {
+    var temUtm = Object.keys(nova).some(function (k) { return k.indexOf('utm_') === 0; });
+    if (temUtm || (nova.fbclid && !salvo.utm_source)) {
       nova.entrada_em = new Date().toISOString();
       nova.entrada_url = location.href;
       nova.referrer = document.referrer;
       salvo = nova;
       try { localStorage.setItem('imp_origem', JSON.stringify(salvo)); } catch (e) {}
+    } else if (nova.fbclid) {
+      // Só fbclid (ex.: link da bio sem UTM, o Instagram acrescenta): não apaga a origem de um anúncio
+      // clicado antes; só atualiza o clique, que a Meta usa para atribuir.
+      salvo.fbclid = nova.fbclid;
+      try { localStorage.setItem('imp_origem', JSON.stringify(salvo)); } catch (e) {}
     }
     if (!salvo.referrer && document.referrer) salvo.referrer = document.referrer;
+    // Reserva quando não há UTM nenhuma (link da bio ou digitado sem parâmetros): deduz a origem pelo app
+    // ou pelo site de onde veio. Não fica guardada, para não passar por cima de um anúncio clicado depois.
+    if (!salvo.utm_source) {
+      var ua = navigator.userAgent, ref = document.referrer, host = '';
+      try { host = ref ? new URL(ref).hostname : ''; } catch (e) {}
+      if (host === location.hostname) host = '';
+      if (/Instagram/i.test(ua) || /instagram\.com$/.test(host)) { salvo.utm_source = 'instagram'; salvo.utm_medium = 'organico'; }
+      else if (/FBAN|FBAV/.test(ua) || /facebook\.com$/.test(host)) { salvo.utm_source = 'facebook'; salvo.utm_medium = 'organico'; }
+      else if (host) { salvo.utm_source = host.replace(/^www\.|^l\.|^m\./, ''); salvo.utm_medium = 'referencia'; }
+      else { salvo.utm_source = 'direto'; salvo.utm_medium = 'direto'; }
+      salvo.origem_deduzida = 'sim';
+    }
     return salvo;
   })();
 
