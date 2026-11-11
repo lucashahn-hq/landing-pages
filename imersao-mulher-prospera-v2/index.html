@@ -1132,7 +1132,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
     checkoutUrl: 'https://pay.hotmart.com/F108431581W?bid=1794406512865', // checkout da Hotmart (Lote 1, R$ 97); recebe nome, telefone e origem pela URL
     cadastroUrl: '',           // webhook do n8n (Renan): recebe cada cadastro do pop-up com origem e IDs da Meta
     pixelId: '',               // ID do pixel da Meta da conta de anúncios da imersão. Vazio = pixel desligado.
-    valorIngresso: 97,         // valor do lote atual, enviado no InitiateCheckout (atualizar ao virar o lote)
+    valorIngresso: 97,         // valor do lote atual, enviado no cadastro (atualizar ao virar o lote)
     whatsappUrl: '',           // ex.: https://wa.me/55DDDNUMERO
     eventoInicio: '2026-12-11T00:00:00-03:00' // alvo do contador; ajustar se houver horário de início
   };
@@ -1264,7 +1264,6 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         nome: nome.value.trim(),
         telefone: '55' + digitos,
         evento_lead_id: 'lead-' + id,
-        evento_checkout_id: 'ic-' + id,
         fbp: cookie('_fbp'),
         fbc: cookie('_fbc') || (ORIGEM.fbclid ? 'fb.1.' + Date.parse(ORIGEM.entrada_em || new Date()) + '.' + ORIGEM.fbclid : ''),
         pagina: location.origin + location.pathname,
@@ -1280,7 +1279,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       if (CONFIG.cadastroUrl) navigator.sendBeacon(CONFIG.cadastroUrl, new URLSearchParams(dados));
 
       if (!CONFIG.checkoutUrl) { aviso.hidden = false; enviado = false; return; }
-      fbq('track', 'InitiateCheckout', { value: CONFIG.valorIngresso, currency: 'BRL', content_name: 'Imersão Mulher Próspera' }, { eventID: dados.evento_checkout_id });
+      // InitiateCheckout e Purchase ficam com o pixel configurado no checkout da Hotmart (evita contar em dobro).
       // Hotmart: nome e telefone já preenchidos no checkout; UTMs e fbclid seguem junto para a venda
       // ficar com a origem no relatório da Hotmart e para o pixel do checkout atribuir o clique do anúncio.
       var destino = new URL(CONFIG.checkoutUrl);
