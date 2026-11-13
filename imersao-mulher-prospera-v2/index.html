@@ -182,7 +182,12 @@ h3 { font-size: var(--h3); font-weight: 700; line-height: 1.2; }
 }
 .slot > img, .slot > video {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;
+  transition: opacity 400ms ease;
 }
+/* Enquanto a foto baixa, o espaço fica como um bloco liso da cor do tema (sem o aviso de asset).
+   O aviso só aparece se a foto não existir (o script remove o <img> com erro). */
+.slot:has(> img, > video) { border: 0; padding: 0; }
+.slot:has(> img, > video) .rotulo { display: none; }
 .slot.ok { border: 0; background: none; padding: 0; }
 .slot.ok > img, .slot.ok > video { opacity: 1; }
 .slot.ok .rotulo { display: none; }
@@ -665,7 +670,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
         <p>O que a sua família precisa, você já sabe. O que o seu negócio exige, também. Mas o que você quer, de verdade? Se você demorou para responder, este evento foi feito para você.</p>
       </div>
       <div class="slot mesa">
-        <img src="assets/06-mesa-dando-conta-1100.webp" srcset="assets/06-mesa-dando-conta-700.webp 700w, assets/06-mesa-dando-conta-1100.webp 1100w" sizes="(min-width: 900px) 544px, 90vw" alt="Mesa de trabalho de uma empresária e mãe no começo da manhã" loading="lazy">
+        <img src="assets/06-mesa-dando-conta-1100.webp" srcset="assets/06-mesa-dando-conta-700.webp 700w, assets/06-mesa-dando-conta-1100.webp 1100w" sizes="(min-width: 900px) 544px, 90vw" alt="Mesa de trabalho de uma empresária e mãe no começo da manhã" decoding="async">
         <span class="rotulo"><b>ASSET 06</b>Mesa “dando conta”<small>WebP · 1600 × 1000</small></span>
       </div>
     </div>
@@ -685,7 +690,7 @@ dialog.popup::backdrop { background: rgb(43 1 7 / .8); }
       <p class="frase">Você merece mais do que dar conta. Merece sentir que está viva.</p>
     </div>
     <div class="slot janela duo-sticky">
-      <img src="assets/07-mulher-janela-1100.webp" srcset="assets/07-mulher-janela-700.webp 700w, assets/07-mulher-janela-1100.webp 1100w" sizes="(min-width: 900px) 544px, 90vw" alt="Mulher de costas, olhando pela janela com uma xícara na mão" loading="lazy">
+      <img src="assets/07-mulher-janela-1100.webp" srcset="assets/07-mulher-janela-700.webp 700w, assets/07-mulher-janela-1100.webp 1100w" sizes="(min-width: 900px) 544px, 90vw" alt="Mulher de costas, olhando pela janela com uma xícara na mão" decoding="async">
       <span class="rotulo"><b>ASSET 07</b>Mulher à janela, de costas<small>WebP · 1200 × 1500</small></span>
     </div>
   </div>
